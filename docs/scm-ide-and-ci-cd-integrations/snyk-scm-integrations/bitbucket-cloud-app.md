@@ -28,7 +28,7 @@ The Bitbucket Cloud App integration lets you connect your Snyk Organization to a
 {% hint style="info" %}
 Snyk recommends using the Bitbucket Cloud App integration for smoother integration and to ensure long-term support.
 
-If you are using the [Bitbucket Cloud Personal Access Token integration](bitbucket-cloud.md), see [Migrate a Bitbucket Cloud integration](bitbucket-cloud-vs-bitbucket-cloud-app.md) for more information.
+If you are using the [Bitbucket Cloud Personal Access Token integration](bitbucket-cloud.md), see [Migrate a Bitbucket Cloud integration](bitbucket-cloud.md#migrate-to-the-bitbucket-cloud-app) for more information.
 {% endhint %}
 
 ### Setting up a Bitbucket Cloud App
@@ -83,8 +83,6 @@ After you add them, Snyk scans the selected repositories for dependency files in
 
 The imported Projects appear on your **Projects** page and are continuously checked for vulnerabilities.
 
-<figure><img src="../../.gitbook/assets/bbc-snyk_redo_21sept2022 (1).png" alt="Snyk Projects page"><figcaption><p>Snyk Projects page</p></figcaption></figure>
-
 ### Bitbucket integration features
 
 After the integration is in place, you can use capabilities such as:
@@ -109,7 +107,7 @@ The example that follows shows a fix pull request opened by Snyk.
 
 To review and adjust the automatic fix pull request settings:
 
-1. In Snyk, go to <img src="../../.gitbook/assets/cog_icon.png" alt="Settings" data-size="line"> (Organization settings) > **Integrations > Source control > Bitbucket Cloud App**, and click **Edit Settings**.
+1. In Snyk, go to **Organization settings** > **Integrations > Source control > Bitbucket Cloud App**, and click **Edit Settings**.
 2.  Scroll to the **Automatic fix PRs** section and configure the relevant options.
 
     <div align="left">
@@ -134,7 +132,7 @@ The example that follows shows a Snyk pull request build check on the Bitbucket 
 
 To review and adjust the pull request test settings, follow these steps:
 
-1. In Snyk, go to <img src="../../.gitbook/assets/cog_icon.png" alt="Settings" data-size="line"> (Organization settings) > **Integrations > Source control > Bitbucket Cloud App**, and click **Edit Settings**.
+1. In Snyk, go to Organization settings > **Integrations > Source control > Bitbucket Cloud App**, and click **Edit Settings**.
 2. Scroll to **Default Snyk test for pull requests > Open Source Security & Licenses**, and configure the relevant options. See [Configure PR Checks](../../scan-with-snyk/pull-requests/pull-request-checks/configure-pull-request-checks.md) for more details.
 
 #### First-party interface in Bitbucket Cloud
@@ -169,7 +167,7 @@ When you disconnect Snyk from your repository Projects, your credentials are rem
 If you choose to re-enable this integration later, you must re-enter your credentials and activate your Projects.
 {% endhint %}
 
-To disable this integration, in <img src="../../.gitbook/assets/cog_icon.png" alt="Settings" data-size="line"> (Organization settings)> **Integrations > Source Control > Bitbucket Cloud App:**
+To disable this integration, in **Organization settings** > **Integrations > Source Control > Bitbucket Cloud App:**
 
 1. In your list of integrations, select the Bitbucket Cloud App integration you want to deactivate and click **Edit settings** to open a page with the current status of your integration.\
    \

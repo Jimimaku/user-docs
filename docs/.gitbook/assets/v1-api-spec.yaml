@@ -17745,7 +17745,7 @@ components:
         issues:
           type: array
           items:
-            $ref: '#/components/schemas/issues2'
+            $ref: '#/components/schemas/aggregatedProjectIssue'
           description: An array of identified issues
     Aggregatedprojectissuesfilters:
       title: Aggregatedprojectissuesfilters
@@ -17758,7 +17758,7 @@ components:
           type: boolean
           description: If set to `true`, Include issue's introducedThrough, if set to `false` (by default), it won't. It's for container only projects (Non-IaC projects only)
         filters:
-          $ref: '#/components/schemas/filters1'
+          $ref: '#/components/schemas/aggregatedProjectIssuesfilter'
     Issuepaths:
       title: Issuepaths
       type: object
@@ -17777,7 +17777,7 @@ components:
           description: The total number of results
         links:
           allOf:
-            - $ref: '#/components/schemas/links1'
+            - $ref: '#/components/schemas/issuePathsLinks'
             - description: Onward links from this record
     Projectsnapshots:
       title: Projectsnapshots
@@ -19186,7 +19186,6 @@ components:
           items:
             type: string
           description: A list of additional reasons why the error occurred
-    
     fields:
       title: fields
       type: object
@@ -19375,8 +19374,8 @@ components:
 
 
             When you filter by multiple attributes, you will return projects which have been assigned values of both attributes in the filter.
-    filters1:
-      title: filters1
+    aggregatedProjectIssuesfilter:
+      title: aggregatedProjectIssuesFilter
       type: object
       properties:
         severities:
@@ -20786,30 +20785,30 @@ components:
           example: CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:L
         cvssScore:
           type: number
-          description: The CVSS score that results from running the CVSSv3 string (Non-IaC projects only)
+          description: The CVSS score that results from running the vector from `severities` with the highest CVSS version available.
           example: 3.7
         severities:
           type: array
           items:
-            $ref: '#/components/schemas/severity'
+            $ref: '#/components/schemas/severityData'
           description: The list of cvssSources renamed to severities for issueData model
-          example: 
-          - assigner: NVD
-            severity: medium
-            baseScore: 4.8
-            vector: CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:A/VC:N/VI:N/VA:N/SC:H/SI:L/SA:L/E:A
-            cvssVersion: '4.0'
-            modificationTime: 2024-03-07T07:47:26.644482Z
+          example:
+            - assigner: NVD
+              severity: medium
+              baseScore: 4.8
+              vector: CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:A/VC:N/VI:N/VA:N/SC:H/SI:L/SA:L/E:A
+              cvssVersion: '4.0'
+              modificationTime: 2024-03-07T07:47:26.644482Z
         exploitDetails:
           type: object
           properties:
             target:
-            $ref: '#/components/schemas/exploitDetail'
+              $ref: '#/components/schemas/exploitDetail'
           description: The exploit maturity of the vulnerability in different industry-standard formats, as well as the sources of the information.
           example:
-            sources: 
+            sources:
               - CISA
-            maturityLevels: 
+            maturityLevels:
               - format: CVSS_v3
                 level: no-known-exploit
         language:
@@ -20838,7 +20837,7 @@ components:
           description: Whether the issue is intentional, indicating a malicious package
           example: true
       description: The details of the issue
-    severity:
+    severityData:
       type: object
       properties:
         assigner:
@@ -20847,13 +20846,13 @@ components:
         severity:
           type: string
           description: The severity calculated via vector
-        baseScore: 
+        baseScore:
           type: number
           description: The CVSS score that results from running the CVSS string (Non-IaC projects only)
         vector:
           type: string
           description: The CVSS string that signifies how the CVSS score was calculated (Non-IaC projects only)
-        cvssVersion: 
+        cvssVersion:
           type: string
           description: The CVSS version that is being described
         modificationTime:
@@ -20862,15 +20861,15 @@ components:
     exploitDetail:
       type: object
       properties:
-        sources: 
+        sources:
           type: array
-            items:
-              type: string
+          items:
+            type: string
           description: The sources by which we determined the exploit maturity level
         maturityLevels:
           type: array
-            items: 
-              $ref: '#/components/schemas/maturityLevel'
+          items:
+            $ref: '#/components/schemas/maturityLevel'
     maturityLevel:
       type: object
       properties:
@@ -21030,8 +21029,8 @@ components:
             upgradePath:
               - org.apache.flex.blazeds:blazeds@4.7.3
         licenses: []
-    issues2:
-      title: issues2
+    aggregatedProjectIssue:
+      title: aggregatedProjectIssue
       required:
         - id
         - issueType
@@ -22729,8 +22728,8 @@ components:
           type: string
           description: The URL for the dependency paths that introduce this issue
       description: Onward links from this record (Non-IaC projects only)
-    links1:
-      title: links1
+    issuePathsLinks:
+      title: issuePathsLinks
       type: object
       properties:
         prev:

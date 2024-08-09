@@ -70,14 +70,17 @@ If you are having any trouble testing your Gradle Projects with Snyk, collect th
 
 Gradle dependencies are declared for a particular scope; each scope is represented by Gradle with the help of [Configurations](https://docs.gradle.org/current/userguide/declaring\_dependencies.html#sec:what-are-dependency-configurations). For example:
 
-* **compileOnly** configuration for development dependencies
-* **compile** configuration that includes compile and runtime dependencies
+* **implementation**: configuration for dependencies required at compile time and runtime, but not exposed to consumers.&#x20;
+* **api**: configuration for dependencies required at compile time and runtime, and exposed to consumers.&#x20;
+* **compileOnly**: configuration for dependencies required only at compile time.&#x20;
+* **runtimeOnly**: configuration for dependencies required only at runtime.&#x20;
+* **compileClasspath**: configuration for dependencies required at compile time.
 
-By default, Snyk merges all configurations returned by Gradle to a dependency graph based on the sum total of the dependencies across all configurations in the Project or Projects.
+In most cases, Snyk will include all the dependencies in the **compileClasspath** configuration, but this can vary in some circumstances.
 
 To test a specific configuration:
 
-* Use the `--configuration-matching` option with a [Java regular expression](https://docs.oracle.com/javase/tutorial/essential/regex/) (case-insensitive) as its parameter. The configuration that matches is then tested. If several configurations match, they are all merged and resolved together. For example: `'^releaseRuntimeClasspath$|^compile$'`
+* Use the `--configuration-matching` option with a [Java regular expression](https://docs.oracle.com/javase/tutorial/essential/regex/) (case-insensitive) as its parameter. Note that only the first configuration that matches is tested.
 * If the different sub-projects include different configurations, scan each sub-project separately.
 
 ### **Examples of how you can use the --configuration-matching option**
@@ -154,6 +157,4 @@ If you are having any trouble testing your Gradle Projects with Snyk, collect th
 * The output from the following commands:
   * `$ snyk test -d`
   * `$ gradle dependencies -q`
-
-PLACEHOLDER
 

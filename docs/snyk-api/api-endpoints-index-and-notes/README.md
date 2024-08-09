@@ -266,6 +266,8 @@ Use [Search Organization audit logs](../reference/audit-logs.md#orgs-org\_id-aud
 
 ### [Import targets](../reference/import-projects-v1.md#org-orgid-integrations-integrationid-import)
 
+For information on when and how you can use this endpoint, see this page on i[mporting targets](../../implement-snyk/enterprise-implementation-guide/phase-3-gain-visibility/import-projects.md#git-integration).
+
 If this fails, use [Get import job details](https://snyk.docs.apiary.io/#reference/import-projects/import-job/get-import-job-details) to help determine why. There are two types of failures:
 
 * The repository was rejected for processing, that is, HTTP status code 201 was not returned. This happens if there is an issue Snyk can see quickly for example:
@@ -324,7 +326,9 @@ See also [Invite users](../reference/organizations-v1.md#org-orgid-invite).
 
 ### [Get issues by group ID](../reference/issues.md#orgs-org\_id-issues-issue\_id)
 
-Note: Remedies are not included in the response.
+**Note:** Remedies are not included in the response.
+
+More information: [ Reachability](../../manage-risk/prioritize-issues-for-fixing/reachable-vulnerabilities.md)
 
 ### [Get an issue](../reference/issues.md#groups-group\_id-issues-issue\_id) (Group)
 
@@ -526,157 +530,117 @@ To list all projects that have a vulnerability linked to a CVE use the capabilit
 
 **More information:** [Manage service accounts using the Snyk API](../../enterprise-configuration/service-accounts/manage-service-accounts-using-the-snyk-api.md); [Choose a service account type to use with Snyk APIs](../../enterprise-configuration/service-accounts/choose-a-service-account-type-to-use-with-snyk-apis.md)
 
-### [Get a list of group service accounts](https://apidocs.snyk.io/?#get-/groups/-group\_id-/service\_accounts)
+### [Create a service account for an organization](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts)
 
-### [Create a service account for a group](https://apidocs.snyk.io/?#post-/groups/-group\_id-/service\_accounts)
+### [Get a list of organization service accounts](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts-1)
 
-### [Get a group service account](https://apidocs.snyk.io/?#get-/groups/-group\_id-/service\_accounts/-serviceaccount\_id-)
+### [Update an organization service account](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts-serviceaccount\_id)
 
-### [Delete a group service account](https://apidocs.snyk.io/?#delete-/groups/-group\_id-/service\_accounts/-serviceaccount\_id-)
+### [Get an organization service account](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts-serviceaccount\_id-1)
 
-### [Update a group service account](https://apidocs.snyk.io/?#patch-/groups/-group\_id-/service\_accounts/-serviceaccount\_id-)
+### [Delete a service account in an organization](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts-serviceaccount\_id-2)
 
-### [Manage a group service account’s client secret](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/service\_accounts)
+### [Manage an organization service account’s client secret](../reference/serviceaccounts.md#orgs-org\_id-service\_accounts-serviceaccount\_id-secrets)
 
-### [Get a list of organization service accounts](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/service\_accounts)
+### [Create a service account for a group](../reference/serviceaccounts.md#groups-group\_id-service\_accounts)
 
-### [Create a service account for an organization](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/service\_accounts/-serviceaccount\_id-)
+### [Get a list of group service accounts](../reference/serviceaccounts.md#groups-group\_id-service\_accounts-1)
 
-### [Get an organization service account](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/service\_accounts/-serviceaccount\_id-)
+### [Update a group service account](../reference/serviceaccounts.md#groups-group\_id-service\_accounts-serviceaccount\_id)
 
-### [Delete a service account in an organization](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/service\_accounts/-serviceaccount\_id-)
+### [Get a group service account](../reference/serviceaccounts.md#groups-group\_id-service\_accounts-serviceaccount\_id-1)
 
-### [Update an organization service account](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/service\_accounts/-serviceaccount\_id-)
+### [Delete a group service account](../reference/serviceaccounts.md#groups-group\_id-service\_accounts-serviceaccount\_id)
 
-### [Manage an organization service account’s client secret](https://apidocs.snyk.io/?#post-/orgs/-org\_id-/service\_accounts/-serviceaccount\_id-/secrets)
-
-## Slack
-
-### [Get a list of Slack channels](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/slack\_app/-tenant\_id-/channels)
-
-### [Get Slack Channel name by Slack Channel ID](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/slack\_app/-tenant\_id-/channels/-channel\_id-)
+### [Manage a group service account’s client secret](../reference/serviceaccounts.md#groups-group\_id-service\_accounts-serviceaccount\_id-secrets)
 
 ## SlackSettings
 
-### [Get Slack integration default notification settings](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/slack\_app/-bot\_id-)
+### [Create new Slack notification default settings](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id)
 
-### [Create new Slack notification default settings](https://apidocs.snyk.io/?#post-/orgs/-org\_id-/slack\_app/-bot\_id-)
+### [Get Slack integration default notification settings](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-1)
 
-### [Remove the given Slack App integration](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/slack\_app/-bot\_id-)
+### [Remove the given Slack App integration](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-2)
 
-### [Slack notification settings overrides for projects](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/slack\_app/-bot\_id-/projects)
+### [Slack notification settings override for projects](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-projects)
 
-### [Create a new Slack settings override for a given project](https://apidocs.snyk.io/?#post-/orgs/-org\_id-/slack\_app/-bot\_id-/projects/-project\_id-)
+### [Create a new Slack settings override for a given project](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-projects-project\_id)
 
-### [Remove Slack settings override for a project](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/slack\_app/-bot\_id-/projects/-project\_id-)
+### [Update Slack notification settings for a project](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-projects-project\_id-1)
 
-### [Update Slack notification settings for a project](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/slack\_app/-bot\_id-/projects/-project\_id-)
+### [Remove Slack settings override for a project](../reference/slacksettings.md#orgs-org\_id-slack\_app-bot\_id-projects-project\_id-2)
+
+## Slack
+
+### [Get a list of Slack channels](../reference/slack.md#orgs-org\_id-slack\_app-tenant\_id-channels)
+
+### [Get Slack Channel name by Slack Channel ID](../reference/slack.md#orgs-org\_id-slack\_app-tenant\_id-channels-channel\_id)
 
 ## Targets
 
-### [Get targets by org ID](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/targets)&#x20;
+### [Get targets by org ID](../reference/targets.md#orgs-org\_id-targets)&#x20;
 
 **More information:** [Target definition on the Projects page](../../snyk-admin/snyk-projects/#target)
 
-### [Get target by target ID](https://apidocs.snyk.io/?#get-/orgs/-org\_id-/targets/-target\_id-)
+### [Get target by target ID](../reference/targets.md#orgs-org\_id-targets-target\_id)
 
-### [Delete target by target ID](https://apidocs.snyk.io/?#delete-/orgs/-org\_id-/targets/-target\_id-)
+### [Delete target by target ID](../reference/targets.md#orgs-org\_id-targets-target\_id-1)
 
 ## Test (v1)
 
-### Maven
+### [Test package.json & yarn-lock file](../reference/test-v1.md#test-yarn)
 
-#### Test for issues in a public package by group id, artifact id and version
+### [Test sbt file](../reference/test-v1.md#test-sbt)
 
-[Migrated Test for issues in a public package by group id, artfact id and version](https://snyk.docs.apiary.io/#reference/test/maven/test-for-issues-in-a-public-package-by-group-id,-artifact-id-and-version)
+### [sbt\_Test for issues in a public package by group id, artifact id and version](../reference/test-v1.md#test-sbt-groupid-artifactid-version)
 
-#### Test maven file
+### [Test gemfile.lock file](../reference/test-v1.md#test-rubygems)
 
-[Migrated Test maven file](https://snyk.docs.apiary.io/#reference/test/maven/test-maven-file)
+### [Test for issues in a public gem by name and version](../reference/test-v1.md#test-rubygems-gemname-version)
 
-### npm
+### [Test (pip) requirements.txt file](../reference/test-v1.md#test-pip)
 
-#### Test for issues in a public package by name and version
+### [Pip\_Test for issues in a public (pip) package by name and version](../reference/test-v1.md#test-pip-packagename-version)
 
-[Migrated Test for issues in a public package by name and version](https://snyk.docs.apiary.io/#reference/test/npm/test-for-issues-in-a-public-package-by-name-and-version)
+### [Test package.json & package-lock.json file](../reference/test-v1.md#test-npm)
 
-#### Test package.json & package-lock.json File
+### [Test for issues in a public (npm) package by name and version](../reference/test-v1.md#test-npm-packagename-version)
 
-[Migrated Test package.json & package-lock.json file](https://snyk.docs.apiary.io/#reference/test/npm/test-package.json-&-package-lock.json-file)
+### [Test maven file](../reference/test-v1.md#test-maven)
 
-### dep
+### [Test  for issues in a (maven) public package by group id, artifact id and version](../reference/test-v1.md#test-maven-groupid-artifactid-version)
 
-#### Test Gopkg.toml & Gopkg.lock File
+### [Test gradle file](../reference/test-v1.md#test-gradle)
 
-[Migrated Test Gopkg.toml & Gopkg.lock file](https://snyk.docs.apiary.io/#reference/test/dep/test-gopkg.toml-&-gopkg.lock-file)
+### [Test for issues in a public (Gradle) package by group, name and version](../reference/test-v1.md#test-gradle-group-name-version)
 
-### vendor
+### [Test vendor.json file](../reference/test-v1.md#test-govendor)
 
-#### Test vendor.json file
+### [Test Gopkg.toml & Gopkg.lock File](../reference/test-v1.md#test-golangdep)
 
-[Migrated Test vendor.json file](https://snyk.docs.apiary.io/#reference/test/vendor/test-vendor.json-file)
+### [Test Dep Graph](../reference/test-v1.md#test-dep-graph)
 
-### yarn
+**More information:** [Dep Graph API](../../supported-languages-package-managers-and-frameworks/bazel-tool/dep-graph-api.md).
 
-#### Test package.json & yarn.lock file
+### [Test composer.json & composer.lock file](../reference/test-v1.md#test-composer)
 
-[Migrated Test package.json & yarn.lock file](https://snyk.docs.apiary.io/#reference/test/yarn/test-package.json-&-yarn.lock-file)
+## Users (v1)
 
-### rubygems
+### [Get user details](../reference/users-v1.md#user-userid)
 
-#### Test for issues in a public gem by name and version
+### [Get My Details](../reference/users-v1.md#user-me)
 
-[Migrated Test for issues in a public gem by name and version](https://snyk.docs.apiary.io/#reference/test/rubygems/test-for-issues-in-a-public-gem-by-name-and-version)
+### [Modify organization notification settings](../reference/users-v1.md#user-me-notification-settings-org-orgid)
 
-#### Test gemfile.lock file
+### [Get organization notification settings](../reference/users-v1.md#user-me-notification-settings-org-orgid-1)
 
-[Migrated Test gemfile.lock file](https://snyk.docs.apiary.io/#reference/test/rubygems/test-gemfile.lock-file)
+### [Modify project notification settings](../reference/users-v1.md#user-me-notification-settings-org-orgid-project-projectid)
 
-### Gradle
-
-#### Test for issues in a public package by group, name and version
-
-[Migrated Test for issues in a public package by group, name and version](https://snyk.docs.apiary.io/#reference/test/gradle/test-for-issues-in-a-public-package-by-group,-name-and-version)
-
-#### Test gradle file
-
-[Migrated test gradle file](https://snyk.docs.apiary.io/#reference/test/gradle/test-gradle-file)
-
-### sbt
-
-#### Test for issues in a public package by group id, artifact id and version
-
-[Migrated Test for issues in a public package by gorup id, artifact id and version](https://snyk.docs.apiary.io/#reference/test/sbt/test-for-issues-in-a-public-package-by-group-id,-artifact-id-and-version)
-
-#### Test sbt file
-
-[Migrated Test sbt file](https://snyk.docs.apiary.io/#reference/test/sbt/test-sbt-file)
-
-### pip
-
-#### Test for issues in a public package by name and version
-
-[Migrated Test for issues in a public package by name and version](https://snyk.docs.apiary.io/#reference/test/pip/test-for-issues-in-a-public-package-by-name-and-version)
-
-#### Test requirements.txt file
-
-[Migrated Test requirements.txt file](https://snyk.docs.apiary.io/#reference/test/pip/test-requirements.txt-file)
-
-### composer
-
-#### Test composer.json & composer.lock file
-
-[Migrated Test composer.json & composer.lock file](https://snyk.docs.apiary.io/#reference/test/composer/test-composer.json-&-composer.lock-file)
-
-### Dep Graph
-
-**More information:** [Dep Graph API](../../supported-languages-package-managers-and-frameworks/bazel-tool/dep-graph-api.md)
-
-#### Test Dep Graph
-
-[Migrated Test Dep Graph](https://snyk.docs.apiary.io/#reference/test/dep-graph/test-dep-graph)
+### [Get project notification settings](../reference/users-v1.md#user-me-notification-settings-org-orgid-project-projectid-1)
 
 ## Users
+
+### [My User Details](../reference/users.md)
 
 ### [Update a user’s role in a group](https://apidocs.snyk.io/?version=2024-07-10%7Ebeta#patch-/groups/-group\_id-/users/-id-) (beta)
 
@@ -686,69 +650,17 @@ Note: Use this endpoint to remove users from a group.
 
 ### [Get user by ID](https://apidocs.snyk.io/?version=2024-07-10%7Ebeta#get-/orgs/-org\_id-/users/-id-) (beta)
 
-### [My User Details](https://apidocs.snyk.io/?#get-/self)
-
-## Users (v1)
-
-### User Details
-
-#### Get user details
-
-[Migrated Get user details](https://snyk.docs.apiary.io/#reference/users/user-details/get-user-details)
-
-### My User Details
-
-#### Get My Details
-
-[Migrated Get My Details](https://snyk.docs.apiary.io/#reference/users/my-user-details/get-organization-notification-settings)
-
-### User organization notification settings
-
-#### Get organization notification settings
-
-[Migrated Get organization notification settings](https://snyk.docs.apiary.io/#reference/users/user-organization-notification-settings/get-organization-notification-settings)
-
-#### Modify organization notification settings
-
-[Migrated Modify organization notification settings](https://snyk.docs.apiary.io/#reference/users/user-organization-notification-settings/modify-organization-notification-settings)
-
-### User project notification settings
-
-#### Get project notification settings
-
-[Migrated Get project notification settings](https://snyk.docs.apiary.io/#reference/users/user-project-notification-settings/get-project-notification-settings)
-
-#### Modify project notification settings
-
-[Migrated Modify project notification settings](https://snyk.docs.apiary.io/#reference/users/user-project-notification-settings/modify-project-notification-settings)
-
 ## Webhooks (v1)
 
-### Webhook Collection
+### [Create a webhook](../reference/webhooks-v1.md#org-orgid-webhooks)
 
-#### Create a webhook
+### [List webhooks](../reference/webhooks-v1.md#org-orgid-webhooks-1)
 
-[Migrated Create a webhook](https://snyk.docs.apiary.io/#reference/webhooks/webhook-collection)
+### [Retrieve a webhook](../reference/webhooks-v1.md#org-orgid-webhooks-webhookid)
 
-#### List webhooks
+### [Delete a webhook](../reference/webhooks-v1.md#org-orgid-webhooks-webhookid-1)
 
-[Migrated List webhooks](https://snyk.docs.apiary.io/#reference/webhooks/webhook-collection/create-a-webhook)
-
-### Webhook
-
-#### Retrieve a webhook
-
-[Migrated Retrieve a webhook](https://snyk.docs.apiary.io/#reference/webhooks/webhook/retrieve-a-webhook)
-
-#### Delete a webhook
-
-[Migrated Delete a webhook](https://snyk.docs.apiary.io/#reference/webhooks/webhook/delete-a-webhook)
-
-### Ping
-
-#### Ping a webhook
-
-[Migrated Ping a webhook](https://snyk.docs.apiary.io/#reference/webhooks/ping/ping-a-webhook)
+### [Ping a webhook](../reference/webhooks-v1.md#org-orgid-webhooks-webhookid-ping)
 
 
 
