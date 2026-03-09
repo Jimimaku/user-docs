@@ -47,11 +47,17 @@ services:
       # Example: GITHUB_TOKEN, BROKER_CLIENT_VALIDATION_AUTH_HEADER, etc.
     env_file:
       - .env
-    ports:
-      - "${EXTERNAL_PORT_1:-8000}:${PORT:-8000}"
-    restart: unless-stopped
+    ports:
+      - "${EXTERNAL_PORT_1:-8000}:${PORT:-8000}"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:${PORT:-8000}/healthcheck"]
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 3s
+    restart: unless-stopped
 
-  snyk-broker-universal-2:
+  snyk-broker-universal-2:
     image: snyk/broker:universal
     environment:
       DEPLOYMENT_ID: ${DEPLOYMENT_ID}
@@ -63,9 +69,15 @@ services:
       GITHUB_TOKEN: ${MY_GH_TOKEN}
     env_file:
       - .env
-    ports:
-      - "${EXTERNAL_PORT_2:-8001}:${PORT:-8000}"
-    restart: unless-stopped
+    ports:
+      - "${EXTERNAL_PORT_2:-8001}:${PORT:-8000}"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:${PORT:-8000}/healthcheck"]
+      interval: 10s
+      timeout: 1s
+      retries: 3
+      start_period: 3s
+    restart: unless-stopped
 ```
 3. Run `docker compose up -d` to start the containers
 
