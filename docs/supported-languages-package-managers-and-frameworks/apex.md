@@ -8,9 +8,9 @@ Apex is supported only for Snyk Code.
 
 Apex Standard Library is fully supported. Snyk supports the following file formats for Snyk Code: `.cls`, `.trigger`, `.tgr`
 
-## Supported features
+## Available features
 
-Snyk supports the following features for Apex:
+For Apex, Snyk supports the following features:
 
 * Support for Interfile analysis
 * Custom rules
