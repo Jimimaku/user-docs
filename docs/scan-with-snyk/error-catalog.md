@@ -2627,6 +2627,15 @@ The reachability settings are not enabled for your Organization. You can enable 
 
 * [https://docs.snyk.io/manage-risk/prioritize-issues-for-fixing/reachability-analysis](https://docs.snyk.io/manage-risk/prioritize-issues-for-fixing/reachability-analysis)
 
+### [SNYK-OS-UV-0001](#snyk-os-uv-0001)
+<a id="#SNYK-OS-UV-0001"></a>
+
+**No root project found**
+
+The project being scanned has no root package. To scan workspace members, use the --all-projects flag.
+
+**HTTP Status:** [422](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422)
+
 ***
 
 ## Builds
