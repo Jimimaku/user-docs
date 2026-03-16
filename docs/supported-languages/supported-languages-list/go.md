@@ -33,7 +33,7 @@ For Go, Snyk supports [Go Modules](https://go.dev/ref/mod) and [dep](https://git
 
 ## Go for Snyk Code
 
-For Go with Snyk Code, Snyk support:
+For Go with Snyk Code, Snyk supports:
 
 * Go Standard Library comprehensive as a library&#x20;
 * .`go` as a file format
