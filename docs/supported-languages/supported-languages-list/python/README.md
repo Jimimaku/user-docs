@@ -11,11 +11,6 @@ Available integrations:
 * SCM import
 * CLI and IDE: test or monitor your app
 
-Available functions:
-
-* Test your app's SBOM using `pkg:pypi`
-* Test your app's packages using `pkg:pypi`
-
 ## Python for Snyk Code
 
 For Python with Snyk Code, Python versions up to `3.12` are supported. Language features introduced in newer versions are not supported.
@@ -32,6 +27,8 @@ Available features:
 
 For Python, the following frameworks and libraries are supported:
 
+{% columns %}
+{% column %}
 * AioHTTP
 * iopg
 * aiofiles
@@ -56,6 +53,9 @@ For Python, the following frameworks and libraries are supported:
 * mistralai
 * modelcontextprotocol/python-sdk
 * mongoengine
+{% endcolumn %}
+
+{% column %}
 * openai
 * pandas
 * paramiko
@@ -75,6 +75,8 @@ For Python, the following frameworks and libraries are supported:
 * turboGears
 * urllib
 * werkzeug
+{% endcolumn %}
+{% endcolumns %}
 
 ### Directory layout
 
@@ -110,7 +112,7 @@ Snyk defaults to Python `3.10` if the `Pipfile` contains:
 * Only a major version
 * An unsupported version
 
-For Poetry projects, you do not need to specify the Python version. Poetry files contain sufficient information to build a full dependency tree without running native tooling.
+For Poetry Projects, you do not need to specify the Python version. Poetry files contain sufficient information to build a full dependency tree without running native tooling.
 
 ### Supported file formats
 
@@ -124,6 +126,7 @@ For Poetry projects, you do not need to specify the Python version. Poetry files
 * Automatic and manual Fix PRs (supported only for pip)
 * License scanning
 * Reports
+* Test your app's SBOM and packages using `pkg:pypi` PURLs through the [SBOM test](../../../developer-tools/snyk-cli/commands/sbom-test.md) CLI command
 
 {% hint style="info" %}
 Depending on your plan, some features may not be available. For more information, see [plans and pricing](https://snyk.io/plans/).
