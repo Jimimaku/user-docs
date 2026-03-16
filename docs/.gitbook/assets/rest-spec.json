@@ -20714,7 +20714,7 @@
         "type": "object"
       },
       "RsqlFilterString": {
-        "description": "RSQL filter expression for filtering results.\n\n**Supported operators:**\n- `==` (equal), `!=` (not equal)\n- `\u003c` or `=lt=` (less than), `\u003e` or `=gt=` (greater than)\n- `\u003c=` or `=le=` (less than or equal), `\u003e=` or `=ge=` (greater than or equal)\n- `=in=(val1,val2)` (IN list), `=out=(val1,val2)` (NOT IN list)\n- `;` or ` and ` (logical AND), `,` or ` or ` (logical OR) - word operators are case-insensitive\n\n**Wildcard pattern matching:**\nUse `*` (asterisk) for flexible string matching with `==` and `!=` operators:\n- `*value*` - Contains (e.g., `registry==*docker*` matches \"docker.io\")\n- `value*` - Starts with (e.g., `registry==docker*` matches \"docker.io\")\n- `*value` - Ends with (e.g., `name==*nginx` matches \"library/nginx\")\n- `!=*value*` - Does not contain (e.g., `class!=*test*`)\n\nNote: Special SQL characters (%, _) are automatically escaped for security.\n\n**Multi-field substring search:**\nUse the special `q` field to search across multiple fields simultaneously using case-insensitive substring matching:\n- `q==\u003csearch_term\u003e` - Searches across all searchable string fields (labels, tags, registry, repository, name, config_digest, manifest_digest, index_digest, image_tag)\n- Only supports the `==` operator (no wildcards needed - automatically searches for substring matches)\n- Uses case-insensitive pattern matching (PostgreSQL ILIKE)\n- Does not support linguistic features like stemming or ranking\n- Special characters are automatically escaped for security\n- Can be combined with other filters: `q==nginx;type==container_images`\n\n**Supported fields:**\n\nCommon fields (apply to all asset types):\n- `q` (string) - Multi-field substring search (see above)\n- `id` (UUID) - Asset ID\n- `type` (string) - Type of asset. Allowed values: `container_images`\n- `class` (string) - Class of asset (e.g., A, B)\n- `created_at` (timestamp) - Asset creation timestamp (ISO 8601 format)\n- `updated_at` (timestamp) - Asset last update timestamp (ISO 8601 format)\n- `labels` (string array) - Asset labels\n- `tags` (string) - Asset tags. Supports nested paths (e.g., `tags.env==production`)\n\nContainer image fields (apply when type is `container_images`):\n- `registry` (string) - Container image registry (e.g., docker.io)\n- `repository` (string) - Container image repository path\n- `name` (string) - Container image name\n- `config_digest` (string) - Image config digest\n- `manifest_digest` (string) - Distribution manifest digest\n- `index_digest` (string) - Distribution index digest\n- `image_tag` (string) - Image tag from discovery source\n\n**Examples:**\n- `q==nginx` - Multi-field substring search for \"nginx\"\n- `q==docker.io;type==container_images` - Search \"docker.io\" substring in container images only\n- `type==container_images` - Exact match on asset type\n- `registry==*docker*` - Registry contains \"docker\" (wildcard)\n- `created_at\u003e2024-01-01` or `created_at=gt=2024-01-01` - Date comparison\n- `class==A;created_at=ge=2024-01-01` - AND combination\n- `labels=in=(production,staging)` - Labels IN list\n- `tags.env==production` - Tag nested path filter\n",
+        "description": "RSQL filter expression for filtering results.\n\n**Supported operators:**\n- `==` (equal), `!=` (not equal)\n- `\u003c` or `=lt=` (less than), `\u003e` or `=gt=` (greater than)\n- `\u003c=` or `=le=` (less than or equal), `\u003e=` or `=ge=` (greater than or equal)\n- `=in=(val1,val2)` (IN list), `=out=(val1,val2)` (NOT IN list)\n- `;` or ` and ` (logical AND), `,` or ` or ` (logical OR) - word operators are case-insensitive\n\n**Wildcard pattern matching:**\nUse `*` (asterisk) for flexible string matching with `==` and `!=` operators:\n- `*value*` - Contains (e.g., `registry==*docker*` matches \"docker.io\")\n- `value*` - Starts with (e.g., `registry==docker*` matches \"docker.io\")\n- `*value` - Ends with (e.g., `name==*nginx` matches \"library/nginx\")\n- `!=*value*` - Does not contain (e.g., `class!=*test*`)\n\nNote: Special SQL characters (%, _) are automatically escaped for security.\n\n**Multi-field substring search:**\nUse the special `q` field to search across multiple fields simultaneously using case-insensitive substring matching:\n- `q==\u003csearch_term\u003e` - Searches across all searchable string fields (labels, tags, registry, repository, name, config_digest, manifest_digest, index_digest, image_tag)\n- Only supports the `==` operator (no wildcards needed - automatically searches for substring matches)\n- Uses case-insensitive pattern matching (PostgreSQL ILIKE)\n- Does not support linguistic features like stemming or ranking\n- Special characters are automatically escaped for security\n- Can be combined with other filters: `q==nginx;type==container_images`\n\n**Supported fields:**\n\nCommon fields (apply to all asset types):\n- `q` (string) - Multi-field substring search (see above)\n- `id` (UUID) - Asset ID\n- `type` (string) - Type of asset. Allowed values: `container_images`\n- `class` (string) - Class of asset (e.g., A, B)\n- `created_at` (timestamp) - Asset creation timestamp (ISO 8601 format)\n- `updated_at` (timestamp) - Asset last update timestamp (ISO 8601 format)\n- `labels` (string array) - Asset labels\n- `tags` (object) - Asset tags. Requires a sub-field (e.g., `tags.env==production`)\n\nContainer image fields (apply when type is `container_images`):\n- `registry` (string) - Container image registry (e.g., docker.io)\n- `repository` (string) - Container image repository path\n- `name` (string) - Container image name\n- `config_digest` (string) - Image config digest\n- `manifest_digest` (string) - Distribution manifest digest\n- `index_digest` (string) - Distribution index digest\n- `image_tag` (string) - Image tag from discovery source\n- `image_labels` (object) - OCI image config labels. Requires a sub-field (e.g., `image_labels.vendor==nginx`)\n\n**Examples:**\n- `q==nginx` - Multi-field substring search for \"nginx\"\n- `q==docker.io;type==container_images` - Search \"docker.io\" substring in container images only\n- `type==container_images` - Exact match on asset type\n- `registry==*docker*` - Registry contains \"docker\" (wildcard)\n- `created_at\u003e2024-01-01` or `created_at=gt=2024-01-01` - Date comparison\n- `class==A;created_at=ge=2024-01-01` - AND combination\n- `labels=in=(production,staging)` - Labels IN list\n- `tags.env==production` - Tag sub-field filter\n- `image_labels.vendor==nginx` - Image label sub-field filter\n",
         "example": "type==container_images;created_at\u003e2024-01-01",
         "type": "string"
       },
@@ -27351,7 +27351,7 @@
     },
     "/groups/{group_id}/inventory/assets/groups": {
       "get": {
-        "description": "Returns a list of valid field names that can be used for grouping assets within a group context.\n\n#### Required permissions\n\n- `View Groups (group.read)`",
+        "description": "Returns a list of valid group field names that can be used for grouping assets within a group context.\n\n#### Required permissions\n\n- `View Groups (group.read)`",
         "operationId": "getGroupFieldsGroup",
         "parameters": [
           {
@@ -27468,9 +27468,9 @@
         "x-stability-level": "beta"
       }
     },
-    "/groups/{group_id}/inventory/assets/groups/{group_field}/values": {
+    "/groups/{group_id}/inventory/assets/groups/{group_field_id}/values": {
       "get": {
-        "description": "Returns aggregated values for a specific group field within a group context.\n\n#### Required permissions\n\n- `View Groups (group.read)`",
+        "description": "Returns aggregated values for a specific group field id, showing the count of assets\nfor each distinct value.\n\nUse the UUID from the group fields list endpoint to identify which field to query.\n\n#### Required permissions\n\n- `View Groups (group.read)`",
         "operationId": "getGroupValuesGroup",
         "parameters": [
           {
@@ -27497,7 +27497,7 @@
             "description": "The UUID of the group field to get values for (from the group fields list endpoint)",
             "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "in": "path",
-            "name": "group_field",
+            "name": "group_field_id",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -43585,7 +43585,7 @@
     },
     "/orgs/{org_id}/inventory/assets/groups": {
       "get": {
-        "description": "Returns a list of valid field names that can be used for grouping assets within an org context.\n\n#### Required permissions\n\n- `View Organization (org.read)`",
+        "description": "Returns a list of valid group field names that can be used for grouping assets within an org context.\n\n#### Required permissions\n\n- `View Organization (org.read)`",
         "operationId": "getGroupFieldsOrg",
         "parameters": [
           {
@@ -43702,9 +43702,9 @@
         "x-stability-level": "beta"
       }
     },
-    "/orgs/{org_id}/inventory/assets/groups/{group_field}/values": {
+    "/orgs/{org_id}/inventory/assets/groups/{group_field_id}/values": {
       "get": {
-        "description": "Returns aggregated values for a specific group field within an org context.\n\n#### Required permissions\n\n- `View Organization (org.read)`",
+        "description": "Returns aggregated values for a specific group field id, showing the count of assets\nfor each distinct value.\n\nUse the UUID from the group fields list endpoint to identify which field to query.\n\n#### Required permissions\n\n- `View Organization (org.read)`",
         "operationId": "getGroupValuesOrg",
         "parameters": [
           {
@@ -43731,7 +43731,7 @@
             "description": "The UUID of the group field to get values for (from the group fields list endpoint)",
             "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "in": "path",
-            "name": "group_field",
+            "name": "group_field_id",
             "required": true,
             "schema": {
               "format": "uuid",
@@ -85697,7 +85697,7 @@
     },
     "/tenants/{tenant_id}/inventory/assets/groups": {
       "get": {
-        "description": "Returns a list of valid field names that can be used for grouping assets.\nEach field includes its name, data type, and which asset types it applies to.\n\n#### Required permissions\n\n- `View Tenant Details (tenant.read)`",
+        "description": "Returns a list of valid group field names that can be used for grouping assets.\nEach field includes its name, data type, and which asset types it applies to.\n\n#### Required permissions\n\n- `View Tenant Details (tenant.read)`",
         "operationId": "getGroupFieldsTenant",
         "parameters": [
           {
@@ -85815,9 +85815,9 @@
         "x-stability-level": "beta"
       }
     },
-    "/tenants/{tenant_id}/inventory/assets/groups/{group_field}/values": {
+    "/tenants/{tenant_id}/inventory/assets/groups/{group_field_id}/values": {
       "get": {
-        "description": "Returns aggregated values for a specific group field, showing the count of assets\nfor each distinct value.\n\nUse the UUID from the group fields list endpoint to identify which field to query.\n\n#### Required permissions\n\n- `View Tenant Details (tenant.read)`",
+        "description": "Returns aggregated values for a specific group field id, showing the count of assets\nfor each distinct value.\n\nUse the UUID from the group fields list endpoint to identify which field to query.\n\n#### Required permissions\n\n- `View Tenant Details (tenant.read)`",
         "operationId": "getGroupValuesTenant",
         "parameters": [
           {
@@ -85844,7 +85844,7 @@
             "description": "The UUID of the group field to get values for (from the group fields list endpoint)",
             "example": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
             "in": "path",
-            "name": "group_field",
+            "name": "group_field_id",
             "required": true,
             "schema": {
               "format": "uuid",

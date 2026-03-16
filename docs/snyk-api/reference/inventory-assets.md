@@ -40,7 +40,7 @@ This document uses the REST API. For more details, see the [Authentication for A
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
-{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/inventory/assets/groups/{group_field}/values" method="get" %}
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/tenants/{tenant_id}/inventory/assets/groups/{group_field_id}/values" method="get" %}
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
@@ -88,7 +88,7 @@ This document uses the REST API. For more details, see the [Authentication for A
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
-{% openapi src="../../.gitbook/assets/rest-spec.json" path="/orgs/{org_id}/inventory/assets/groups/{group_field}/values" method="get" %}
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/orgs/{org_id}/inventory/assets/groups/{group_field_id}/values" method="get" %}
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
@@ -136,7 +136,7 @@ This document uses the REST API. For more details, see the [Authentication for A
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
-{% openapi src="../../.gitbook/assets/rest-spec.json" path="/groups/{group_id}/inventory/assets/groups/{group_field}/values" method="get" %}
+{% openapi src="../../.gitbook/assets/rest-spec.json" path="/groups/{group_id}/inventory/assets/groups/{group_field_id}/values" method="get" %}
 [rest-spec.json](../../.gitbook/assets/rest-spec.json)
 {% endopenapi %}
 
