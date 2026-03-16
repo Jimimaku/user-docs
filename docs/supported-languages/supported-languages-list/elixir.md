@@ -1,27 +1,25 @@
 # Elixir
 
-## Applicability and integration
-
 {% hint style="info" %}
 Elixir is supported only for Snyk Open Source.
 {% endhint %}
 
 Available integrations: CLI and IDE: test or monitor your app
 
-Available functions:
-
-* Test your app's SBOM using `pkg:hex`
-* Test your app's packages using `pkg:hex`
-
 ## Technical specifications
 
-* Supported package manager:  [Mix](https://hexdocs.pm/mix/Mix.html) or [Hex](https://hex.pm/)
+* Supported package manager: [Mix](https://hexdocs.pm/mix/Mix.html) or [Hex](https://hex.pm/)
 * Supported package registry: [hex.pm](https://hex.pm/)
 
-For Elixir, Snyk supports the **Reports** feature.&#x20;
+## Available features
+
+For Elixir, the following features are available:
+
+* Reports
+* Test your app's SBOM and packages using `pkg:hex` PURLs through the [SBOM test](../../developer-tools/snyk-cli/commands/sbom-test.md) CLI command&#x20;
 
 {% hint style="info" %}
-The **Snyk Fix PR** feature is not available for Elixir. This means that you will not be notified if the PR checks fail when the following conditions are met:&#x20;
+The **Snyk Fix PR** feature is not available for Elixir. This means that you will not be notified if the PR checks fail when the following conditions are met:
 
 * The **PR checks** feature is enabled and configured to **Only fail when the issues found have a fix available.**
 * "**Fixed in" available** is set to **Yes.**
