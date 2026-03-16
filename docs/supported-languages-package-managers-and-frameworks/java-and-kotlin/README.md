@@ -17,11 +17,6 @@ Available integrations:
 Improved Gradle SCM scanning is in Early Access. For more information, see [SCM integrations with Maven and Gradle](git-repositories-with-maven-and-gradle.md).
 {% endhint %}
 
-Available functions:
-
-* Test your app's SBOM using `pkg:maven`
-* Test your app's packages using `pkg:maven`
-
 ## Technical specifications
 
 Snyk supports Java analysis for Java versions up to SE 21 and is designed to process code from newer Java versions where feasible.
@@ -30,6 +25,8 @@ Snyk supports Java analysis for Java versions up to SE 21 and is designed to pro
 
 For Java and Kotlin, the following frameworks and libraries are supported:
 
+{% columns %}
+{% column %}
 * Amazon AWS SDK
 * Android Standard Library
 * Apache Commons
@@ -60,6 +57,9 @@ For Java and Kotlin, the following frameworks and libraries are supported:
 * javalin
 * Jax-RS
 * jooq
+{% endcolumn %}
+
+{% column %}
 * Kyro
 * Micronaut
 * mongo-java-driver
@@ -93,6 +93,8 @@ Kotlin only:
 * Ktor
 * Kotlin Standard Library
 * khttp
+{% endcolumn %}
+{% endcolumns %}
 
 ### Supported package managers and package registries <a href="#supported-package-managers-and-package-registries" id="supported-package-managers-and-package-registries"></a>
 
@@ -122,13 +124,12 @@ For Java and Kotlin with Snyk Open Source, the following file formats are suppor
 * For Maven: `pom.xml`
 * For Gradle: `build.gradle`, `build.gradle.kts`
 
-Reports are available for Java and Kotlin with Open Source.
-
 Available features:
 
 * Reports
 * License scanning
 * Fix PRs (for Gradle only Fix advice is available)
+* Test your app's SBOM and packages using `pkg:maven` PURLs through the [SBOM test](../../developer-tools/snyk-cli/commands/sbom-test.md) CLI command
 
 ## Validating, monitoring, alerting, and gating for Java and Kotlin
 
