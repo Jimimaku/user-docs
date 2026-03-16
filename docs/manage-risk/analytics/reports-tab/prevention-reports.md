@@ -156,7 +156,7 @@ Snyk Generated Pull Requests report is available only for Enterprise plan custom
 
 The Generated Pull Requests report can be accessed at both Group and Organization level from the **Change Report** drop down in the Reports menu.
 
-This report type provides an overview of how [Fix](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/create-automatic-prs-for-new-fixes-fix-prs.md), [Backlog](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/create-automatic-prs-for-backlog-issues-and-known-vulnerabilities-backlog-prs.md), and [Upgrade PRs](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/) are used and highlights the efficiency of PR merges.
+This report type provides an overview of how [Fix](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-fix-prs.md), [Backlog](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-backlog-prs-for-previously-known-vulnerabilities.md), and [Upgrade PRs](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-upgrade-prs-for-new-dependency-upgrades.md) are used and highlights the efficiency of PR merges.
 
 {% hint style="warning" %}
 This report type does not include PR checks.

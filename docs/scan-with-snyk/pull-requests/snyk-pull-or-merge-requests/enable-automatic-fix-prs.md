@@ -1,10 +1,11 @@
-# Create automatic PRs for new fixes (Fix PRs)
+# Enable automatic Fix PRs
 
 {% hint style="info" %}
 **Feature availability**
 
-* The Automatic Fix PRs feature is supported for the following SCM integrations: GitHub, GitHub Enterprise, GitHub Cloud App, Bitbucket Server, Bitbucket Cloud, Bitbucket Connect, GitLab, and Azure Repos.
-* The Automatic Fix PR settings may vary depending on the integration.
+The automatic Fix PRs feature is supported for the following SCM integrations: GitHub, GitHub Enterprise, GitHub Cloud App, Bitbucket Server, Bitbucket Cloud, Bitbucket Connect, GitLab, and Azure Repos.
+
+The automatic Fix PR settings may vary depending on the integration.
 {% endhint %}
 
 The following rules are applied to the creation of automatic PRs for vulnerabilities:
@@ -12,10 +13,11 @@ The following rules are applied to the creation of automatic PRs for vulnerabili
 * Pull requests are created based on the **Test & Automated Pull Request Frequency** notification setting.
 * If you select **Retest now** for the Project, a scan runs manually. The 24-hour window is marked as having had the scan run. and no automatic PR is created until the next automated scan runs.
 * One pull request is created per Project.
-* A **new vulnerability** is a vulnerability in the current recurring scan that was not present in the previous scan of the same project.
-* If either the vulnerability is new and has a fix available **or** the fix is new and is not ignored, a Fix PR can be created.
+* A new vulnerability is a vulnerability in the current recurring scan that was not present in the previous scan of the same Project.
+* If either the vulnerability is new and has a fix available or the fix is new and is not ignored, a Fix PR can be created.
 * Fixing a vulnerability by upgrading a package may sometimes introduce a new vulnerability. Snyk will only automatically create such a pull request if the fixed vulnerabilities are a higher severity than any new ones introduced.
-* For known vulnerabilities, see [Configure Automatic Backlog PRs.](create-automatic-prs-for-backlog-issues-and-known-vulnerabilities-backlog-prs.md)
+
+For known vulnerabilities, visit [Configure Automatic Backlog PRs.](enable-automatic-backlog-prs-for-previously-known-vulnerabilities.md)
 
 <figure><img src="../../../.gitbook/assets/project-settings-test-pull-request-frequency (1).png" alt="Test &#x26; Automated Pull Request Frequency setting"><figcaption><p>Test &#x26; Automated Pull Request Frequency setting</p></figcaption></figure>
 
@@ -25,7 +27,7 @@ To determine when your last 24-hour window began, check the Project issue card f
 
 Pull requests for new vulnerabilities are enabled by default for new integrations.
 
-See the [Git repository SCM integrations](../../../developer-tools/scm-integrations/organization-level-integrations/) pages for details about supported integrations.
+Visit the [Git repository SCM integrations](../../../developer-tools/scm-integrations/organization-level-integrations/) pages for details about supported integrations.
 
 ## Enable or disable pull requests for an integration
 
@@ -49,7 +51,7 @@ To decide which automatic Fix PRs are visible to you, you can set a custom thres
 
 ### Score threshold
 
-<figure><img src="../../../.gitbook/assets/fix-pr-threshold-risk-score.png" alt=""><figcaption><p>Fix PR Threshold by score</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/fix-pr-threshold-risk-score.png" alt=""><figcaption><p>Fix PR threshold by score</p></figcaption></figure>
 
 Snyk will create Fix PRs only above the threshold you set in the **Score** field. The score type you use will display as the option for the dropdown. This threshold ranges from 0-1000.
 

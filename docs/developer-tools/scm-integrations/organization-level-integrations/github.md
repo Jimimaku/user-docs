@@ -41,7 +41,7 @@ You can then scroll down to the section required, and set the options accordingl
 * Pull requests:
   * [Opening fix and upgrade pull requests from a fixed GitHub account](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/opening-fix-and-upgrade-pull-requests-from-a-fixed-github-account.md)
   * [Automatic fix PRs](github.md#project-monitoring-and-automatic-fix-pull-requests)
-  * [Automatic dependency upgrade PRs](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/)
+  * [Automatic dependency upgrade PRs](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-upgrade-prs-for-new-dependency-upgrades.md)
   * [Pull request assignees](github.md#pr-assignment)
   * [Snyk vulnerability patches](../../../scan-with-snyk/snyk-open-source/manage-vulnerabilities/snyk-patches-to-fix-vulnerabilities.md)
 * Pull request status checks ([PR Checks](../../../scan-with-snyk/pull-requests/pull-request-checks/))
@@ -93,7 +93,7 @@ The example that follows shows a fix pull request opened by Snyk.
 
 To review and adjust the automatic fix pull request settings in the Snyk GitHub Integration settings page, navigate to Organization **Settings** > **Integrations** > **Source control** > **GitHub**.
 
-Scroll down to the **Automatic fix PRs** section and set the options. For definitions, see [Configure automatic fix PRs at the integration level](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/create-automatic-prs-for-backlog-issues-and-known-vulnerabilities-backlog-prs.md#configure-automatic-fix-prs-at-the-integration-level).
+Scroll down to the **Automatic fix PRs** section and set the options. For definitions, see [Configure automatic fix PRs at the integration level](../../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-backlog-prs-for-previously-known-vulnerabilities.md#configure-automatic-fix-prs-at-the-integration-level).
 
 <div align="left"><figure><img src="../../../.gitbook/assets/Github-integrations-auto-fix-PRs.png" alt="Automatic fix pull request settings" width="563"><figcaption><p>Automatic fix pull request settings</p></figcaption></figure></div>
 

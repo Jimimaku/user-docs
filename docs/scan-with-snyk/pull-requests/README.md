@@ -4,7 +4,7 @@
 
 Fix pull or merge requests are created automatically by Snyk when new issues are identified in Project tests or a retest is run on a Project that has identified vulnerabilities. This feature applies to Projects imported through an SCM integration such as GitHub Enterprise or Azure.
 
-For more information on how integrations use fix and upgrade pull requests, see [Upgrade open source dependencies with automatic PRs](snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/upgrade-open-source-dependencies-with-automatic-prs.md).
+For more information on how integrations use fix and upgrade pull requests, see [Upgrade open source dependencies with automatic PRs](/broken/pages/vhC8FBLDnIEkZWtpPBWi).
 
 For instructions on opening pull requests from a GitHub account, see [Opening fix and upgrade pull requests from a fixed GitHub account](snyk-pull-or-merge-requests/opening-fix-and-upgrade-pull-requests-from-a-fixed-github-account.md).
 
@@ -14,7 +14,7 @@ For a full description of Snyk Fix PRs, see [Snyk Fix Pull Requests](snyk-pull-o
 
 Pull request checks are tests that run on generated pull requests to identify new issues with Projects. This allows you to prevent issues from being introduced into your code before merging to the main branch.
 
-PR Checks that are configured to “Only fail when the issues found have a fix available” rely on Snyk FixPR support and, therefore, will not alert for projects in languages that do not support FixPRs.&#x20;
+PR Checks that are configured to “Only fail when the issues found have a fix available” rely on Snyk FixPR support and, therefore, will not alert for projects in languages that do not support FixPRs.
 
 For a full description of PR Checks, see [Pull Request Checks](pull-request-checks/).
 

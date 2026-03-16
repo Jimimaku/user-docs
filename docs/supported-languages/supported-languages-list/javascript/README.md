@@ -137,7 +137,7 @@ Lerna is partially supported.
 
 ### Available features
 
-* Fix PRs
+* Automatic and manual Fix PRs (for npm, pnpm, and Yarn)
 * License scanning
 * Reports
 * Test your app's SBOM and packages using `pkg:npm`  PURLs, using [SBOM test](../../../developer-tools/snyk-cli/commands/sbom-test.md) command.
@@ -185,7 +185,7 @@ For all supported lockfile versions, the following features are available:
 * CLI support
 * SCM support
 * License scanning
-* Fix PRs
+* Automatic and Manual Fix PRs
 
 Snyk can build a dependency tree with or without a lockfile. If a lockfile is present, Snyk uses it as follows:
 
@@ -282,7 +282,7 @@ For all supported Yarn versions, the following features are available:&#x20;
 * CLI support
 * SCM support
 * License scanning
-* Fix PRs
+* Automatic and Manual Fix PRs
 
 {% hint style="info" %}
 Because different versions of Yarn have different feature sets, there are differences in Snyk support in order to match how the package manager works.

@@ -1,6 +1,6 @@
 # SCMs
 
-Snyk supports SCM integrations that allow you to implement security at each point in your workflow: importing a Project, writing your code, and building and deployment. Snyk can also [automatically create pull requests (PRs)](../../scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/upgrade-dependencies-with-automatic-prs-upgrade-prs/upgrade-open-source-dependencies-with-automatic-prs.md) on your behalf to upgrade your dependencies based on scan results, compatible with a variety of SCM integrations.
+Snyk supports SCM integrations that allow you to implement security at each point in your workflow: importing a Project, writing your code, and building and deployment. Snyk can also [automatically create pull requests (PRs)](/broken/pages/vhC8FBLDnIEkZWtpPBWi) on your behalf to upgrade your dependencies based on scan results, compatible with a variety of SCM integrations.
 
 Snyk Source Control Manager (SCM) integrations allow you to:
 
@@ -11,7 +11,7 @@ Snyk Source Control Manager (SCM) integrations allow you to:
 You can implement SCM integrations in a Snyk environment as follows:
 
 * [Group level](group-level-integrations/) - At the Group level, set up the SCM integrations for an enriched context.
-* [Organization level](organization-level-integrations/) - At the Organization level, set up the SCM integrations for testing your repositories.&#x20;
+* [Organization level](organization-level-integrations/) - At the Organization level, set up the SCM integrations for testing your repositories.
 
 To use the same SCM integration at both Group and Organization levels, you must set up that integration on both levels.
 
@@ -67,6 +67,6 @@ See [Migrate to the Snyk Bitbucket Cloud App](organization-level-integrations/bi
 
 #### Are there any plans for end-of-life for the Personal Access Token (PAT) integration?
 
-To improve security, the use of app passwords in Bitbucket Cloud is transitioning to API tokens. Existing integrations that use app passwords will continue to function temporarily until 9 June, 2026:&#x20;
+To improve security, the use of app passwords in Bitbucket Cloud is transitioning to API tokens. Existing integrations that use app passwords will continue to function temporarily until 9 June, 2026:
 
 To ensure continued support and functionality, update your Bitbucket Cloud integration in Snyk to use an API token.

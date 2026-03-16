@@ -121,7 +121,7 @@ For Poetry projects, you do not need to specify the Python version. Poetry files
 
 ### Available features
 
-* Fix PRs (supported only for pip)
+* Automatic and manual Fix PRs (supported only for pip)
 * License scanning
 * Reports
 
