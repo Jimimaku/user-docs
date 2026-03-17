@@ -113,7 +113,6 @@ For Java and Kotlin with Snyk Code, the following file formats are supported:
 Available features:
 
 * Reports
-* Custom rules
 * Interfile analysis - Kotlin is fully supported
 * Interfile analysis - Android is partially supported
 

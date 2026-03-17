@@ -41,7 +41,6 @@ For Go with Snyk Code, Snyk supports:
 Available features:
 
 * Reports
-* Custom rules
 * Interfile analysis
 
 ## Go for Snyk Open Source

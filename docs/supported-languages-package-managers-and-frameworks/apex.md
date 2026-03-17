@@ -13,7 +13,6 @@ Apex Standard Library is fully supported. Snyk supports the following file forma
 For Apex, Snyk supports the following features:
 
 * Support for Interfile analysis
-* Custom rules
 * Reports
 * Interfile analysis
 * SCM import

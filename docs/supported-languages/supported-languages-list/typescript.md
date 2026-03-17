@@ -36,7 +36,6 @@ For TypeScript with Snyk Code, the following file formats are supported: `.ejs`,
 Available features:
 
 * Reports
-* Custom rules
 * Interfile analysis
 
 ## TypeScript for Snyk Open Source

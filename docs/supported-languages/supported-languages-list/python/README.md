@@ -20,7 +20,6 @@ For Python with Snyk Code, the following file format is supported: `.py`
 Available features:
 
 * Reports
-* Custom rules
 * Interfile analysis
 
 ### Supported frameworks and libraries

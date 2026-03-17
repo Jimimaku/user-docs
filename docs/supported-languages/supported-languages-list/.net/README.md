@@ -37,7 +37,6 @@ For .NET with Snyk Code, the following frameworks and libraries are supported:
 ### Available features
 
 * Reports
-* Custom rules
 * Interfile analysis
 
 ## .NET for Snyk Open Source
