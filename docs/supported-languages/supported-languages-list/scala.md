@@ -11,11 +11,6 @@ Available integrations:
 * SCM import
 * CLI and IDE: test or monitor your app
 
-Available functions:
-
-* Test your app's SBOM using `pkg:maven`
-* Test your app's packages using `pkg:maven`
-
 ## Technical specifications
 
 Snyk supports the following Scala versions: 2.x
@@ -62,8 +57,9 @@ Available features:
 
 * License scanning
 * Reports
+* Test your app's SBOM and packages using `pkg:maven` PURLs through the [SBOM test](../../developer-tools/snyk-cli/commands/sbom-test.md) CLI command
 
-For sbt, Snyk provides: CLI support, SCM support, license scanning.
+For sbt, Snyk provides: CLI support, SCM support, and license scanning.
 
 ### CLI support for Scala
 
