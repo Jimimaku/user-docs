@@ -1521,6 +1521,15 @@
           "type": "string"
         }
       },
+      "SortGroupValues": {
+        "description": "Comma-separated sort fields for group values. Prefix with `-` for descending order.\nMultiple sort fields are supported (e.g., `-issues,count`).\nDefaults to `count` (ascending) when not specified.\nResults are always tie-broken by `value` for deterministic ordering.\n\nAvailable sort fields:\n  - `value` - Sort by the group value string (alphabetical)\n  - `count` - Sort by the number of assets in each group\n  - `latest_last_seen_at` - Sort by the most recent last_seen_at timestamp\n  - `latest_updated_at` - Sort by the most recent updated_at timestamp\n  - `max_risk_score` - Sort by the maximum risk score\n  - `issues` - Sort by issue severity (critical → high → medium → low)\n",
+        "example": "-count",
+        "in": "query",
+        "name": "sort",
+        "schema": {
+          "type": "string"
+        }
+      },
       "SortOrder": {
         "description": "Order in which results are returned.",
         "example": "ASC",
@@ -4986,6 +4995,38 @@
             "type": "object"
           }
         },
+        "type": "object"
+      },
+      "BaseImageRemediation": {
+        "description": "Base image upgrade recommendation data from container scanning",
+        "properties": {
+          "base_image": {
+            "$ref": "#/components/schemas/ImageInfo"
+          },
+          "base_image_name": {
+            "description": "The name of the current base image",
+            "type": "string"
+          },
+          "base_image_outdated": {
+            "description": "Whether the current base image is outdated",
+            "type": "boolean"
+          },
+          "code": {
+            "description": "Remediation code identifying the type of recommendation",
+            "type": "string"
+          },
+          "distro_alert": {
+            "description": "Alert message about the base image distribution",
+            "type": "string"
+          },
+          "proposed_base_images": {
+            "$ref": "#/components/schemas/ProposedBaseImages"
+          }
+        },
+        "required": [
+          "code",
+          "base_image_name"
+        ],
         "type": "object"
       },
       "BasePackageAttributes": {
@@ -14366,6 +14407,52 @@
         "pattern": "^sha256(:|%3A)[a-f0-9]{64}$",
         "type": "string"
       },
+      "ImageInfo": {
+        "description": "Container image with vulnerability summary",
+        "properties": {
+          "issues_by_severity": {
+            "description": "Issue counts by severity",
+            "properties": {
+              "critical": {
+                "type": "integer"
+              },
+              "high": {
+                "type": "integer"
+              },
+              "low": {
+                "type": "integer"
+              },
+              "medium": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "name": {
+            "description": "Full image name",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Image repository",
+            "type": "string"
+          },
+          "tag": {
+            "description": "Image tag",
+            "type": "string"
+          },
+          "total_issues": {
+            "description": "Total number of issues across all severities",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "repo",
+          "tag",
+          "total_issues"
+        ],
+        "type": "object"
+      },
       "ImageName": {
         "example": "gcr.io/snyk/redis:5",
         "pattern": "^((?:(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])(?:(?:\\.(?:[a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))+)?(?::[0-9]+)?\\/)?[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?(?:(?:\\/[a-z0-9]+(?:(?:(?:[._]|__|[-]*)[a-z0-9]+)+)?)+)?)(?::([\\w][\\w.-]{0,127}))?(?:@([A-Za-z][A-Za-z0-9]*(?:[-_+.][A-Za-z][A-Za-z0-9]*)*[:][A-Fa-f0-9]{32,}))?$",
@@ -19237,6 +19324,9 @@
         "additionalProperties": false,
         "description": "Attributes of the project resource",
         "properties": {
+          "base_image_remediation": {
+            "$ref": "#/components/schemas/BaseImageRemediation"
+          },
           "is_canonical": {
             "description": "Indicates whether this project is the canonical project for its target_file.\nProjects are grouped by target_file, and within each group, the project with the most\nrecent snapshot_created_at timestamp is marked as canonical. This canonical project\nis used for computing vulnerability counts for the asset.\nWhen target_file is empty, each project is its own group (always canonical).\n",
             "type": "boolean"
@@ -19601,6 +19691,30 @@
               "id"
             ],
             "type": "object"
+          }
+        },
+        "type": "object"
+      },
+      "ProposedBaseImages": {
+        "description": "Categorized base image upgrade recommendations",
+        "properties": {
+          "alternative_upgrade": {
+            "items": {
+              "$ref": "#/components/schemas/ImageInfo"
+            },
+            "type": "array"
+          },
+          "major_upgrade": {
+            "items": {
+              "$ref": "#/components/schemas/ImageInfo"
+            },
+            "type": "array"
+          },
+          "minor_upgrade": {
+            "items": {
+              "$ref": "#/components/schemas/ImageInfo"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -27515,6 +27629,9 @@
           },
           {
             "$ref": "#/components/parameters/RsqlFilterGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/SortGroupValues"
           },
           {
             "description": "Maximum number of group values to return",
@@ -43749,6 +43866,9 @@
           },
           {
             "$ref": "#/components/parameters/RsqlFilterGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/SortGroupValues"
           },
           {
             "description": "Maximum number of group values to return",
@@ -85862,6 +85982,9 @@
           },
           {
             "$ref": "#/components/parameters/RsqlFilterGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/SortGroupValues"
           },
           {
             "description": "Number of results to return",
