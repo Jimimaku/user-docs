@@ -192,7 +192,7 @@ Details of the connection follow: `connection ID`; `connection type (broker_conn
 Connection Detail Workflow completed.
 ```
 
-## Integrate your connection with an Organization that will use the Universal Broker
+## Integrate your connection with an Organization that  uses Universal Broker
 
 ```
 > snyk-broker-config workflows connections integrate
@@ -202,13 +202,25 @@ Enter the OrgID you want to integrate.. (Must be a valid  uuid).
 * Enter the ID of the Organization where you want to use the newly created Broker connection.
 
 ```
-Enter the OrgID you want to integrate.. (Must be a valid  uuid). <uuid-entered>
+Enter the OrgID you want to integrate.. (Must be a valid uuid). <uuid-entered>
 Connection <number returned> (type:github) integrated with <integration <number>.
 
 Connection Integration Workflow completed
 ```
 
 Your Organization is now integrated with your new Broker connection.
+
+To access private resources during SCA scans with Universal Broker, enable the Universal Broker for Snyk Open Source feature in your configuration settings.
+
+To enable the Universal Broker for Snyk Open Source feature using the Snyk web UI at the Group and Organization levels:
+
+1. Navigate to **Settings > Products and features**.
+2. Click **Snyk Open Source**.
+3. Under **Universal Broker for Snyk Open Source,** enable the option **Enable Universal Broker**.
+
+{% hint style="info" %}
+For automated workflows or bulk updates, you can manage this setting using the Snyk API.
+{% endhint %}
 
 ## Run the Broker client
 
