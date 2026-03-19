@@ -62,11 +62,18 @@ Given that the data is typically refreshed every two hours, Snyk anticipates tha
 
 ### Data retention
 
-The exported CSV files will remain available in the designated S3 bucket for a period of three days.
+The exported CSV files will remain available for a period of three days.
 
 {% hint style="danger" %}
 While the files are accessible for three days, the self-signed link to retrieve the export results is available only for 60 minutes after its creation by default. Users can limit the link expiration by passing a value between 0 and 3600 to the `url_expiration_seconds` attribute.
 {% endhint %}
+
+The storage location of your export depends on where your Snyk instance is hosted.
+
+| Snyk instance host | Storage location                  |
+| ------------------ | --------------------------------- |
+| AWS                | AWS S3 bucket                     |
+| GCP                | Google Cloud Storage (GCS) bucket |
 
 ## Available columns and filters
 
