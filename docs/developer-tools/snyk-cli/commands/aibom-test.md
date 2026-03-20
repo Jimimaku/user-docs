@@ -10,7 +10,7 @@
 
 ## Usage
 
-`$ snyk aibom test --experimental [<OPTION>]`
+`$ snyk aibom test [<OPTION>]`
 
 ## Description
 
@@ -48,7 +48,7 @@ Use the `-d` or `--debug` option to output the debug logs.
 
 ### `--experimental`
 
-**Required**. Use experimental command features. This option is required because the command is in its experimental phase.
+**Deprecated.** The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom test`.
 
 ### `--org=<ORG_ID>`
 
@@ -65,7 +65,7 @@ Default: `<ORG_ID>` that is the current preferred Organization in your [Account 
 ## Example
 
 ```bash
-snyk aibom test --experimental
+snyk aibom test
 ```
 
 This generates an AI-BOM for the current directory, runs the policy test for the current preferred Organization, and prints open issues, ignored issues, and the test summary.
@@ -74,7 +74,7 @@ This generates an AI-BOM for the current directory, runs the policy test for the
 
 **Optional.** Write the policy test results to a JSON file at the given path instead of printing the report. The JSON includes full issue details and closed issues, which are not shown in the on-screen report.
 
-Example: `$ snyk aibom test --experimental --json-file-output=results.json`
+Example: `$ snyk aibom test --json-file-output=results.json`
 
 ### `--severity-threshold=<low|medium|high|critical>`
 
