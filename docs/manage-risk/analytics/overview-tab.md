@@ -13,9 +13,10 @@ To customize the **Key Performance Indicators** section, click **Edit section** 
 * **Open issues (Featured zero-day):** tracks open issues related to featured zero-day vulnerabilities to highlight exposure to critical emerging threats.
 * **Ignored issues**: tracks issues that your team has intentionally ignored or "muted' instead of fixing them.
 * **New issues**: represents the volume of freshly identified vulnerabilities or tickets discovered in the selected timeframe.
-* **Resolved issues**: tracks the number of vulnerabilities or tickets that were successfully closed or fixed in the selected timeframe.
+* **Resolved Issues**: tracks the number of vulnerabilities or tickets that were successfully closed or fixed in the selected timeframe.
 * **Unique vulnerabilities:** shows the distinct count of unresolved vulnerabilities to highlight the breadth of different security problems.
 * **Tested repositories in CI/CD:** tracks the number of repositories tested in the continuous integration/continuous delivery (CI/CD) pipeline.
+* **Projects Monitored**: tracks the number of Projects that are continuously monitored for open-source vulnerabilities and license issues after using the `snyk monitor` CLI command.
 
 ## Coverage section
 
