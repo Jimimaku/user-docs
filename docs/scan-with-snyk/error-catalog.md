@@ -2240,6 +2240,22 @@ In order to solve this issue, refer to the specific details of this error messag
 
 * [https://docs.snyk.io/integrate-with-snyk/package-repository-integrations](https://docs.snyk.io/integrate-with-snyk/package-repository-integrations)
 
+### [SNYK-OS-MAVEN-0018](#snyk-os-maven-0018)
+<a id="#SNYK-OS-MAVEN-0018"></a>
+
+**Cannot build Maven dependency tree**
+
+Snyk cannot build the Maven dependency tree because Maven failed to process your pom.xml. 
+This often happens due to invalid configurations, unresolved dependencies, or build failures.
+Examine your Maven output to identify specific errors and verify your pom.xml for correct configurations.
+For common troubleshooting steps, visit Troubleshoot Maven issues.
+
+**HTTP Status:** [422](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/422)
+
+**Help Links:**
+
+* [https://docs.snyk.io/supported-languages/supported-languages-list/java-and-kotlin/git-repositories-with-maven-and-gradle#maven](https://docs.snyk.io/supported-languages/supported-languages-list/java-and-kotlin/git-repositories-with-maven-and-gradle#maven)
+
 ### [SNYK-OS-NODEJS-0001](#snyk-os-nodejs-0001)
 <a id="#SNYK-OS-NODEJS-0001"></a>
 
