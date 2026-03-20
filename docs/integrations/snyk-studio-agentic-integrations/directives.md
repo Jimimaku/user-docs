@@ -105,7 +105,7 @@ You can:
 * Check if an existing dependency is safe.
 * Find a secure alternative to a vulnerable package.
 
-To use this skill, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/feat/package-health-checks/command_directives/synchronous_remediation/skills/secure-dependency-health-check).
+To use this skill, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/main/command_directives/synchronous_remediation/skills/secure-dependency-health-check).
 
 ### Hook: Enforce security scan on new packages
 
@@ -119,7 +119,7 @@ When an AI agent modifies a package manifest, for example, `package.json`, the h
 
 The hook operates in the background and requires no developer intervention. This suits teams that want consistent guardrails across all agent coding sessions.
 
-To use this hook, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/feat/package-health-checks/guardrail_directives/package_enforcement/cursor/hooks).
+To use this hook, refer to the sample script in the [Snyk Studio recipes repository](https://github.com/snyk/studio-recipes/tree/main/guardrail_directives/package_enforcement/cursor/hooks).
 
 ### How to use the sample scripts
 
