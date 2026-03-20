@@ -259,6 +259,7 @@
       * [Understand the IaC CLI test results](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-iac/understand-the-iac-cli-test-results/README.md)
         * [Snyk IaC CLI test results (v. 1.938.0 and earlier)](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-iac/understand-the-iac-cli-test-results/snyk-iac-cli-test-results-v.-1.938.0-and-earlier.md)
         * [Snyk IaC CLI test results (v. 1.939.0 and later)](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-cli-for-iac/understand-the-iac-cli-test-results/snyk-iac-cli-test-results-v.-1.939.0-and-later.md)
+    * [Snyk Agent Red Teaming](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-agent-red-teaming.md)
     * [A .snyk policy file in a different directory from the manifest file](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/a-.snyk-policy-file-in-a-different-directory-from-the-manifest-file.md)
     * [Failing of builds in Snyk CLI](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/failing-of-builds-in-snyk-cli.md)
     * [Ignore vulnerabilities using the Snyk CLI](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/ignore-vulnerabilities-using-the-snyk-cli.md)
