@@ -387,6 +387,76 @@
           "type": "string"
         }
       },
+      "AggregateGroupValues": {
+        "description": "Per-field aggregate function override for meta fields.\nAll fields default to `last` when not specified.\n`max`/`min` compute the SQL MAX/MIN across all assets in the group (scalar fields only).\n`first`/`last` returns the value from the single asset with the earliest/latest\nupdated_at in the group (all field types).\n`sum` computes the total across all assets (numeric fields, issues, labels, tags).\n",
+        "explode": true,
+        "in": "query",
+        "name": "aggregate",
+        "schema": {
+          "properties": {
+            "issues": {
+              "default": "last",
+              "enum": [
+                "first",
+                "last",
+                "sum"
+              ],
+              "type": "string"
+            },
+            "labels": {
+              "default": "last",
+              "enum": [
+                "first",
+                "last",
+                "sum"
+              ],
+              "type": "string"
+            },
+            "last_seen_at": {
+              "default": "last",
+              "enum": [
+                "max",
+                "min",
+                "first",
+                "last"
+              ],
+              "type": "string"
+            },
+            "risk_score": {
+              "default": "last",
+              "enum": [
+                "max",
+                "min",
+                "first",
+                "last",
+                "sum"
+              ],
+              "type": "string"
+            },
+            "tags": {
+              "default": "last",
+              "enum": [
+                "first",
+                "last",
+                "sum"
+              ],
+              "type": "string"
+            },
+            "updated_at": {
+              "default": "last",
+              "enum": [
+                "max",
+                "min",
+                "first",
+                "last"
+              ],
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "style": "deepObject"
+      },
       "AiBomIdParam": {
         "description": "The ai_bom id",
         "in": "path",
@@ -1034,10 +1104,10 @@
         }
       },
       "MetaFieldsGroupValues": {
-        "description": "Meta fields to include in the response. Multiple fields can be specified.\n\nAvailable fields:\n  - `count` - Number of assets with this value\n  - `latest_last_seen_at` - Most recent last_seen_at timestamp\n  - `latest_updated_at` - Most recent updated_at timestamp\n  - `max_risk_score` - Maximum risk score from discovery sources\n  - `issues` - Aggregated issue counts (critical, high, medium, low, total)\n  - `labels` - Unique labels across assets (limited to 1000)\n  - `tags` - Unique tags across assets (limited to 1000)\n  - `all` - Include all available meta fields\n\nIf not specified, the meta object is not included in the response.\n\nNote: Requesting meta fields may impact response time as aggregations\nrequire additional computation.\n",
+        "description": "Meta fields to include in the response. Multiple fields can be specified.\n\nAvailable fields:\n  - `count` - Number of assets with this value\n  - `last_seen_at` - Aggregated last_seen_at timestamp (default aggregation: last)\n  - `updated_at` - Aggregated updated_at timestamp (default aggregation: last)\n  - `risk_score` - Aggregated risk score from discovery sources (default aggregation: last)\n  - `issues` - Aggregated issue counts (critical, high, medium, low, total) (default aggregation: last)\n  - `labels` - Labels across assets (default aggregation: last)\n  - `tags` - Tags across assets (default aggregation: last)\n  - `all` - Include all available meta fields\n\nAll fields default to the `last` aggregation function, which returns the value\nfrom the asset with the most recent updated_at in the group. Use the `aggregate`\nparameter to override the aggregation function per field.\n\nIf not specified, the meta object is not included in the response.\n\nNote: Requesting meta fields may impact response time as aggregations\nrequire additional computation.\n",
         "example": [
           "count",
-          "max_risk_score",
+          "risk_score",
           "issues",
           "labels"
         ],
@@ -1048,9 +1118,9 @@
           "items": {
             "enum": [
               "count",
-              "latest_last_seen_at",
-              "latest_updated_at",
-              "max_risk_score",
+              "last_seen_at",
+              "updated_at",
+              "risk_score",
               "issues",
               "labels",
               "tags",
@@ -1523,7 +1593,7 @@
         }
       },
       "SortGroupValues": {
-        "description": "Comma-separated sort fields for group values. Prefix with `-` for descending order.\nMultiple sort fields are supported (e.g., `-issues,count`).\nDefaults to `count` (ascending) when not specified.\nResults are always tie-broken by `value` for deterministic ordering.\n\nAvailable sort fields:\n  - `value` - Sort by the group value string (alphabetical)\n  - `count` - Sort by the number of assets in each group\n  - `latest_last_seen_at` - Sort by the most recent last_seen_at timestamp\n  - `latest_updated_at` - Sort by the most recent updated_at timestamp\n  - `max_risk_score` - Sort by the maximum risk score\n  - `issues` - Sort by issue severity (critical → high → medium → low)\n",
+        "description": "Comma-separated sort fields for group values. Prefix with `-` for descending order.\nMultiple sort fields are supported (e.g., `-issues,count`).\nDefaults to `count` (ascending) when not specified.\nResults are always tie-broken by `value` for deterministic ordering.\n\nAvailable sort fields:\n  - `value` - Sort by the group value string (alphabetical)\n  - `count` - Sort by the number of assets in each group\n  - `last_seen_at` - Sort by the aggregated last_seen_at timestamp\n  - `updated_at` - Sort by the aggregated updated_at timestamp\n  - `risk_score` - Sort by the aggregated risk score\n  - `issues` - Sort by issue severity (critical → high → medium → low)\n",
         "example": "-count",
         "in": "query",
         "name": "sort",
@@ -14103,18 +14173,13 @@
             "maxItems": 1000,
             "type": "array"
           },
-          "latest_last_seen_at": {
-            "description": "Most recent last_seen_at timestamp across all assets in this group.\nNull if no assets have a last_seen_at value.\n",
+          "last_seen_at": {
+            "description": "Aggregated last_seen_at timestamp across all assets in this group.\nThe aggregation function is controlled by the `aggregate[last_seen_at]` parameter (default: last).\nNull if no assets have a last_seen_at value.\n",
             "format": "date-time",
             "type": "string"
           },
-          "latest_updated_at": {
-            "description": "Most recent updated_at timestamp across all assets in this group.",
-            "format": "date-time",
-            "type": "string"
-          },
-          "max_risk_score": {
-            "description": "Maximum risk_score from discovery sources across all assets in this group.\nDerived from project-type discovery sources. Null if no assets have\ndiscovery sources with risk scores.\n",
+          "risk_score": {
+            "description": "Aggregated risk_score from discovery sources across all assets in this group.\nThe aggregation function is controlled by the `aggregate[risk_score]` parameter (default: last).\nDerived from project-type discovery sources. Null if no assets have\ndiscovery sources with risk scores.\n",
             "minimum": 0,
             "type": "integer"
           },
@@ -14135,6 +14200,11 @@
             },
             "maxItems": 1000,
             "type": "array"
+          },
+          "updated_at": {
+            "description": "Aggregated updated_at timestamp across all assets in this group.\nThe aggregation function is controlled by the `aggregate[updated_at]` parameter (default: last).\n",
+            "format": "date-time",
+            "type": "string"
           }
         },
         "type": "object"
@@ -27681,6 +27751,9 @@
           },
           {
             "$ref": "#/components/parameters/MetaFieldsGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/AggregateGroupValues"
           }
         ],
         "responses": {
@@ -43918,6 +43991,9 @@
           },
           {
             "$ref": "#/components/parameters/MetaFieldsGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/AggregateGroupValues"
           }
         ],
         "responses": {
@@ -86034,6 +86110,9 @@
           },
           {
             "$ref": "#/components/parameters/MetaFieldsGroupValues"
+          },
+          {
+            "$ref": "#/components/parameters/AggregateGroupValues"
           }
         ],
         "responses": {
