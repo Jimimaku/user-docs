@@ -19494,7 +19494,10 @@
               "k8sconfig",
               "terraformconfig",
               "cloudformationconfig",
-              "armconfig"
+              "armconfig",
+              "secrets",
+              "iac",
+              "uv"
             ],
             "type": "string"
           },
@@ -21319,7 +21322,8 @@
               "sca",
               "sast",
               "container",
-              "iac"
+              "iac",
+              "secrets"
             ],
             "type": "string"
           }
