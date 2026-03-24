@@ -1,7 +1,5 @@
 # AI-BOM test
 
-**Note**: AI-BOM is an experimental feature and is subject to breaking changes without notice. If you are using AI-BOM, Snyk recommends installing the Snyk CLI from the [release](../releases-and-channels-for-the-snyk-cli.md#stable) channel.
-
 ## Prerequisites
 
 - The `snyk aibom test` feature requires an internet connection.
@@ -10,7 +8,7 @@
 
 ## Usage
 
-`$ snyk aibom test --experimental [<OPTION>]`
+`$ snyk aibom test [<OPTION>]`
 
 ## Description
 
@@ -46,10 +44,6 @@ Use the `-d` or `--debug` option to output the debug logs.
 
 ## Options
 
-### `--experimental`
-
-**Required**. Use experimental command features. This option is required because the command is in its experimental phase.
-
 ### `--org=<ORG_ID>`
 
 Specify the `<ORG_ID>` to run the policy test against the policies of a specific Snyk Organization.
@@ -65,7 +59,7 @@ Default: `<ORG_ID>` that is the current preferred Organization in your [Account 
 ## Example
 
 ```bash
-snyk aibom test --experimental
+snyk aibom test
 ```
 
 This generates an AI-BOM for the current directory, runs the policy test for the current preferred Organization, and prints open issues, ignored issues, and the test summary.
@@ -74,7 +68,7 @@ This generates an AI-BOM for the current directory, runs the policy test for the
 
 **Optional**. Write the policy test results to a JSON file at the given path instead of printing the report. The JSON includes full issue details and closed issues, which are not shown in the on-screen report.
 
-Example: `$ snyk aibom test --experimental --json-file-output=results.json`
+Example: `$ snyk aibom test --json-file-output=results.json`
 
 ### `--severity-threshold=<low|medium|high|critical>`
 

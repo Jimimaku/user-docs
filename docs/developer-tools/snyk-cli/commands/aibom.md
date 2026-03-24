@@ -1,7 +1,5 @@
 # AI-BOM
 
-**Note**: AI-BOM is an experimental feature and is subject to breaking changes without notice. If you are using AI-BOM, Snyk recommends installing the Snyk CLI from the [release](../releases-and-channels-for-the-snyk-cli.md#stable) channel.
-
 ## Prerequisites
 
 - The `snyk aibom` feature requires an internet connection.
@@ -9,7 +7,7 @@
 
 ## Usage
 
-`$ snyk aibom --experimental [<OPTION>]`
+`$ snyk aibom [<OPTION>]`
 
 **See also:** [`snyk aibom test`](aibom-test.md) — generate an AI-BOM and test it against your tenant's policies.
 
@@ -56,7 +54,7 @@ When you run `snyk aibom`, the output shows these dependencies clearly. For exam
 
 ### `--experimental`
 
-**Required**. Use experimental command features. This option is required because the command is in its experimental phase.
+**Deprecated**. The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom`.
 
 ### `--org=<ORG_ID>`
 
