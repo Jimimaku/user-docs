@@ -54,7 +54,7 @@ When you run `snyk aibom`, the output shows these dependencies clearly. For exam
 
 ### `--experimental`
 
-**Deprecated.** The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom`.
+**Deprecated**. The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom`.
 
 ### `--org=<ORG_ID>`
 

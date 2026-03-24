@@ -44,10 +44,6 @@ Use the `-d` or `--debug` option to output the debug logs.
 
 ## Options
 
-### `--experimental`
-
-**Deprecated**. The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom test`.
-
 ### `--org=<ORG_ID>`
 
 Specify the `<ORG_ID>` to run the policy test against the policies of a specific Snyk Organization.
