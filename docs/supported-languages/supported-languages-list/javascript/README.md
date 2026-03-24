@@ -99,7 +99,7 @@ The following frameworks and libraries are supported:
 
 ### Supported file formats
 
-The following file formats are supported:  `.ejs`, `.es`, `.es6`, `.htm`, `.html`, `.js`, `.jsx`, `.ts`, `.cts`, `.mts`, `.tsx`, `.vue`, `.mjs`, `.cjs`
+The following file formats are supported:  `.ejs`, `.es`, `.es6`, `.htm`, `.html`, `.js`, `.jsx`, `.ts`, `.cts`, `.mts`, `.tsx`, `.vue`, `.mjs`, `.cjs`, `.erb` .
 
 ### Available features
 

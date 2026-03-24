@@ -27,3 +27,4 @@ Each rule includes the following information.
 | Inadequate Padding for AES encryption                       | CWE-326          | OWASP:A02              | No          |
 | Use of a Broken or Risky Cryptographic Algorithm            | CWE-327          | OWASP:A02              | No          |
 | Use of Password Hash With Insufficient Computational Effort | CWE-916          | OWASP:A02              | No          |
+| Improper Certificate Validation                             | CWE-295          | OWASP:A07              | No          |
