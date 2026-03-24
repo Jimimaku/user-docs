@@ -11570,6 +11570,29 @@
                 ],
                 "type": "object"
               },
+              "project": {
+                "description": "Snyk Project in which the Finding was discovered",
+                "properties": {
+                  "data": {
+                    "properties": {
+                      "id": {
+                        "format": "uuid",
+                        "type": "string"
+                      },
+                      "type": {
+                        "pattern": "^[a-z][a-z0-9]*(_[a-z][a-z0-9]*)*$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "id"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "type": "object"
+              },
               "test": {
                 "description": "Test in which this finding was discovered.",
                 "properties": {
