@@ -1,16 +1,15 @@
 # AI-BOM
 
-**Note**: AI-BOM is an experimental feature and is subject to breaking changes without notice. If you are using AI-BOM, Snyk recommends installing the Snyk CLI from the [release](../releases-and-channels-for-the-snyk-cli.md#stable) channel.
-
 ## Prerequisites
 
-* The `snyk aibom` feature requires an internet connection.
-* Snyk CLI v1.1298.3 (or later).
-* Your Project must be written in Python and using a [package manager](../../../supported-languages/supported-languages-list/python/) supported by Snyk.
+- The `snyk aibom` feature requires an internet connection.
+- Snyk CLI v1.1298.3 (or later).
 
 ## Usage
 
-`$ snyk aibom --experimental [<OPTION>]`
+`$ snyk aibom [<OPTION>]`
+
+**See also:** [`snyk aibom test`](aibom-test.md) — generate an AI-BOM and test it against your tenant's policies.
 
 ## Description
 
@@ -20,10 +19,10 @@ The supported format is CycloneDX v1.6 (JSON).
 
 In the JSON file, you can see the following AI dependencies and components:
 
-* **Models:** You can see your usage of foundational models (such as GPT-4) and open-source models (such as Llama-4). Where possible, the information surfaced also refers to model card, license, and other information.
-* **Agents:** Identified based on popular AI agent libraries.
-* **Tools:** Identified based on popular patterns of tool calling.
-* **MCPs:** Identified based on the official MCP SDK, in addition to other popular ways of building MCPs.
+- **Models:** You can see your usage of foundational models (such as GPT-4) and open-source models (such as Llama-4). Where possible, the information surfaced also refers to model card, license, and other information.
+- **Agents:** Identified based on popular AI agent libraries.
+- **Tools:** Identified based on popular patterns of tool calling.
+- **MCPs:** Identified based on the official MCP SDK, in addition to other popular ways of building MCPs.
 
 ## Exit codes
 
@@ -45,19 +44,17 @@ MCP is an open standard that applications use to connect LLMs with external tool
 
 `snyk aibom` analyzes your source code to identify and categorize MCP components into a clear dependency graph:
 
-* **MCP client**: The component in your code that initiates a connection to a server.
-* **MCP server**: The component providing tools or resources. This can be a local script or a remote network service.
-* **Tools and resources**: The specific functions (tool) or data (resource) made available by an MCP server.
+- **MCP client**: The component in your code that initiates a connection to a server.
+- **MCP server**: The component providing tools or resources. This can be a local script or a remote network service.
+- **Tools and resources**: The specific functions (tool) or data (resource) made available by an MCP server.
 
 When you run `snyk aibom`, the output shows these dependencies clearly. For example, you can see a chain showing that your root application depends on an mcp-client, which depends on an mcp-server, which in turn provides a specific tool. This gives you full visibility into the services your AI application relies on.
-
-**Note:** AI-BOM scans are included for Snyk users using the Snyk CLI.
 
 ## Options
 
 ### `--experimental`
 
-**Required**. Use experimental command features. This option is required because the command is in its experimental phase.
+**Deprecated**. The command still accepts this flag for backwards compatibility, but as of Snyk CLI v1.1304.0 it is no longer required to run `snyk aibom`.
 
 ### `--org=<ORG_ID>`
 
@@ -73,13 +70,13 @@ Default: `<ORG_ID>` that is the current preferred Organization in your [Account 
 
 ### `--html`
 
-**Optional.** Embed the AIBOM into an HTML visualization of the AIBOM components and their relationships.
+**Optional**. Embed the AIBOM into an HTML visualization of the AIBOM components and their relationships.
 
 ### `[--json-file-output]`
 
-**Optional.** Save the AIBOM output as a JSON data structure directly to the specified file.
+**Optional**. Save the AIBOM output as a JSON data structure directly to the specified file.
 
-#### Upcoming Features in 1.1303.0
+#### Available in 1.1303.0
 
 ### `--upload`
 
