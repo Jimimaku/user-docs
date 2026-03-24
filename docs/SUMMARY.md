@@ -277,6 +277,7 @@
   * [CLI commands and options summary](developer-tools/snyk-cli/cli-commands-and-options-summary.md)
   * [CLI help](developer-tools/snyk-cli/commands/README.md)
     * [AI-BOM](developer-tools/snyk-cli/commands/aibom.md)
+    * [AI-BOM test](developer-tools/snyk-cli/commands/aibom-test.md)
     * [Auth](developer-tools/snyk-cli/commands/auth.md)
     * [Code](developer-tools/snyk-cli/commands/code.md)
     * [Code test](developer-tools/snyk-cli/commands/code-test.md)
