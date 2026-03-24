@@ -92,6 +92,10 @@ For **Organization service accounts**, choose from the standard roles, **Org Adm
 
 ### Create the service account
 
+{% hint style="warning" %}
+To align with security best practice, a service account token is only generated once. If you lose this token you will need to create a new service account and safely store that newly generated token.
+{% endhint %}
+
 Click **Create**.
 
 The token is generated and displayed.
