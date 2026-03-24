@@ -1,7 +1,5 @@
 # AI-BOM
 
-**Note**: AI-BOM is an experimental feature and is subject to breaking changes without notice. If you are using AI-BOM, Snyk recommends installing the Snyk CLI from the [release](../releases-and-channels-for-the-snyk-cli.md#stable) channel.
-
 ## Prerequisites
 
 - The `snyk aibom` feature requires an internet connection.
