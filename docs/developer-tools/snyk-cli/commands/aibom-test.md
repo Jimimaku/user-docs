@@ -72,10 +72,10 @@ This generates an AI-BOM for the current directory, runs the policy test for the
 
 ### `--json-file-output=<OUTPUT_FILE_PATH>`
 
-**Optional.** Write the policy test results to a JSON file at the given path instead of printing the report. The JSON includes full issue details and closed issues, which are not shown in the on-screen report.
+**Optional**. Write the policy test results to a JSON file at the given path instead of printing the report. The JSON includes full issue details and closed issues, which are not shown in the on-screen report.
 
 Example: `$ snyk aibom test --experimental --json-file-output=results.json`
 
 ### `--severity-threshold=<low|medium|high|critical>`
 
-**Optional.** Minimum severity that triggers `action_needed` (exit code 1). Only issues at or above this level cause the command to exit with 1. Default: `low`.
+**Optional**. Minimum severity that triggers `action_needed` (exit code 1). Only issues at or above this level cause the command to exit with 1. Default: `low`.
