@@ -1,7 +1,7 @@
 # Rust rules
 
 {% hint style="info" %}
-Code analysis support for Rust is in Early Access and is available only with Enterprise plans. To enable the feature, see [Snyk Preview](../../snyk-platform-administration/snyk-preview.md).
+Code analysis support for Rust is in Early Access and is available only with Enterprise plans. To enable the feature, see [Snyk Preview](../../../snyk-platform-administration/snyk-preview.md).
 {% endhint %}
 
 Each rule includes the following information.

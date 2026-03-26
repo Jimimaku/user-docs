@@ -14,7 +14,7 @@ For .NET with Snyk Code, C# and VB.NET are supported.&#x20;
 
 For .NET with Snyk Code, the following frameworks and libraries are supported:
 
-* .NET 6.0 - 9.0
+* .NET 6.0 - 10.0
 * .NET Core
 * .NET Framework 4.6-4.8.x
 * Anthropic.SDK
