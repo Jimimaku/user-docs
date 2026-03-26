@@ -981,6 +981,20 @@ Rendering the data to at least one of the required outputs failed. Please review
 If the details do not help resolve the issue, consider debugging or contacting support.
 
 
+### [SNYK-CLI-0025](#snyk-cli-0025)
+<a id="#SNYK-CLI-0025"></a>
+
+**Snyk CLI operation interrupted**
+
+Snyk CLI stopped before completing the operation. This occurs if you cancel the command with Ctrl+C, your system runs low on memory, or another program terminates Snyk. 
+Run the command again. If the problem persists, ensure that your system has enough memory and resources for Snyk CLI operations. 
+For additional troubleshooting, refer to Debugging the Snyk CLI.
+
+
+**Help Links:**
+
+* [https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli](https://docs.snyk.io/snyk-cli/debugging-the-snyk-cli)
+
 ### [SNYK-OS-7001](#snyk-os-7001)
 <a id="#SNYK-OS-7001"></a>
 
@@ -3494,9 +3508,7 @@ Snyk was unable to authorize with your SCM provider. If your Organization has SA
 
 **Too many files**
 
-Snyk was unable to retrieve the repository because the overall file count exceeds the limit of 40000.
-
-To reduce the file count, use a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.
+Snyk was unable to retrieve the repository because the stored file count exceeds the limit of 4,500,000.
 
 **HTTP Status:** [500](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 
@@ -3505,9 +3517,7 @@ To reduce the file count, use a `.snyk` file to ignore certain directories or fi
 
 **Repository size too large**
 
-Snyk was unable to retrieve the repository because the size of the repository exceeds 15 GB.
-
-To reduce the overall size of the repository, use a a `.snyk` file to ignore certain directories or files. Alternatively, analyze individual work subdirectories separately.
+Snyk was unable to retrieve the repository because the stored size exceeds 70 GB.
 
 **HTTP Status:** [500](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 
