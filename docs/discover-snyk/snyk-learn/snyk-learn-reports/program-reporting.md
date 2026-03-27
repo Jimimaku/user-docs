@@ -12,6 +12,10 @@ The goal of the engagement report is to provide insights into the overall progre
 
 Read more about this report [here](../../../manage-risk/analytics/reports-tab/education-reports.md#learn-engagement).
 
+{% hint style="info" %}
+[Learning Programs](../snyk-learn-learning-programs.md) are not included in the Engagement Report
+{% endhint %}
+
 <figure><img src="../../../.gitbook/assets/Screenshot 2025-09-29 at 19.30.57 (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Learning Impact & Opportunities report

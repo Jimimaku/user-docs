@@ -31,6 +31,10 @@ The report allows you to track:
 * Content usage breakdown
 * Filtering: custom time periods, users, organizations, organization role, and Lesson titles.
 
+{% hint style="info" %}
+[Learning Programs](../../../discover-snyk/snyk-learn/snyk-learn-learning-programs.md) are not included in the Engagement Report
+{% endhint %}
+
 ### Learn engagement snapshot and assignment progress
 
 The first section of the report focuses on showing key engagement statistics and the progress of any assignments. Tool tips provide more details on the definitions of the metrics.
