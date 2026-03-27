@@ -47,14 +47,14 @@ A preview version is not recommended for production environments. It may contain
   * MacOS arm64: [https://downloads.snyk.io/cli/preview/snyk-macos-arm64](https://downloads.snyk.io/cli/preview/snyk-macos-arm64)
   * Linux arm64: [https://downloads.snyk.io/cli/preview/snyk-linux-arm64](https://downloads.snyk.io/cli/preview/snyk-linux-arm64)
   * Alpine arm64: [https://downloads.snyk.io/cli/preview/snyk-alpine-arm64](https://downloads.snyk.io/cli/preview/snyk-alpine-arm64)
-  * For FIPS, add `fips` to the base URL, for example, `https://downloads.snyk.io/fips/cli/preview/snyk-linux`&#x20;
-  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/preview/snyk-linux`&#x20;
+  * For FIPS, add `fips` to the base URL, for example, `https://downloads.snyk.io/fips/cli/preview/snyk-linux`
+  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/preview/snyk-linux`
 
 ### rc
 
 * Release candidate: pre-releases are deployed at distinct points in time and contain a version of the CLI that is expected to be promoted to stable after additional testing.
 * Version Pattern: v{MAJOR}.{MINOR}.{PATCH}-rc
-* Cadence: every eight weeks, two weeks before a stable release (hotfix releases possible)
+* Cadence: every six weeks, ten days before a stable release (hotfix releases possible)
 * Availability:
   * Linux: [https://downloads.snyk.io/cli/rc/snyk-linux](https://downloads.snyk.io/cli/rc/snyk-linux)
   * Windows: [https://downloads.snyk.io/cli/rc/snyk-win.exe](https://downloads.snyk.io/cli/rc/snyk-win.exe)
@@ -63,14 +63,14 @@ A preview version is not recommended for production environments. It may contain
   * MacOS arm64: [https://downloads.snyk.io/cli/rc/snyk-macos-arm64](https://downloads.snyk.io/cli/rc/snyk-macos-arm64)
   * Linux arm64: [https://downloads.snyk.io/cli/rc/snyk-linux-arm64](https://downloads.snyk.io/cli/rc/snyk-linux-arm64)
   * Alpine arm64: [https://downloads.snyk.io/cli/rc/snyk-alpine-arm64](https://downloads.snyk.io/cli/rc/snyk-alpine-arm64)
-  * For fips, add `fips` to the base URL, for example, `https://downloads.snyk.io/fips/cli/rc/snyk-linux`&#x20;
-  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/rc/snyk-linux`&#x20;
+  * For fips, add `fips` to the base URL, for example, `https://downloads.snyk.io/fips/cli/rc/snyk-linux`
+  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/rc/snyk-linux`
 
 ### stable
 
 * Stable: builds are deployed at distinct points in time after additional testing and are considered stable.
 * Version Pattern: v{MAJOR}.{MINOR}.{PATCH}
-* Cadence: every eight weeks (hotfix releases possible)
+* Cadence: every six weeks (hotfix releases possible)
 * Availability:
   * [https://github.com/snyk/cli/releases/](https://github.com/snyk/cli/releases/)
   * Linux: [https://downloads.snyk.io/cli/stable/snyk-linux](https://downloads.snyk.io/cli/stable/snyk-linux)
@@ -81,7 +81,7 @@ A preview version is not recommended for production environments. It may contain
   * Linux arm64: [https://downloads.snyk.io/cli/stable/snyk-linux-arm64](https://downloads.snyk.io/cli/stable/snyk-linux-arm64)
   * Alpine arm64: [https://downloads.snyk.io/cli/stable/snyk-alpine-arm64](https://downloads.snyk.io/cli/stable/snyk-alpine-arm64)
   * For fips, add `fips` to the base URL, for example, `https://downloads.snyk.io/fips/cli/stable/snyk-linux`
-  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/stable/snyk-linux`&#x20;
+  * For experimental builds, add `experimental` to the base URL, for example, `https://downloads.snyk.io/experimental/cli/stable/snyk-linux`
 * Installation methods:
   * [npm](install-or-update-the-snyk-cli/#install-the-snyk-cli-with-npm-or-yarn)
   * [Homebrew](install-or-update-the-snyk-cli/#install-with-homebrew-macos-linux)
@@ -90,7 +90,7 @@ A preview version is not recommended for production environments. It may contain
 
 Snyk recommends opting in to a stable channel for the following reasons:
 
-* A stable build is tested extensively over the course of eight weeks during which Snyk development teams use the CLI in the SDLC process
+* A stable build is tested extensively over the course of six weeks during which Snyk development teams use the CLI in the SDLC process
 * Accompanying release notes help you decide which version best suits your needs
 
 However, customers who would like to receive code changes as soon as they are merged can opt in to the preview channel. Note that Snyk does not offer support for the preview channel and expects known issues to be present in this channel.
@@ -137,12 +137,12 @@ This section specifies the minimum requirements for the latest CLI, covering asp
 Snyk CLI is designed and expected to run on operating system environments that are actively supported by their vendors and have not reached their End of Support (EOS) or End of Life (EOL). Once an operating system environment reaches its end of support, Snyk will cease testing and providing support for Snyk CLI in that specific environment.
 {% endhint %}
 
-| OS\Architecture | amd64 (minimum requirements)                                                                  | arm64 (minimum requirements)                                                                                       |
-| --------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| macOS           | 10.13                                                                                         | 10.13                                                                                                              |
-| Linux           | glibc ≥ 2.28 & OpenSSL ≥ 3.0 (Enterprise Linux 8, Ubuntu 20.04, Debian buster, other distros) | <p>glibc ≥ 2.31 &#x26; OpenSSL ≥ 3.0 </p><p>(Enterprise Linux 9, Ubuntu 20.04, Debian bullseye, other distros)</p> |
-| Alpine          | musl libc >= 1.1.18 (3.7.3, other distros)                                                    | musl libc >= 1.1.18 (3.7.3, other distros)                                                                         |
-| Windows         | 8.1                                                                                           | -                                                                                                                  |
+| OS\Architecture | amd64 (minimum requirements)                                                                  | arm64 (minimum requirements)                                                                                      |
+| --------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| macOS           | 10.13                                                                                         | 10.13                                                                                                             |
+| Linux           | glibc ≥ 2.28 & OpenSSL ≥ 3.0 (Enterprise Linux 8, Ubuntu 20.04, Debian buster, other distros) | <p>glibc ≥ 2.31 &#x26; OpenSSL ≥ 3.0</p><p>(Enterprise Linux 9, Ubuntu 20.04, Debian bullseye, other distros)</p> |
+| Alpine          | musl libc >= 1.1.18 (3.7.3, other distros)                                                    | musl libc >= 1.1.18 (3.7.3, other distros)                                                                        |
+| Windows         | 8.1                                                                                           | -                                                                                                                 |
 
 ## Install standalone executables from a channel
 
