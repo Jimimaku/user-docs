@@ -2,7 +2,7 @@
 
 ## Overview of licenses
 
-Every time you test your code in the Snyk web UI, the [Snyk CLI](../../../developer-tools/snyk-cli/), or using [PR Checks](../../pull-requests/pull-request-checks/), your repositories are scanned for vulnerabilities and license compliance. This includes all of your direct and indirect dependencies. Snyk scans your manifest files and checks for license issues against Snyk known licenses.
+Every time you test your code in the Snyk web UI, the Snyk CLI, or using PR Checks, your repositories are scanned for vulnerabilities and license compliance. This includes all of your direct and indirect dependencies. Snyk scans your manifest files and checks for license issues against Snyk known licenses.
 
 ### Default license policy
 
@@ -11,34 +11,33 @@ To enable customers to get started with license compliance faster, Snyk created 
 By default, Snyk determines the severity of a license issue in the following way:
 
 * High severity - licenses that definitely present issues for commercial software
-* Medium severity - licenses with clauses that may be of concern and should be reviewed
+* Medium severity - licenses with clauses that may be of concern and should be reviewed.
 
-For more information, see [License policies](../../../manage-risk/policies/license-policies/) and [Open Source Licenses: Types and Comparison](https://snyk.io/learn/open-source-licenses/).
+For more information, visit [License policies](../../../manage-risk/policies/license-policies/) and [Open Source Licenses: Types and Comparison](https://snyk.io/learn/open-source-licenses/).
 
 ### How Snyk uses licenses
 
 To facilitate the onboarding of your developers, Snyk recommends that your teams review these defaults, update severities, and add instructions based on license type, in line with the policies outlined by your Legal teams.
 
-After the license policy is updated, when Snyk detects a license violation, it is displayed for all users in the Organization in the test results on the Snyk web UI, the [Snyk CLI](../../../developer-tools/snyk-cli/), or [PR Checks](../../pull-requests/pull-request-checks/), in the same way as a security vulnerability, and including the severity and instructions you configured.
+After the license policy is updated, when Snyk detects a license violation, it is displayed for all users in the Organization in the test results on the Snyk web UI, the Snyk CLI, or PR Checks, in the same way as a security vulnerability, and including the severity and instructions you configured.
 
-An example follows:
+Example:
 
 <figure><img src="../../../.gitbook/assets/Screenshot 2026-02-15 at 14.08.12.png" alt="License issue Card - Snyk web UI"><figcaption><p>License issue card in the Snyk Web UI</p></figcaption></figure>
 
 ## View and manage license policies
 
-You can view an inventory of all of your licenses across all of your Projects. For more information, visit [View licenses](../../../manage-risk/dependencies-and-licenses/view-licenses.md).
+You can view an inventory of all of your licenses across all your Projects. For more information, visit [View licenses](../../../manage-risk/dependencies-and-licenses/view-licenses.md).
 
 Different customers may have different needs and tolerance levels for different license types. Snyk encourages you to ensure you have made the needed changes or created new policies that fit your company's specific requirements.
 
 New licenses added by Snyk default to a severity of **None** and do not inherit the **Unknown** license severity. Unless you explicitly configure a severity for the newly supported license, it will not appear in Snyk test results.
 
-If you notice a license with the wrong license type assigned to it, you can contact Snyk support. Snyk will investigate the request and update the license type if needed.
+If you notice a license with the wrong license type assigned to it, contact Snyk support.
 
-## License Updates
+## License updates
 
-Snyk updates the license list in alignment with the latest [SPDX License List](https://spdx.org/licenses/), an integral part of the System Package Data Exchange (SPDX) Specification. \
-To view the full list of supported licenses, see the [License Policy results page](https://docs.snyk.io/manage-risk/policies/license-policies/license-policy-results).
+Snyk updates the license list in alignment with the latest [SPDX License List](https://spdx.org/licenses/), an integral part of the System Package Data Exchange (SPDX) Specification. To view the full list of supported licenses, see the [License Policy results page](https://docs.snyk.io/manage-risk/policies/license-policies/license-policy-results).
 
 ## Multiple licenses
 
@@ -80,4 +79,4 @@ Snyk does not support scanning for license issues for packages whose version has
 
 ## Licenses data sources
 
-In some cases, the developer specifies one license type in the source repository (for example, GitHub, GitLab) and another when releasing the package (for example, to npm, pypi). Snyk ensures the accuracy of license information by examining the package manager's license definition to verify that the licenses match the released package. If the developer did not define the licenses in the package manager, this could result an `unknown` value.
+In certain cases, the developer specifies one license type in the source repository (for example, GitHub, GitLab) and another when releasing the package (for example, to npm, pypi). Snyk ensures the accuracy of license information by examining the package manager's license definition to verify that the licenses match the released package. If the developer did not define the licenses in the package manager, this could result in `unknown` values.
