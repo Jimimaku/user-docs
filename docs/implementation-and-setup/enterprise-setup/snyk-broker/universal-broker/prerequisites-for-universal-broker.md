@@ -8,7 +8,7 @@ Using the snyk-broker-config CLI tool is supported on Windows.
 
 Before installing the Universal Broker `snyk-broker-config` CLI tool, be sure you have met the following prerequisites. If you need help, contact your Snyk account team.
 
-* Minimum client machine system requirements: 1 CPU and 256 MB RAM. \
+* Minimum client machine system requirements: 1 CPU and 512 MB RAM. \
   Note: If you're performing a high-load import, we would recommend more RAM be allocated. This could be decreased after traffic is lowered.
 * Network access that is allowed by any firewalls installed on your network: an outbound TLS (443) to <kbd>https://broker.snyk.io</kbd> AND `https://api.snyk.io` or your [regional Broker URL](../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 * A Snyk account and your personal Snyk API token; you cannot use a service account.
