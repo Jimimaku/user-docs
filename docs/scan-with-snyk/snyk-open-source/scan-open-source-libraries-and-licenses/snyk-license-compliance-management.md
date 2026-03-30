@@ -19,13 +19,13 @@ Before checking license compliance with Snyk License Compliance Management, ensu
 
 ## **Define license policies**
 
-To take effective action based on license issues, you need to define policies defining these actions based on license types. Policies provide a way to capture different requirements within an Organization based on factors such as line of business. Work with your legal team to create policies that are specific to your company.
+To take effective action based on license issues, you need to define policies that specify these actions for each license type. Policies provide a way to capture different requirements within an Organization based on factors such as line of business. Work with your legal team to create policies tailored to your company.
 
-To open your Snyk Group default license policy, navigate to the **Policies** menu option in your Group.
+To open your Snyk Group License policy, navigate to the **Policies** menu option in your Group.
 
 ### Create policy rules
 
-Each policy contains rules detailing which licenses are acceptable and which are forbidden for use, together with a severity level that indicates how severe the license violation is. For example, severity levels for internal-only license issues may be less severe than for those released externally.
+Each policy contains rules detailing which licenses are acceptable and which are forbidden for use, together with a severity level that indicates how severe the license violation is.
 
 You can create and edit multiple license policies for Organizations. For details, see [Create a license policy and rules](../../../manage-risk/policies/license-policies/create-a-license-policy-and-rules.md).
 
@@ -35,7 +35,7 @@ Snyk’s [Git-based integrations ](../../../developer-tools/scm-integrations/org
 
 <div align="left"><figure><img src="../../../.gitbook/assets/OS-issues-overview-with-license-issues-filter.png" alt=""><figcaption><p>Issues overview with the "License issues" filter applied</p></figcaption></figure></div>
 
-The below example shows a high-severity issue for a GPL-2.0 license, with accompanying instructions as defined in the policies for that license.
+The example below shows a high-severity issue under the GPL-2.0 license, with accompanying instructions as defined in the license's policies.
 
 You can also view license issues using the Snyk CLI tool after running `snyk test`:
 
@@ -43,7 +43,7 @@ You can also view license issues using the Snyk CLI tool after running `snyk tes
 
 ### **View all license information**
 
-You can view and share detailed lists of licenses being used by all Projects in your Organization and see a report that lists all the open-source components and licenses.&#x20;
+You can view and share detailed lists of licenses being used by all Projects in your Organization and see a report that lists all the open-source components and licenses.
 
 ### **View license dependencies**
 
