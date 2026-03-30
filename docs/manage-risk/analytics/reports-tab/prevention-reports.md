@@ -55,7 +55,7 @@ This report shows the test usage in the IDE, CLI, and Snyk Studio by developers.
 {% hint style="info" %}
 **Feature availability**
 
-Snyk Pull request checks usage & performance report is in Early Access and available only for Enterprise plan customers. For more information, visit [Plans and pricing](https://snyk.io/plans/).
+Snyk Pull request checks usage & performance report is in Generally Availability for Enterprise plan customers. For more information, visit [Plans and pricing](https://snyk.io/plans/).
 {% endhint %}
 
 Monitor the use and results of Snyk Pull Request Checks to verify that critical vulnerabilities are identified before merging.
