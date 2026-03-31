@@ -3,12 +3,10 @@
 {% hint style="info" %}
 **Release status**
 
-Snyk repo content sync is in Early Access. For more information, visit [Snyk release process](../../discover-snyk/getting-started/snyk-release-process.md).
+Snyk repo content sync is in Early Access and available only with Enterprise plans. To enable the feature, visit [Snyk Preview](https://docs.snyk.io/snyk-admin/manage-settings/snyk-preview).
 {% endhint %}
 
-Repo content sync provides native, automatic synchronization between the Org-level SCM and Snyk. This feature ensures that your Snyk Projects accurately reflect the current security posture of your repositories without the need for manual re-imports or external synchronization tools like `snyk-api-import`.&#x20;
-
-Navigate to **Snyk Preview**, and enable the **Snyk Repo Content Sync** feature.
+Repo content sync provides native, automatic synchronization between the Org-level SCM and Snyk. This feature ensures that your Snyk Projects accurately reflect the current security posture of your repositories without the need for manual re-imports or external synchronization tools like `snyk-api-import`.
 
 ## Supported environments
 
