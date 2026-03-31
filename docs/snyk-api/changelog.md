@@ -1,3 +1,42 @@
+## 2025-11-05 - Updated 2026-03-31
+
+### POST - `/orgs/{org_id}/export` - Updated
+- added the new optional request property `data/attributes/filters/cve`
+
+- added the new optional request property `data/attributes/filters/issue_status`
+
+- added the new optional request property `data/attributes/filters/issue_type`
+
+- added the new optional request property `data/attributes/filters/nvd_severity`
+
+- added the new optional request property `data/attributes/filters/project_origin`
+
+- added the new optional request property `data/attributes/filters/project_target_display_name`
+
+- added the new optional request property `data/attributes/filters/project_target_ref`
+
+- added the new optional request property `data/attributes/filters/reachability`
+
+
+
+### POST - `/groups/{group_id}/export` - Updated
+- added the new optional request property `data/attributes/filters/cve`
+
+- added the new optional request property `data/attributes/filters/issue_status`
+
+- added the new optional request property `data/attributes/filters/issue_type`
+
+- added the new optional request property `data/attributes/filters/nvd_severity`
+
+- added the new optional request property `data/attributes/filters/project_origin`
+
+- added the new optional request property `data/attributes/filters/project_target_display_name`
+
+- added the new optional request property `data/attributes/filters/project_target_ref`
+
+- added the new optional request property `data/attributes/filters/reachability`
+
+
 ## 2025-11-05 - Updated 2026-02-27
 
 ### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/contexts` - Added
