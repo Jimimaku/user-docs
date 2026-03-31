@@ -70,7 +70,7 @@ For more information, see [Automated pull request creation for new fixes](../../
 #### Pull request tests
 
 {% hint style="info" %}
-Snyk Code PR Checks are only available for Bitbucket DC/Server versions 7.0 and above.
+Snyk Code PR Checks are only available for Bitbucket DC/Server versions 7.4 and above.
 {% endhint %}
 
 Snyk tests any newly created pull request in your repositories for security vulnerabilities and sends a build check to Bitbucket DC/Server. You can see directly from Bitbucket DC/Server whether or not the pull request introduces new security issues.
