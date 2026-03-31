@@ -704,6 +704,7 @@
 * [Assets inventory tabs](manage-assets/assets-inventory-layouts.md)
 * [Assets inventory components](manage-assets/assets-inventory-components.md)
 * [Assets inventory filters](manage-assets/assets-inventory-filters.md)
+* [Configure repository monitoring](manage-assets/configure-repository-monitoring.md)
 
 ## Manage risk
 

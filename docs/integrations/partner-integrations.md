@@ -45,9 +45,9 @@ To see the documentation for each integration, click on the integration name in 
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | FossID      | Currently in Beta, Snyk and FossID allow users to gain visibility into license usage to manage compliance requirements and minimize risk associated with misuse of licenses for open source packages, including files, snippets, and binaries. |
 
-## Coding Assistants
+## Coding assistants
 
-Coding Assistants focus on enhancing code security and are built using public APIs, within the IDE, or through MCP (Model Context Protocol). These integrations contribute to secure code generation, automated security checks, and streamlined secure development workflows.\
+Coding assistants focus on enhancing code security and are built using public APIs, within the IDE, or through MCP (Model Context Protocol). These integrations contribute to secure code generation, automated security checks, and streamlined secure development workflows.\
 \
 To see the documentation for each integration, click on the integration name in the table.
 
