@@ -14,3 +14,13 @@ For both dependencies and licenses, you can filter by Project or other filter cr
 {% hint style="info" %}
 Results from the Dockerfile Project type are filtered out by default in the filter criteria as they can result in duplication of results from scans of the images resulting from building the Dockerfiles. To match results from [AP](../../snyk-api/reference/reporting-api-v1.md)I calls, either filter out Dockerfiles from the API results or turn on Dockfiles in the Project type column of the filter.
 {% endhint %}
+
+{% hint style="info" %}
+**Snyk 2.0 (Early Access)**
+
+In the Snyk 2.0 UI, information about dependencies and licenses is available under **Analytics** > **Reports**.&#x20;
+
+Snyk 2.0 introduces UI enhancements to the platform navigation and is available in Early Access. This is being rolled out gradually, so not all users see the new navigation at the same time.
+
+If you are an existing user, you can switch between the new and classic navigation at any time using the toggle in your user profile menu. For more information, visit [Snyk 2.0 platform improvements](../../discover-snyk/getting-started/snyk-2.0-platform-improvements.md).
+{% endhint %}

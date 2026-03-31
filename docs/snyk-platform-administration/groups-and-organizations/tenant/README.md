@@ -16,13 +16,21 @@ Tenant-level roles include **Tenant Admin**, **Tenant Viewer**, and **Tenant Mem
 
 You can [manage users of a Tenant](manage-users-in-a-tenant.md) through the **Members** page on the Tenant level.
 
-<div align="center"><figure><img src="../../../.gitbook/assets/tenant-nav.png" alt="Tenant view in the Snyk navigation menu" width="199"><figcaption><p>Tenant view in the Snyk navigation menu</p></figcaption></figure></div>
-
 {% hint style="info" %}
 If you are a member of more than one Tenant, you can switch between them by selecting the Tenant name.
 {% endhint %}
 
-### Tenant Members
+{% hint style="info" %}
+**Snyk 2.0 (Early Access)**
+
+In the Snyk 2.0 UI, you can navigate between different levels of your account (Tenant, Group, and Organization) using the scope selector at the top of the page. When you select a scope, the side menu automatically displays the relevant tools and data for that area.
+
+Snyk 2.0 introduces UI enhancements to the platform navigation and is available in Early Access. This is being rolled out gradually, so not all users see the new navigation at the same time
+
+If you are an existing user, you can switch between the new and classic navigation at any time using the toggle in your user profile menu. For more information, visit [Snyk 2.0 platform improvements](../../../discover-snyk/getting-started/snyk-2.0-platform-improvements.md).
+{% endhint %}
+
+### Tenant members
 
 To view the users of a Tenant, select **Members**.
 

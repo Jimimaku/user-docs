@@ -62,28 +62,28 @@ Use this widget to see a maximum of top ten high-risk Class A repositories with 
 
 ### All Assets
 
-The All Assets tab under the Inventory menu provides a central view of all your assets, offering a comprehensive overview of your security posture. You can access a list of your assets and customize the view to meet your needs. Select the columns that you want to be visible, use filters to refine the information, and export the details to share them with others.
+The **All Assets** tab under the Inventory menu provides a central view of all your assets, offering a comprehensive overview of your security posture. You can access a list of your assets and customize the view to meet your needs. Select the columns that you want to be visible, use filters to refine the information, and export the details to share them with others.
 
 This unified view allows you to efficiently monitor assets and prioritize remediation for stronger application security.
 
 ### Asset Hierarchy
 
-The Asset Hierarchy in Snyk Inventory organizes all assets in a structured, hierarchical format.\
+The **Asset Hierarchy** in Snyk Inventory organizes all assets in a structured, hierarchical format.\
 Assets are sorted by issue counts, and where applicable, package assets are listed underneath the repositories where they are located.
 
-The Asset Hierarchy is visible only when no filters are applied, allowing you to see a clear, unfiltered view of your assets and their relationships.
+The **Asset Hierarchy** is visible only when no filters are applied, allowing you to see a clear, unfiltered view of your assets and their relationships.
 
 This layout helps in understanding the relationship between different assets and their associated issues, providing a comprehensive view of the asset landscape within your Organization.
 
 ### Teams
 
-The Teams tab in Snyk Inventory organizes assets from SCM repositories by team. Assets are grouped here according to the teams assigned to them within the SCM organizations.
+The **Teams** tab in Snyk **Inventory** organizes assets from SCM repositories by team. Assets are grouped here according to the teams assigned to them within the SCM organizations.
 
 Only SCM organizations that have teams and repositories assigned to a team will appear in this layout. This helps in visualizing and managing repository assets according to team structures, making it easier to track and prioritize security efforts based on team responsibilities.
 
 ### Technology
 
-The Technology tab in Snyk Inventory groups SCM repository assets by the technology they use, such as programming languages and frameworks. This categorization is detected and tagged by Snyk Essentials, allowing you to easily identify and manage assets based on the used technologies.
+The **Technology** tab in Snyk **Inventory** groups SCM repository assets by the technology they use, such as programming languages and frameworks. This categorization is detected and tagged by Snyk Essentials, allowing you to easily identify and manage assets based on the used technologies.
 
 This feature helps in understanding the technological landscape of your repositories and can be useful for prioritizing security efforts and managing risks associated with different technologies.
 
@@ -116,7 +116,7 @@ The Clusters column is hidden by default. To enable it, click Columns, select Cl
 
 Snyk Essentials automatically derives assets from Snyk and any SCM tools that are onboarded using the Snyk Essentials Integration. SCM tools from the Snyk Essentials Integration may add additional repositories that are not scanned by Snyk and additional contexts, such as teams and code committers.
 
-### Repository assets, scanned artifacts and packages
+### Repository assets, scanned artifacts, and packages
 
 #### Repository assets
 

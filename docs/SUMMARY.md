@@ -9,6 +9,7 @@
 * [Getting started](discover-snyk/getting-started/README.md)
   * [Snyk release process](discover-snyk/getting-started/snyk-release-process.md)
   * [Glossary](discover-snyk/getting-started/glossary.md)
+  * [Snyk 2.0 platform improvements](discover-snyk/getting-started/snyk-2.0-platform-improvements.md)
   * [Pilot Guide](discover-snyk/getting-started/pilot-guide/README.md)
     * [Access and deployment](discover-snyk/getting-started/pilot-guide/access-and-deployment/README.md)
       * [Provision your account](discover-snyk/getting-started/pilot-guide/access-and-deployment/provision-your-account.md)

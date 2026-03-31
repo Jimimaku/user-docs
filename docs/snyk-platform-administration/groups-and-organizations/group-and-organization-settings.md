@@ -2,11 +2,7 @@
 
 ## Group settings
 
-At the Group level, select **Settings** to manage Group settings:
-
-<figure><img src="../../.gitbook/assets/Group Settings.png" alt=""><figcaption></figcaption></figure>
-
-From the Group settings menu, select **Settings** and then select one of the Group settings options:
+At the Group level, select **Settings** to manage Group settings and then select one of the Group settings options:
 
 * **General**: See [Group general settings](groups/group-general-settings.md) for details.
 * **SSO**: See [Self-Serve Single Sign-On (SSO)](../../implementation-and-setup/enterprise-setup/single-sign-on-sso-for-authentication-to-snyk/configure-self-serve-single-sign-on-sso/) for details.
@@ -21,13 +17,7 @@ From the Group settings menu, select **Settings** and then select one of the Gro
 
 ## Organization settings
 
-At the Organization level, select **Settings** to manage Organization settings:
-
-<div align="left"><figure><img src="../../.gitbook/assets/org_settings.png" alt="Organization settings"><figcaption><p>Organization settings</p></figcaption></figure></div>
-
-<figure><img src="../../.gitbook/assets/Org Settings.png" alt=""><figcaption></figcaption></figure>
-
-From the Organization setting menu, select **Settings** and then select one of the Organization settings options:
+At the Organization level, select **Settings** to manage Organization settings and then select one of the Organization settings options:
 
 * **General**: See [Organization general settings](organizations/organization-general-settings.md) for details.
 * **Service accounts**: See [Service accounts](../../implementation-and-setup/enterprise-setup/service-accounts/) for details.
@@ -38,3 +28,13 @@ From the Organization setting menu, select **Settings** and then select one of t
 * **Usage**: See the [Usage settings](usage-settings.md) page for details.
 * **Notifications**: See the [Manage notifications](../manage-notifications.md) page for details.
 * **Snyk Preview**: See the [Snyk Preview page](../snyk-preview.md) for details.
+
+{% hint style="info" %}
+**Snyk 2.0 (Early Access)**
+
+In the Snyk 2.0 UI, **Settings** is the unified area for all Group and Organization settings, depending on the area you choose using the scope selector at the top of the page.
+
+Snyk 2.0 introduces UI enhancements to the platform navigation and is available in Early Access. This is being rolled out gradually, so not all users see the new navigation at the same time.
+
+If you're an existing user, you can switch between the new and classic navigation at any time using the toggle in your user profile menu. For more information, visit [Snyk 2.0 platform improvements](../../discover-snyk/getting-started/snyk-2.0-platform-improvements.md).
+{% endhint %}

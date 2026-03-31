@@ -6,9 +6,7 @@ Snyk shows your preferred Organization by default when you log into the Snyk Web
 
 If your company has multiple Groups, you must be aware of the Group you are viewing. Each Group contains different Organizations and has different settings.
 
-To navigate to a different Group, click the Group switcher icon and select a Group:
-
-<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2023-04-25 at 10.06.46.png" alt="Switch Group"><figcaption><p>Switch Group</p></figcaption></figure></div>
+To navigate to a different Group, click the Group switcher icon and select a Group.
 
 To view or add to your personal Organizations, select **Ungrouped**.
 
@@ -22,9 +20,17 @@ You must also be aware of the Organization you are viewing. Organizations contai
 
 If you add Projects through GitHub integration, these Projects are added to the Organization you are viewing, that is, the Organization you have selected.
 
-To navigate to a different Organization, click the Organization switcher and select an Organization:
+To navigate to a different Organization, click the Organization switcher and select an Organization.
 
-<div align="left"><figure><img src="../../.gitbook/assets/Screenshot 2023-03-13 at 10.31.14.png" alt="Switch Organization"><figcaption><p>Switch Organization</p></figcaption></figure></div>
+{% hint style="info" %}
+**Snyk 2.0 (Early Access)**
+
+In the Snyk 2.0 UI, you can navigate between different levels of your account (Tenant, Group, and Organization) using the scope selector at the top of the page. When you select a scope, the side menu automatically displays the relevant tools and data for that area.
+
+Snyk 2.0 introduces UI enhancements to the platform navigation and is available in Early Access. This is being rolled out gradually, so not all users see the new navigation at the same time.
+
+If you are an existing user, you can switch between the new and classic navigation at any time using the toggle in your user profile menu. For more information, visit [Snyk 2.0 platform improvements](../../discover-snyk/getting-started/snyk-2.0-platform-improvements.md).
+{% endhint %}
 
 ## **Switch Organization in the CLI**
 
