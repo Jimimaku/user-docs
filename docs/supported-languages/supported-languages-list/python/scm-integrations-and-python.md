@@ -100,6 +100,32 @@ Poetry dev dependencies are not included in scans by default. To change this, mo
 
 <figure><img src="../../../.gitbook/assets/image (9).png" alt="Poetry dev dependency settings"><figcaption><p>Poetry dev dependency settings</p></figcaption></figure>
 
+A known limitation for Poetry is mixed `include` entries in `pyproject.toml`
+
+Poetry scans fail with an unparsable manifest / unable to parse `pyproject.toml`  if mixed `include` entries are defined in `pyproject.toml`
+
+Under `[tool.poetry]`, Poetry allows `include` to mix plain path strings and `{ path = "...", format = [...] }` inline tables in one array. That is valid TOML 1.0 and a valid Poetry configuration.
+
+Snyk’s Poetry analysis parses `pyproject.toml` with a TOML implementation that does not accept mixed-type inline arrays. Parsing stops at that array, so the file is treated as invalid before dependency logic runs.
+
+Example of a failing configuration:
+
+```
+include = [
+  "py.typed",
+  { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
+]
+```
+
+To fix this issue, use only one shape for every entry. For example, use only inline tables:
+
+```
+include = [
+  { path = "py.typed" },
+  { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
+]
+```
+
 ## SCM repositories and Pipenv
 
 {% hint style="warning" %}

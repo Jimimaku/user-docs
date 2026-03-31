@@ -10,7 +10,7 @@ To set the Python version in the CLI, add the following option to `snyk test` or
 
 For details, see the options for Python Projects in the [`snyk test`](../../../developer-tools/snyk-cli/commands/test.md) and [`snyk monitor`](../../../developer-tools/snyk-cli/commands/monitor.md) help.
 
-## Pip and  CLI
+## Pip and CLI
 
 {% hint style="info" %}
 Run `pip install` before scanning with the CLI, for example:
@@ -36,6 +36,32 @@ To build the dependency tree for a Poetry application, Snyk uses `pyproject.toml
 
 If no `poetry.lock` file is present; you should run `poetry lock` to generate one before scanning.
 
+For Poetry, it is possible to get mixed `include` entries in `pyproject.toml`
+
+Snyk fails to scan Poetry Projects and returns an "unparsable manifest" or "unable to parse pyproject.toml" error if you define mixed include entries in the `pyproject.toml` file.
+
+Under `[tool.poetry]`, Poetry allows the `include` array to mix plain path strings and `{ path = "...", format = [...] }` inline tables. This is valid TOML 1.0 and a valid Poetry configuration.
+
+However, Snyk parses `pyproject.toml` using a TOML implementation that does not accept mixed-type inline arrays. Snyk stops parsing at the mixed array and treats the file as invalid before it runs the dependency logic.
+
+Example of a failing configuration:
+
+```
+include = [
+  "py.typed",
+  { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
+]
+```
+
+To fix this issue, use only one format for every entry. For example, use only inline tables:
+
+```
+include = [
+  { path = "py.typed" },
+  { path = "src/my_package/templates/**/*", format = ["sdist", "wheel"] },
+]
+```
+
 ## Pipenv and CLI
 
 To build the dependency tree for a Pipenv application, Snyk uses `Pipfile` and `Pipfile.lock` files. Both files must be present for Snyk to scan Pipenv dependencies and identify issues.
@@ -48,7 +74,7 @@ Run `pipenv install` to ensure the CLI can build an up-to-date, accurate depende
 
 To build the dependency tree, Snyk analyzes the `setup.py` file, and detects packages listed in the `install_requires` key.
 
-This file will not be discovered automatically by the CLI. It must be specified manually using the  `--file` option, for example:
+This file will not be discovered automatically by the CLI. It must be specified manually using the `--file` option, for example:
 
 ```python
 snyk test --file=setup.py
