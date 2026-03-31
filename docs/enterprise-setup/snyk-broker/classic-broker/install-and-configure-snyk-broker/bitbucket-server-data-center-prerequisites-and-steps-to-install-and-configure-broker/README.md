@@ -5,7 +5,7 @@
 
 PR Checks for Bitbucket Server integrations require Bitbucket Server version 7.4 and above, or Bitbucket Data Center version 8 or above.\
 \
-When using a brokered connection, Snyk Broker version 4.206 and above is required.
+When using a brokered connection, Snyk Broker version 5.4.9 and above is required.
 {% endhint %}
 
 Review the general instructions for the installation method you plan to use, [Helm](../install-and-configure-broker-using-helm.md) or [Docker](../install-and-configure-broker-using-docker.md).
