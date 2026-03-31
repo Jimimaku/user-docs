@@ -5001,6 +5001,13 @@
       },
       "BaseFilters": {
         "properties": {
+          "cve": {
+            "description": "CVE identifier(s) to filter by (e.g. CVE-2024-1234). Rows whose cve is in this list are included.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "empty_project_tags": {
             "enum": [
               "include",
@@ -5028,7 +5035,25 @@
             },
             "type": "object"
           },
+          "issue_status": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "issue_type": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "lifecycle": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "nvd_severity": {
             "items": {
               "type": "string"
             },
@@ -5040,13 +5065,37 @@
             },
             "type": "array"
           },
+          "project_origin": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "project_tags": {
             "items": {
               "type": "string"
             },
             "type": "array"
           },
+          "project_target_display_name": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "project_target_ref": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "project_type": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reachability": {
             "items": {
               "type": "string"
             },
@@ -16919,6 +16968,13 @@
       },
       "OrgFilters": {
         "properties": {
+          "cve": {
+            "description": "CVE identifier(s) to filter by (e.g. CVE-2024-1234). Rows whose cve is in this list are included.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "empty_project_tags": {
             "enum": [
               "include",
@@ -16946,7 +17002,25 @@
             },
             "type": "object"
           },
+          "issue_status": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "issue_type": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "lifecycle": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "nvd_severity": {
             "items": {
               "type": "string"
             },
@@ -16958,13 +17032,37 @@
             },
             "type": "array"
           },
+          "project_origin": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "project_tags": {
             "items": {
               "type": "string"
             },
             "type": "array"
           },
+          "project_target_display_name": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "project_target_ref": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
           "project_type": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reachability": {
             "items": {
               "type": "string"
             },
