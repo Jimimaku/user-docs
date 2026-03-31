@@ -1,16 +1,16 @@
 # Manage code vulnerabilities
 
-## Prerequisites for managing code vulnerabilities in Snyk Web UI&#x20;
+## Prerequisites for managing code vulnerabilities in Snyk Web UI
 
 Before managing vulnerabilities with Snyk Code, ensure the following:
 
 * You have completed the steps in [Getting started](../../../discover-snyk/getting-started/).
-* Your repositories contain code in a [supported language and platform](../../../supported-languages/supported-languages-package-managers-and-frameworks.md).&#x20;
+* Your repositories contain code in a [supported language and platform](../../../supported-languages/supported-languages-package-managers-and-frameworks.md).
 * You have [configured Snyk Code](../configure-snyk-code.md).
 
 ## How Project testing for Snyk Code works
 
-Each time a Project is tested, Snyk Code takes a snapshot of the repository in its current state and analyzes it to find vulnerabilities.  All the files that contain source code that Snyk Code can analyze are aggregated in the Code analysis.
+Each time a Project is tested, Snyk Code takes a snapshot of the repository in its current state and analyzes it to find vulnerabilities. All the files that contain source code that Snyk Code can analyze are aggregated in the Code analysis.
 
 When you import a repository, Snyk creates a Target folder that contains different Snyk Projects based on the file types present in the repository. The name of the Target folder includes the repository name, the integrated Git repository account name and its icon, and the number of Snyk Projects created for the repository.
 
@@ -28,9 +28,9 @@ The following provides an overview of the testing process in Snyk Code based on 
 
 If you want to check for the most recent vulnerabilities in your repository, you can do a manual test by selecting the **Retest now** option. This will trigger Snyk Code to take a fresh snapshot of your repository and analyze its source code files. The results will then be displayed on the Code Analysis page. Take into consideration that Snyk counts a manual test as a new test. See [What counts as a test?](../../../snyk-data-and-governance/what-counts-as-a-test.md)
 
-You can also use the **Retest now** option to apply the exclusion rules of the `.snyk` file to an imported repository. See [Exclude directories and files from Project import](../../import-project-repository/exclude-directories-and-files-from-project-import.md).
+You can also use the **Retest now** option to apply the exclusion rules of the `.snyk` file to an imported repository. See [Exclude directories and files from Project import](../../project-repositories/exclude-directories-and-files-from-project-import.md).
 
-<figure><img src="../../../.gitbook/assets/projects-code-analysis-retest.png" alt="Retesting a repository."><figcaption><p>Retesting repository </p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/projects-code-analysis-retest.png" alt="Retesting a repository."><figcaption><p>Retesting repository</p></figcaption></figure>
 
 ## Project filters
 
@@ -45,7 +45,7 @@ The **Grouping by File or Vulnerability Type** feature offers the following addi
 
 You can change the display of the issues on the Code analysis page using the following options:
 
-### Group by **File** or **Vulnerability Type**&#x20;
+### Group by **File** or **Vulnerability Type**
 
 Identify problematic files with multiple issues or address frequent vulnerability types. Use these filtering options to determine where vulnerabilities are likely to cluster together.
 
@@ -57,7 +57,7 @@ Sort vulnerability issues by displaying those with the highest severity levels f
 
 Filter discovered vulnerability issues according to different criteria shown in the following table.
 
-<table><thead><tr><th width="232">Vulnerability issue filter</th><th>Description</th></tr></thead><tbody><tr><td><a href="../../../manage-risk/prioritize-issues-for-fixing/severity-levels.md">Severity level</a></td><td>Show issues with a certain severity level. Snyk Code uses only <strong>High</strong>, <strong>Medium</strong>, and <strong>Low</strong> severity levels, without <strong>Critical</strong>. </td></tr><tr><td><a href="../../../manage-risk/prioritize-issues-for-fixing/priority-score.md#calculation-of-priority-score">Priority score</a></td><td>Show issues in a certain priority score range.</td></tr><tr><td>Status</td><td>Show <strong>Open</strong> issues or issues that were <strong>Ignored</strong>.</td></tr><tr><td><a href="../../../supported-languages/supported-languages-package-managers-and-frameworks.md">Languages</a></td><td>Show issues that were discovered in code files that were written in a specific language. Only programming languages discovered in the analyzed repository are displayed in the Filter pane.</td></tr><tr><td><a href="../snyk-code-security-rules/">Vulnerability types</a></td><td>Show issues with a certain Vulnerability Type. See <a href="../snyk-code-security-rules/">Snyk Code security rules</a>.</td></tr></tbody></table>
+<table><thead><tr><th width="232">Vulnerability issue filter</th><th>Description</th></tr></thead><tbody><tr><td><a href="../../../manage-risk/prioritize-issues-for-fixing/severity-levels.md">Severity level</a></td><td>Show issues with a certain severity level. Snyk Code uses only <strong>High</strong>, <strong>Medium</strong>, and <strong>Low</strong> severity levels, without <strong>Critical</strong>.</td></tr><tr><td><a href="../../../manage-risk/prioritize-issues-for-fixing/priority-score.md#calculation-of-priority-score">Priority score</a></td><td>Show issues in a certain priority score range.</td></tr><tr><td>Status</td><td>Show <strong>Open</strong> issues or issues that were <strong>Ignored</strong>.</td></tr><tr><td><a href="../../../supported-languages/supported-languages-package-managers-and-frameworks.md">Languages</a></td><td>Show issues that were discovered in code files that were written in a specific language. Only programming languages discovered in the analyzed repository are displayed in the Filter pane.</td></tr><tr><td><a href="../snyk-code-security-rules/">Vulnerability types</a></td><td>Show issues with a certain Vulnerability Type. See <a href="../snyk-code-security-rules/">Snyk Code security rules</a>.</td></tr></tbody></table>
 
 <figure><img src="../../../.gitbook/assets/projects-vulnerability-filters.png" alt="Overview of vulnerability issue filtering, sorting, and grouping."><figcaption><p>Vulnerability issue filtering, sorting, and grouping</p></figcaption></figure>
 
@@ -71,7 +71,7 @@ To scan your repositories and manage code vulnerabilities, you can check the fol
 2. Navigate to the **Projects** and select the Target folder containing your repository's Projects.
 3. Open **Code analysis** Project to see all vulnerability issues detected by Snyk Code.
 
-To understand the results, see [Breakdown of Code analysis](breakdown-of-code-analysis.md).&#x20;
+To understand the results, see [Breakdown of Code analysis](breakdown-of-code-analysis.md).
 
 ### Import additional repositories
 
@@ -79,15 +79,15 @@ If you have existing Projects in your Snyk account, you can add additional repos
 
 ### Remove repositories from testing
 
-You can remove the Code analysis Project or delete imported repositories if you no longer need to test them for vulnerabilities. See [Remove imported repository](../../import-project-repository/remove-imported-repository-from-a-project.md).
+You can remove the Code analysis Project or delete imported repositories if you no longer need to test them for vulnerabilities. See [Remove imported repository](../../project-repositories/remove-imported-repository-from-a-project.md).
 
 ### Exclude directories and files
 
-To exclude specific files and directories from being imported by Snyk Code, you need to create a `.snyk` YAML policy file in your repository. See [Exclude directories and files from Project import](../../import-project-repository/exclude-directories-and-files-from-project-import.md).
+To exclude specific files and directories from being imported by Snyk Code, you need to create a `.snyk` YAML policy file in your repository. See [Exclude directories and files from Project import](../../project-repositories/exclude-directories-and-files-from-project-import.md).
 
 You can specify directories to exclude from the import process using the Exclude dialog box when you import repositories through Git repository. However, this feature is only supported for open-source dependency scans (SCA).
 
-### Open repository external link&#x20;
+### Open repository external link
 
 To access the repository on the integrated Git repository platform, navigate to the Code analysis Project and select the name of the repository.
 

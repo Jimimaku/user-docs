@@ -23,7 +23,7 @@ Before scanning your code with Snyk Code, ensure the following:
 
 To enable Snyk Code in your Organization, you need to be an [Org Admin](../../snyk-platform-administration/user-roles/pre-defined-roles.md).
 
-### Enable Snyk Code&#x20;
+### Enable Snyk Code
 
 If you've already set up an integration for the first time and enabled Snyk Code, you can check if the setting is still valid before importing repositories.
 
@@ -87,7 +87,7 @@ Depending on your existing Snyk account and what you want to do:
 * If you already have repositories in your Snyk account and do not want to import additional ones but want to scan your existing repositories with Snyk Code, you must [re-import these repositories](import-project-with-snyk-code.md#re-import-repository-to-snyk).
 * If you already have repositories in your Snyk account and want to import more repositories to scan with Snyk Code, [import additional repositories to Snyk](import-project-with-snyk-code.md).
 
-Before you import or re-import a repository to scan with Snyk Code, you can [exclude certain directories and files from the import by using the .snyk file](../import-project-repository/exclude-directories-and-files-from-project-import.md).
+Before you import or re-import a repository to scan with Snyk Code, you can [exclude certain directories and files from the import by using the .snyk file](../project-repositories/exclude-directories-and-files-from-project-import.md).
 
 ## What's next?
 

@@ -3,7 +3,7 @@
 When you test a Snyk Code repository using the CLI, you can exclude certain directories and files from the CLI test by using the `snyk ignore --file-path` command. When you run this command, the `.snyk` file is created automatically in your repository, containing the name of the directory or file you specified for exclusion.
 
 {% hint style="info" %}
-* You can also create the `.snyk` file manually in your repository, and use it to exclude directories and files from the CLI test. For more information about the manual creation of the `.snyk` file, see [Exclude directories and files from Project import](../../../../scan-with-snyk/import-project-repository/exclude-directories-and-files-from-project-import.md).
+* You can also create the `.snyk` file manually in your repository, and use it to exclude directories and files from the CLI test. For more information about the manual creation of the `.snyk` file, see [Exclude directories and files from Project import](../../../../scan-with-snyk/project-repositories/exclude-directories-and-files-from-project-import.md).
 * The `snyk ignore --file-path` command does not ignore specific vulnerability issues. It excludes only directories and files from the CLI test.
 * Consider excluding directories and files only if you do not publish or compile them into production. If a trace goes through an excluded file or directory with existing vulnerabilities, Snyk might miss potential issues.
 {% endhint %}
@@ -36,7 +36,7 @@ snyk ignore --file-path=<directory1_or_file1> && snyk ignore --file-path=<direct
 
 From now on, when you run the `snyk code test` command from the selected folder, the specified directories or files will be excluded from the test.
 
-## Re-include excluded files in the CLI test&#x20;
+## Re-include excluded files in the CLI test
 
 To re-include in the test directories or files that were excluded from it, manually edit or delete the `.snyk` file.
 
@@ -56,7 +56,7 @@ snyk ignore --file-path=app.js && snyk ignore --file-path=db.js
 
 <figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - Example - .snyk file.png" alt=".snyk file listed in the folder"><figcaption><p><code>.snyk</code>file listed in the folder</p></figcaption></figure>
 
-This `.snyk` file contains the files  specified for exclusion:
+This `.snyk` file contains the files specified for exclusion:
 
 <figure><img src="../../../../.gitbook/assets/snyk Code - CLI - snyk code test - Exclusion - Example - .snyk file - content.png" alt="Contents of .snyk file"><figcaption><p>Contents of .snyk file</p></figcaption></figure>
 

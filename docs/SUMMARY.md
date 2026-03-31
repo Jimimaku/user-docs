@@ -452,9 +452,10 @@
 
 * [Overview](scan-with-snyk/overview.md)
 * [Start scanning](scan-with-snyk/start-scanning.md)
-* [Import Project repository](scan-with-snyk/import-project-repository/README.md)
-  * [Exclude directories and files from Project import](scan-with-snyk/import-project-repository/exclude-directories-and-files-from-project-import.md)
-  * [Remove imported repository from a Project](scan-with-snyk/import-project-repository/remove-imported-repository-from-a-project.md)
+* [Project repositories](scan-with-snyk/project-repositories/README.md)
+  * [Exclude directories and files from Project import](scan-with-snyk/project-repositories/exclude-directories-and-files-from-project-import.md)
+  * [Remove imported repository from a Project](scan-with-snyk/project-repositories/remove-imported-repository-from-a-project.md)
+  * [Snyk repo content sync](scan-with-snyk/project-repositories/snyk-repo-content-sync.md)
 * [Pull Requests](scan-with-snyk/pull-requests/README.md)
   * [Snyk Pull or Merge Requests](scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/README.md)
     * [Enable automatic Fix PRs](scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/enable-automatic-fix-prs.md)

@@ -1,6 +1,6 @@
-# Import Project repository
+# Project repositories
 
-## How importing repositories works
+## Importing Project repositories
 
 After you select repositories on the Snyk Web UI and click **Add selected repositories**, the import starts, and a progress bar appears on the **Projects** page.
 
@@ -8,4 +8,4 @@ When the import is finished, a confirmation message appears on the Projects page
 
 <figure><img src="../../.gitbook/assets/projects_page_targets.png" alt=""><figcaption><p>Target folders on Projects page</p></figcaption></figure>
 
-If some of the files in the selected repositories were not imported, you receive a notification about the Projects that were not imported.&#x20;
+If some of the files in the selected repositories were not imported, you receive a notification about the Projects that were not imported.
