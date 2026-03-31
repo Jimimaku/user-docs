@@ -102,13 +102,46 @@ This report addresses primary scenarios for managing and resolving emerging zero
 
 Use this report to discover your exposure to issues highlighted in a zero-day publication across various Targets and Projects. The report helps you prioritize zero-day issues and monitor the progress of remediation efforts against any remaining occurrences.
 
-The [Security team at Snyk](https://snyk.io/platform/security-intelligence/) continuously updates the [Vulnerability Database](https://security.snyk.io/) with new vulnerabilities several times a day. When the team discovers a major new zero-day vulnerability—typically in a widely used package with high severity that affects many customers—it will be announced and addressed as a zero-day event.
+The [Security team at Snyk](https://snyk.io/platform/security-intelligence/) continuously updates the [Vulnerability Database](https://security.snyk.io/) with new vulnerabilities several times a day. When the team discovers a major new zero-day vulnerability—typically in a widely used package with high severity that affects many customers—it will be announced and addressed as a zero-day event. For more information about responding to these events, visit [Assessing active security incidents](remediation-reports.md#assessing-active-security-incidents).
 
-Upon the announcement of a new zero-day event, begin by examining the **Impacted Targets** table to gain a deeper understanding of the exposure. Use filters such as Project Lifecycle, Environment, or Project Criticality to focus solely on Targets associated with Projects in production that are externally exposed or of high criticality. Gaining such insights depends on the [availability of Project attributes](../../../snyk-platform-administration/snyk-projects/project-attributes.md#available-attributes-and-their-values).
-
-Next, proceed to the **All** **Issues** table and compile a prioritized list of issues requiring remediation. Typically, prioritization is determined by either the Snyk [Risk Score](../../prioritize-issues-for-fixing/risk-score.md) or NVD CVSS Score, with emphasis placed on addressing vulnerabilities within sensitive targets. Apply filters based on Project Lifecycle, Environment, or Project Criticality to identify and address these targets promptly.
+Typically, prioritization is determined by either the Snyk [Risk Score](../../prioritize-issues-for-fixing/risk-score.md) or the NVD CVSS Score, with emphasis on addressing vulnerabilities in sensitive targets. Apply filters based on Project Lifecycle, Environment, or Project Criticality to identify and address these targets promptly. Gaining such insights depends on the [availability of Project attributes](../../../snyk-platform-administration/snyk-projects/project-attributes.md#available-attributes-and-their-values).
 
 For continuous monitoring of remediation progress and efficacy, refer to the trend diagrams.\
 The **Accumulative Issues Backlog Trend** diagram shows the weekly changes in the zero-day backlog by accumulating the weekly delta between identified and resolved issues. Use this diagram to ensure that your R\&D teams are reducing the zero-day backlog consistently, which will be indicated by a negative trend line.
 
 In parallel, review the **Issues Identified versus Resolved over Time** diagram to conclude whether additional emphasis should be placed on preventing the introduction of new issues or on accelerating the remediation efforts.
+
+### Assessing active security incidents
+
+When a new zero-day event is announced, begin by examining the **Active security incident assessment** banner. This assessment queries your last available Project snapshots and monitored dependencies to determine whether and where the known affected packages are present as dependencies.
+
+{% hint style="info" %}
+The **active security incident assessment** is not a Snyk Open Source or Snyk Container test and does not produce issues.
+{% endhint %}
+
+After an incident begins, the assessment displays the following information:
+
+* Total assets needing triage: Unique count of your assets with the **Needs triage** status. This updates whenever the assessment is refreshed. If you have assets that need triage, Snyk Open Source automatically retests them, and issues are generated upon retest.
+* Known affected public packages: One or more packages, identified by name and version, distributed on a public package registry such as npm or PyPI, that are affected by the active incident.
+
+{% hint style="info" %}
+These are not **Package Assets.** They are open source packages hosted on public registries.
+{% endhint %}
+
+* Total dependencies impacted: Unique count of your impacted dependencies across all Projects and assets. Updates whenever the assessment is refreshed. These need to be updated or removed.
+* Total cleared assets: Unique count of assets with the **Cleared** status. These assets were originally identified as needing triage, but no longer contain the known affected public packages in their Project dependencies. This may be due to a new snapshot becoming available that removes the impacted package, or the known affected packages being updated, and a version being removed.
+* Security incident time: The date and time that the incident was first observed, determined by Snyk’s security intelligence team.
+
+{% hint style="info" %}
+An incident’s start time may be earlier than the time the active assessment becomes available.&#x20;
+{% endhint %}
+
+To understand the exposure, review the **Assets involved in the incident** table. Click any row in the table to see which Projects associated with the asset contain dependencies that need triage. The table shows the following information for each asset:
+
+* The name of the asset
+* The status of the asset, which can be either **Needs triage** or **Cleared**.
+* The number of Projects associated with an asset that contain the known affected dependencies.
+* The number of dependencies in a Project that match a known affected package.
+* When viewed at the Tenant-level, the Group and Organization of the asset. When viewed at the Group-level, the Organization of the asset.
+
+After the zero-day incident is no longer active and your retests have been completed, the **Active security incident assessment** banner will disappear. Review the **All Issues** table to remediate any outstanding issues associated with this zero-day event.&#x20;
