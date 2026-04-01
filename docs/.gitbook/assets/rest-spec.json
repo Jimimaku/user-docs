@@ -6948,7 +6948,7 @@
           },
           "schedule_frequency_hours": {
             "description": "The frequency of the import policy in hours.",
-            "minimum": 12,
+            "minimum": 2,
             "type": "integer"
           }
         },
