@@ -7,30 +7,61 @@ coverY: 0
 
 The most recent updates include significant changes to the user docs, such as features added or removed, structural changes that affect how you find relevant information, and other improvements to enhance your interaction with the Snyk knowledge base.
 
+## March 2026
+
+### Evo by Snyk
+
+* Added the [`aibom test`](developer-tools/snyk-cli/commands/aibom-test.md) command under [Snyk CLI Help](developer-tools/snyk-cli/commands/#snyk-aibom-test).
+* Updated [`redteam`](developer-tools/snyk-cli/commands/redteam.md) with additional options, and also added [Snyk Agent Red Teaming](developer-tools/snyk-cli/scan-and-maintain-projects-using-the-cli/snyk-agent-red-teaming.md).
+
+### Snyk Analytics
+
+* The [Analytics Overview](manage-risk/analytics/overview-tab.md) tab now includes the **Projects Monitored** widge&#x74;**.**
+* The [Snyk Pull request checks usage & performance report](manage-risk/analytics/reports-tab/prevention-reports.md#pull-request-checks-usage-and-performance-report) is now in **General Availability** for Enterprise plan users.
+* Added the **Assessing active security incidents** option to the [Zero-Day report](manage-risk/analytics/reports-tab/remediation-reports.md#zero-day-report).
+
+### Snyk CLI
+
+* The latest Snyk CLI version is [1.1303.2](https://github.com/snyk/cli/releases/tag/v1.1303.2).
+* The [environment variables page](developer-tools/snyk-cli/configure-the-snyk-cli/environment-variables-for-snyk-cli.md#configure-max-network-attempts) has been updated to include `SNYK_MAX_ATTEMPTS` .
+
+### Other updates
+
+* The [Open Source license compliance](scan-with-snyk/snyk-open-source/scan-open-source-libraries-and-licenses/open-source-license-compliance.md#license-updates) page has been updated to clarify that the Snyk database of supported licenses is regularly updated to match new releases of the SPDX License List.
+* The `package-health-check` directive [sample script links](integrations/snyk-studio-agentic-integrations/directives.md#secure-at-inception-package-health-check-experimental) now point to the improved recipes repository in GitHub. Use the [skills](https://github.com/snyk/studio-recipes/tree/main/command_directives/synchronous_remediation/skills/secure-dependency-health-check) script or the [hook](https://github.com/snyk/studio-recipes/tree/main/guardrail_directives/package_enforcement/cursor/hooks) script.
+* For Snyk Container, the [Configure repository monitoring](manage-assets/configure-repository-monitoring.md) feature is now in Early Access.
+* [Snyk 2.0](discover-snyk/getting-started/snyk-2.0-platform-improvements.md) introduces UI enhancements to the platform navigation and is available in Early Access. This is being rolled out gradually, so not all users see the new navigation at the same time. If you are an existing user, you can switch between the new and classic navigation at any time using the toggle in your user profile menu. What is different:
+  * **Global scope selector:** the top bar serves as the primary tool to navigate between different levels of your account. Use the scope selector to switch between Tenant, Groups, and Organizations. When you select a scope, the side menu automatically displays the relevant tools and data for that area.
+  * **Analytics** becomes the centralized location for all reporting, including overview reports, dependencies, and license information.
+  * **Settings** becomes the unified area for managing members, billing, integrations, and account preferences. When you use the scope selector to switch between Groups and Organizations, all relevant settings for that area are displayed under **Settings**.&#x20;
+  * **The Organization Dashboard** has been replaced by the scope selector and the **Analytics** overview page (accessible only to Tenant users, at Tenant-level).
+* The [License Policies](manage-risk/policies/license-policies/) page has been updated to reflect that newly supported licenses now have a default **Severity** of **None** and only appear in results if you explicitly configure this behavior.
+* The [Enterprise implementation guide](implementation-and-setup/enterprise-implementation-guide/) has been updated to reflect the actual journey you would take as a new user onboarding with Snyk on the Enterprise plan. This includes adding guidance on how to create your Organization Template, configure all available features, and includes key decision callouts to help guide you when making essential decisions in this process.
+
 ## February 2026
 
-### **Snyk CLI**
+### Snyk CLI
 
 * [Container SBOM](developer-tools/snyk-cli/commands/container-sbom.md) has been updated with additional options.&#x20;
 * The Snyk CLI latest release version is [v1.1303.0](https://github.com/snyk/cli/releases/tag/v1.1303.1).&#x20;
 
-### **Snyk Open Source**
+### Snyk Open Source
 
 * [Breakability risk levels](scan-with-snyk/pull-requests/snyk-pull-or-merge-requests/breakability-risk-levels.md) is now in Early Access.
 * Improved .NET scanning is now a General Availability feature. The [.NET (C# and VB.NET](supported-languages/supported-languages-list/.net/) section has been updated to reflect this change.
 
-### **Snyk supported languages**
+### Snyk supported languages
 
 * [Python](supported-languages/supported-languages-list/python/) has been updated to include support for Python version 3.12 for Snyk Code.
 * Snyk Code now supports C# 14 and .NET 10, Kotlin and Java (including Spring WebFlux and JAX-RS), JavaScript and TypeScript (including Sequelize), Go (including Fiber), and Swift (including grpc-swift).
 * Ruby 4.0 is supported in Snyk Code, starting with core parser improvements and stronger handling of Ruby modules.&#x20;
 
-### **Snyk Studio**
+### Snyk Studio
 
 * A [`snyk_package_health_check` directive](integrations/snyk-studio-agentic-integrations/directives.md#secure-at-inception-package-health-check-experimental) has been added to assist you in evaluating open-source packages for security vulnerabilities, maintenance health, community engagement, and popularity. Snyk has provided a secure dependency health check skill with a sample script and an enforce security scan on new packages hook with a sample script to integrate the `snyk_package_health_check` into your workflow.
 * Additional guidance on [available MCP profile types](integrations/snyk-studio-agentic-integrations/getting-started-with-snyk-studio.md#configure-the-snyk-mcp-profile) and their applicable tools, with configuration instructions, has been added.
 
-### **Other updates**
+### Other updates
 
 * Updated documentation references and rule mappings from OWASP Top 10 (2021) to the OWASP Top 10 (2025) revision. This keeps security-category labels and cross-references aligned with the  OWASP taxonomy.
 * [Broker Contexts](implementation-and-setup/enterprise-setup/snyk-broker/universal-broker/broker-context.md) was released for Universal Broker, including how contexts help segment and route Broker connections across environments and Organizations. This improves guidance for running multiple Broker deployments with clearer isolation.
@@ -74,13 +105,21 @@ The most recent updates include significant changes to the user docs, such as fe
 * The [redesigned Snyk Analytics experience](manage-risk/analytics/overview-tab.md) is now in General Availability.
 * The [Bitbucket Cloud documentation](developer-tools/scm-integrations/organization-level-integrations/bitbucket-cloud.md) has been updated to make it clear that scopeless API tokens are not supported for this integration.
 
+## 2025
+
+<details>
+
+<summary>December - January 2025 Documentation updates</summary>
+
+
+
 ## December 2025
 
 ### **Snyk API**
 
 * The API docs navigation was enhanced with additional package-related reference pages (including `ContainerRegistryImagePolicy`).&#x20;
 
-### **Snyk integrations**
+### **Snyk Integrations**
 
 * The [Partner integrations](integrations/partner-integrations.md) page has been updated, including additional coverage for Coding Assistants and how they can use Snyk Studio (MCP) in agentic workflows.
 * [JavaScript](supported-languages/supported-languages-list/javascript/) navigation has been enhanced with better redirect and routing features.&#x20;
@@ -396,6 +435,16 @@ Information has been added about Snyk support for the Model Context Protocol (MC
 * A new [Automated Provisioning guide](implementation-and-setup/enterprise-setup/auto-provisioning-guide.md) has been created for **Pilot** and **Enterprise** **users**, detailing the steps of the auto-provisioning process for new and existing user accounts.
 * [Snyk Code PR Checks](scan-with-snyk/pull-requests/pull-request-checks/configure-pull-request-checks.md#configure-for-code-analysis-click-to-expand) are in General Availability.
 
+</details>
+
+## 2024
+
+<details>
+
+<summary>December - January 2024 Documentation updates</summary>
+
+
+
 ## December 2024 and January 2025
 
 ### **Snyk Container**
@@ -541,3 +590,5 @@ The Snowflake Data Share section has been updated to include a [Data Share Dicti
 * **Snyk Reports:** The [issue column dictionary](manage-risk/analytics/reports-tab/issue-columns-dictionary.md#issue-vulnerability-details) includes new filters and columns for Jira (JIRA ISSUES LIST, LATEST JIRA ISSUE) and EPSS (EPSS SCORE, EPSS PERCENTILE). This allows you to manage your work with Jira and to include EPSS in your prioritization steps.
 * **Snyk Security:** Snyk has improved the prioritization workflow and risk assessment by adopting [CVSS V4.0](manage-risk/prioritize-issues-for-fixing/severity-levels.md#severity-levels-and-cvss) as the default evaluation for new vulnerabilities.
 * **Fix code vulnerabilities automatically:** [DeepCode AI Fix](scan-with-snyk/snyk-code/manage-code-vulnerabilities/fix-code-vulnerabilities-automatically.md#snyk-agent-fix-language-support) is now available in AWS Environments and JetBrains IDEs. If you use AWS multi-tenant environments, turn on the Snyk Preview [Snyk Code Fix Suggestions](scan-with-snyk/snyk-code/manage-code-vulnerabilities/fix-code-vulnerabilities-automatically.md#enable-snyk-agent-fix) and retest with Snyk in your IDE.
+
+</details>

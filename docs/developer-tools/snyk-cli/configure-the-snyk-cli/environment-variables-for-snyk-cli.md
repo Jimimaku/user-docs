@@ -6,7 +6,7 @@ This page identifies environment variables that you can use to configure specifi
 
 `SNYK_MAX_ATTEMPTS`&#x20;
 
-Starting with Snyk CLI v1.1304.0 `SNYK_MAX_ATTEMPTS=<value>` can be used to enable network level retries. The default value is 1, which means that a network request will fail after one failed attempt. Increasing the value will make the network stack retry retriable status codes. The parameter can be used to mitigate transient network failures at the cost of increased runtime.
+Starting with Snyk CLI v1.1303.2 `SNYK_MAX_ATTEMPTS=<value>` can be used to enable network level retries. The default value is 1, which means that a network request will fail after one failed attempt. Increasing the value will make the network stack retry retriable status codes. The parameter can be used to mitigate transient network failures at the cost of increased runtime.
 
 The range is from 1 to 2.147.483.648 times.
 
