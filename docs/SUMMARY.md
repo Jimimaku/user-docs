@@ -116,6 +116,7 @@
   * [Python](supported-languages/supported-languages-list/python/README.md)
     * [CLI support for Python](supported-languages/supported-languages-list/python/snyk-cli-for-python.md)
     * [SCM integration support for Python](supported-languages/supported-languages-list/python/scm-integrations-and-python.md)
+    * [CLI support for uv](supported-languages/supported-languages-list/python/cli-support-for-uv.md)
   * [Ruby](supported-languages/supported-languages-list/ruby.md)
   * [Rust](supported-languages/supported-languages-list/rust.md)
   * [Scala](supported-languages/supported-languages-list/scala.md)
