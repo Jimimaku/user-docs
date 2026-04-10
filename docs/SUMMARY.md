@@ -826,6 +826,7 @@
   * [Invites](snyk-api/reference/invites.md)
   * [Issues](snyk-api/reference/issues.md)
   * [Jira (v1)](snyk-api/reference/jira-v1.md)
+  * [LanguagesSettings](snyk-api/reference/languagessettings.md)
   * [Learn](snyk-api/reference/learn.md)
   * [Licenses (v1)](snyk-api/reference/licenses-v1.md)
   * [Monitor (v1)](snyk-api/reference/monitor-v1.md)
