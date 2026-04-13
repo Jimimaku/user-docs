@@ -1414,6 +1414,21 @@
           "type": "string"
         }
       },
+      "ProjectSortParam": {
+        "description": "Sort field with optional direction prefix. Prefix with `-` for descending order.\n\n**Supported fields:**\n- `snapshot_created_at` - Snapshot creation timestamp\n- `issues` - Issue counts by severity (critical, high, medium, low)\n\nWhen omitted, results are ordered by `snapshot_created_at` ascending.\n",
+        "example": "-snapshot_created_at",
+        "in": "query",
+        "name": "sort",
+        "schema": {
+          "enum": [
+            "snapshot_created_at",
+            "-snapshot_created_at",
+            "issues",
+            "-issues"
+          ],
+          "type": "string"
+        }
+      },
       "QueryNameFilter": {
         "description": "Only return organizations whose name contains this value. Case insensitive.",
         "in": "query",
@@ -29371,6 +29386,9 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectSortParam"
           }
         ],
         "responses": {
@@ -45901,6 +45919,9 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectSortParam"
           }
         ],
         "responses": {
@@ -88260,6 +88281,9 @@
               "format": "uuid",
               "type": "string"
             }
+          },
+          {
+            "$ref": "#/components/parameters/ProjectSortParam"
           }
         ],
         "responses": {
