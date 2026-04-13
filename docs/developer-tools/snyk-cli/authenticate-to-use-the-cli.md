@@ -1,6 +1,6 @@
 # Authenticate to use the CLI
 
-Once you have [installed the Snyk CLI](install-or-update-the-snyk-cli/) using your chosen tool or operating system (OS), you need to authenticate with your Snyk account.
+Once you have [installed the Snyk CLI](install-the-snyk-cli/) using your chosen tool or operating system (OS), you need to authenticate with your Snyk account.
 
 ## Supported authentication methods
 
