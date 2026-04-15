@@ -1,3 +1,76 @@
+## 2026-03-25
+
+### POST - `/orgs/{org_id}/policies` - Updated
+- removed the required property `data/attributes/action/data/ignore_type` from the response with the `201` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/expires`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/ignore_type`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/reason`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/expires` from the response with the `201` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/reason` from the response with the `201` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added discriminator to `data/attributes/action/data` request property
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
+
+- added discriminator to `data/attributes/action/data` response property for the response status `201`
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `201`
+
+
+
+### GET - `/orgs/{org_id}/policies` - Updated
+- removed the required property `data/items/attributes/action/data/ignore_type` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/items/attributes/action/data/expires` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/items/attributes/action/data/reason` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added discriminator to `data/items/attributes/action/data` response property for the response status `200`
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/items/attributes/action/data` response property `oneOf` list for the response status `200`
+
+
+
+### PATCH - `/orgs/{org_id}/policies/{policy_id}` - Updated
+- removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/expires`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/ignore_type`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the request property `data/attributes/action/data/reason`
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/expires` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/reason` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added discriminator to `data/attributes/action/data` request property
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` request property `oneOf` list
+
+- added discriminator to `data/attributes/action/data` response property for the response status `200`
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
+
+
+
+### GET - `/orgs/{org_id}/policies/{policy_id}` - Updated
+- removed the required property `data/attributes/action/data/ignore_type` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/expires` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- removed the optional property `data/attributes/action/data/reason` from the response with the `200` status
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+- added discriminator to `data/attributes/action/data` response property for the response status `200`
+
+- added `#/components/schemas/PolicyActionIgnoreDataWontFix, #/components/schemas/PolicyActionIgnoreDataTemporaryIgnore, #/components/schemas/PolicyActionIgnoreDataNotVulnerable` to the `data/attributes/action/data` response property `oneOf` list for the response status `200`
+
+
 ## 2025-11-05 - Updated 2026-03-31
 
 ### POST - `/orgs/{org_id}/export` - Updated

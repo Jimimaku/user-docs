@@ -318,7 +318,7 @@
       },
       "VersionRequestedResponseHeader": {
         "description": "A header containing the version of the endpoint requested by the caller.",
-        "example": "2025-11-05",
+        "example": "2026-03-25",
         "schema": {
           "$ref": "#/components/schemas/QueryVersion"
         }
@@ -334,7 +334,7 @@
       },
       "VersionServedResponseHeader": {
         "description": "A header containing the version of the endpoint that was served by the API.",
-        "example": "2025-11-05",
+        "example": "2026-03-25",
         "schema": {
           "$ref": "#/components/schemas/ActualVersion"
         }
@@ -1917,7 +1917,7 @@
       },
       "Version": {
         "description": "The requested version of the endpoint to process the request",
-        "example": "2025-11-05",
+        "example": "2026-03-25",
         "in": "query",
         "name": "version",
         "required": true,
@@ -3206,7 +3206,7 @@
       },
       "ActualVersion": {
         "description": "Resolved API version",
-        "example": "2025-11-05",
+        "example": "2026-03-25",
         "pattern": "^((([0-9]{4})-([0-1][0-9]))-((3[01])|(0[1-9])|([12][0-9]))(~(wip|work-in-progress|experimental|beta))?)$",
         "type": "string"
       },
@@ -19047,6 +19047,101 @@
         "type": "object"
       },
       "PolicyActionIgnoreData": {
+        "discriminator": {
+          "mapping": {
+            "not-vulnerable": "#/components/schemas/PolicyActionIgnoreDataNotVulnerable",
+            "temporary-ignore": "#/components/schemas/PolicyActionIgnoreDataTemporaryIgnore",
+            "wont-fix": "#/components/schemas/PolicyActionIgnoreDataWontFix"
+          },
+          "propertyName": "ignore_type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/PolicyActionIgnoreDataWontFix"
+          },
+          {
+            "$ref": "#/components/schemas/PolicyActionIgnoreDataTemporaryIgnore"
+          },
+          {
+            "$ref": "#/components/schemas/PolicyActionIgnoreDataNotVulnerable"
+          }
+        ],
+        "type": "object"
+      },
+      "PolicyActionIgnoreDataNotVulnerable": {
+        "additionalProperties": false,
+        "properties": {
+          "expires": {
+            "example": "2024-03-16T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "ignore_type": {
+            "enum": [
+              "not-vulnerable"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 10000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "ignore_type"
+        ],
+        "type": "object"
+      },
+      "PolicyActionIgnoreDataTemporaryIgnore": {
+        "additionalProperties": false,
+        "properties": {
+          "expires": {
+            "example": "2024-03-16T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "ignore_type": {
+            "enum": [
+              "temporary-ignore"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 10000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "ignore_type",
+          "expires"
+        ],
+        "type": "object"
+      },
+      "PolicyActionIgnoreDataWontFix": {
+        "additionalProperties": false,
+        "properties": {
+          "expires": {
+            "example": "2024-03-16T00:00:00Z",
+            "format": "date-time",
+            "type": "string"
+          },
+          "ignore_type": {
+            "enum": [
+              "wont-fix"
+            ],
+            "type": "string"
+          },
+          "reason": {
+            "maxLength": 10000,
+            "type": "string"
+          }
+        },
+        "required": [
+          "ignore_type"
+        ],
+        "type": "object"
+      },
+      "PolicyActionIgnoreData__0": {
         "additionalProperties": false,
         "properties": {
           "expires": {
@@ -19069,6 +19164,18 @@
         },
         "required": [
           "ignore_type"
+        ],
+        "type": "object"
+      },
+      "PolicyActionIgnore__0": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/PolicyActionIgnoreData__0"
+          }
+        },
+        "required": [
+          "data"
         ],
         "type": "object"
       },
@@ -19222,7 +19329,7 @@
         "additionalProperties": false,
         "properties": {
           "new_action": {
-            "$ref": "#/components/schemas/PolicyActionIgnore"
+            "$ref": "#/components/schemas/PolicyActionIgnore__0"
           },
           "new_conditions_group": {
             "$ref": "#/components/schemas/PolicyConditionsGroup"
@@ -19234,7 +19341,7 @@
             "$ref": "#/components/schemas/PolicyReview"
           },
           "old_action": {
-            "$ref": "#/components/schemas/PolicyActionIgnore"
+            "$ref": "#/components/schemas/PolicyActionIgnore__0"
           },
           "old_conditions_group": {
             "$ref": "#/components/schemas/PolicyConditionsGroup"
@@ -20894,7 +21001,7 @@
       },
       "QueryVersion": {
         "description": "Requested API version",
-        "example": "2025-11-05",
+        "example": "2026-03-25",
         "pattern": "^(wip|work-in-progress|experimental|beta|((([0-9]{4})-([0-1][0-9]))-((3[01])|(0[1-9])|([12][0-9]))(~(wip|work-in-progress|experimental|beta))?))$",
         "type": "string"
       },
@@ -49957,11 +50064,12 @@
         ],
         "x-snyk-api-lifecycle": "released",
         "x-snyk-api-releases": [
-          "2024-10-15"
+          "2024-10-15",
+          "2026-03-25"
         ],
         "x-snyk-api-resource": "policies",
         "x-snyk-api-stability": "ga",
-        "x-snyk-api-version": "2024-10-15",
+        "x-snyk-api-version": "2026-03-25",
         "x-stability-level": "stable"
       },
       "post": {
@@ -50065,11 +50173,12 @@
         ],
         "x-snyk-api-lifecycle": "released",
         "x-snyk-api-releases": [
-          "2024-10-15"
+          "2024-10-15",
+          "2026-03-25"
         ],
         "x-snyk-api-resource": "policies",
         "x-snyk-api-stability": "ga",
-        "x-snyk-api-version": "2024-10-15",
+        "x-snyk-api-version": "2026-03-25",
         "x-stability-level": "stable"
       }
     },
@@ -50121,11 +50230,12 @@
         ],
         "x-snyk-api-lifecycle": "released",
         "x-snyk-api-releases": [
-          "2024-10-15"
+          "2024-10-15",
+          "2026-03-25"
         ],
         "x-snyk-api-resource": "policies",
         "x-snyk-api-stability": "ga",
-        "x-snyk-api-version": "2024-10-15",
+        "x-snyk-api-version": "2026-03-25",
         "x-stability-level": "stable"
       },
       "get": {
@@ -50215,11 +50325,12 @@
         ],
         "x-snyk-api-lifecycle": "released",
         "x-snyk-api-releases": [
-          "2024-10-15"
+          "2024-10-15",
+          "2026-03-25"
         ],
         "x-snyk-api-resource": "policies",
         "x-snyk-api-stability": "ga",
-        "x-snyk-api-version": "2024-10-15",
+        "x-snyk-api-version": "2026-03-25",
         "x-stability-level": "stable"
       },
       "patch": {
@@ -50326,11 +50437,12 @@
         ],
         "x-snyk-api-lifecycle": "released",
         "x-snyk-api-releases": [
-          "2024-10-15"
+          "2024-10-15",
+          "2026-03-25"
         ],
         "x-snyk-api-resource": "policies",
         "x-snyk-api-stability": "ga",
-        "x-snyk-api-version": "2024-10-15",
+        "x-snyk-api-version": "2026-03-25",
         "x-stability-level": "stable"
       }
     },
