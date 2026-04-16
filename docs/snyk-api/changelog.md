@@ -1,3 +1,14 @@
+## 2026-03-25 - Updated 2026-04-16
+
+### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/connections` - Updated
+- removed `#/components/schemas/DockerHubAttributes, #/components/schemas/EcrAttributes, #/components/schemas/GcrAttributes` from the `data/attributes/configuration` request property `oneOf` list
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
+
+### PATCH - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/connections/{connection_id}` - Updated
+- removed `#/components/schemas/DockerHubAttributes, #/components/schemas/EcrAttributes, #/components/schemas/GcrAttributes` from the `data/attributes/configuration` request property `oneOf` list
+![Badge](https://img.shields.io/badge/Breaking-yellow)
+
 ## 2026-03-25
 
 ### POST - `/orgs/{org_id}/policies` - Updated
