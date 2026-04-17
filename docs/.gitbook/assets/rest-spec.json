@@ -26232,7 +26232,8 @@
           "pkgs",
           "graph"
         ],
-        "type": "object"
+        "type": "object",
+        "x-go-type": "json.RawMessage"
       },
       "io.snyk.api.v1testdepgraph.request.Graph": {
         "additionalProperties": {},
