@@ -17,7 +17,7 @@ If you are not using broker.snyk.io, target the Broker server for your region by
 
 ### Usage 
 
-1. Create a .env file with required and optional configuration variables:
+1. Create a `.env` file with required and optional configuration variables:
 ```bash
   DEPLOYMENT_ID=<your-deployment-id>
   CLIENT_ID=<your-client-id>
@@ -29,7 +29,7 @@ If you are not using broker.snyk.io, target the Broker server for your region by
   BROKER_SERVER_URL=https://broker.eu.snyk.io
   BROKER_DISPATCHER_BASE_URL=https://api.eu.snyk.io
 ```
-2. Copy this example file to docker-compose.yaml
+2. Copy this example file to `docker-compose.yaml`
 
 ```yaml
 services:
@@ -47,17 +47,11 @@ services:
       # Example: GITHUB_TOKEN, BROKER_CLIENT_VALIDATION_AUTH_HEADER, etc.
     env_file:
       - .env
-    ports:
-      - "${EXTERNAL_PORT_1:-8000}:${PORT:-8000}"
-    healthcheck:
-      test: ["CMD", "curl", "-sf", "http://localhost:${PORT:-8000}/healthcheck"]
-      interval: 10s
-      timeout: 1s
-      retries: 3
-      start_period: 3s
-    restart: unless-stopped
+    ports:
+      - "${EXTERNAL_PORT_1:-8000}:${PORT:-8000}"
+    restart: unless-stopped
 
-  snyk-broker-universal-2:
+  snyk-broker-universal-2:
     image: snyk/broker:universal
     environment:
       DEPLOYMENT_ID: ${DEPLOYMENT_ID}
@@ -69,17 +63,11 @@ services:
       GITHUB_TOKEN: ${MY_GH_TOKEN}
     env_file:
       - .env
-    ports:
-      - "${EXTERNAL_PORT_2:-8001}:${PORT:-8000}"
-    healthcheck:
-      test: ["CMD", "curl", "-sf", "http://localhost:${PORT:-8000}/healthcheck"]
-      interval: 10s
-      timeout: 1s
-      retries: 3
-      start_period: 3s
-    restart: unless-stopped
+    ports:
+      - "${EXTERNAL_PORT_2:-8001}:${PORT:-8000}"
+    restart: unless-stopped
 ```
-3. Run `docker compose up -d` to start the containers
+3. Run `docker compose up -d` to start the containers.
 
 ## Helm
 

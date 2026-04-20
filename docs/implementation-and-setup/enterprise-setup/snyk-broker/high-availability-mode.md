@@ -1,12 +1,10 @@
 # High availability mode
 
-The Snyk Broker client offers high availability capabilities by default for greater scalability of the Broker, initially to support the addition of the “git-clone-through-broker” flow for Snyk Code.
-
-High availability mode allows you to run several Broker clients that work independently to one another. The Snyk platform will spread the requests it makes evenly across the connections to ease the load on each client and provide true redundancy if one is offline. High availability mode also avoids downtime in the fairly infrequent cases when Snyk upgrades the Broker server components.
+High availability mode allows you to run several Broker clients that work independently to one another. The Snyk platform will spread the requests it makes evenly across the connections to ease the load on each client and provide redundancy. High availability mode also avoids downtime during Snyk server upgrade events.
 
 <figure><img src="../../../.gitbook/assets/snyk-broker-ha-mode.png" alt="Operation of multiple Broker clients in high availability"><figcaption><p>Operation of multiple Broker clients in high availability</p></figcaption></figure>
 
-To use high availability mode, we recommend using docker-compose to run multiple replicas (see example here) or by increasing the replica count in your Kubernetes deployment. Each container must have the exact same parameters.
+To use high availability mode, we recommend using Docker Compose to run multiple replicas (see example [here](./high-availability-mode.md)) or by increasing the replica count in your Kubernetes deployment. Each container must have the exact same configuration parameters.
 
 A maximum of four Broker Clients can run concurrently in high availability mode. Running a fifth Broker Client will attempt to connect indefinitely.
 

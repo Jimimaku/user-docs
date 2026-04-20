@@ -24,12 +24,18 @@ If you have not previously installed the Universal Broker, refer to the Prerequi
 
 Be sure to set your environment variables to make usage easier, including when you are installing the `snyk-broker-config` CLI tool. Use the following commands:
 
-* `export SNYK_TOKEN=xxxx` (Linux/Mac)
-* `export TENANT_ID=yyyy` (Linux/Mac)
-* `set SNYK_TOKEN=xxxx` (Windows)
-* `set TENANT_ID=yyyy` (Windows)
+Linux/Mac
+* `export SNYK_TOKEN=<your_snyk_token>`
+* `export TENANT_ID=<your_tenant_id>`
+
+Windows
+* `set SNYK_TOKEN=<your_snyk_token>`
+* `set TENANT_ID=<your_tenant_id>`
 
 If the Universal Broker has already been installed, set the Install ID as an environment variable for easier usage. Use the following commands:
 
-* `export INSTALL_ID=zzzz` (Linux/Mac)
-* `set INSTALL_ID=zzzz` (Windows)
+Linux/Mac
+* `export INSTALL_ID=<your_install_id>`
+
+Windows
+* `set INSTALL_ID=<your_install_id>` 

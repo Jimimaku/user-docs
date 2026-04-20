@@ -18,8 +18,8 @@ Note that moving connections from deployment A to deployment B is not supported.
 
 Contact your Snyk account team or [Snyk support](https://support.snyk.io/s/) if you need more assistance designing a Universal Broker architecture for your needs.
 
-### High Availability Mode
+### High availability mode
 
-High Availability Mode for a Universal Broker deployment is enabled by default, the Universal Broker deployment will support up to four Broker client replicas.
+High availability (HA) mode for a Universal Broker deployment is enabled by default. The Universal Broker deployment supports up to four Broker client replicas.
 
-For more information on High Availability Mode, please refer to the [HA mode documentation page.](../../../implementation-and-setup/enterprise-setup/snyk-broker/high-availability-mode.md)
+For more information about HA mode, visit [High availability mode.](../../../implementation-and-setup/enterprise-setup/snyk-broker/high-availability-mode.md)
