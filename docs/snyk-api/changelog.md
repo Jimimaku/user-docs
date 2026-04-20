@@ -1,5 +1,14 @@
 ## 2026-03-25 - Updated 2026-04-20
 
+### DELETE - `/orgs/{org_id}/settings/opensource/broker` - Added
+- Deletes the opensource broker setting for the organization by uninstalling the Snyk App
+
+#### Required permissions
+
+- `Install Apps (org.app.install)`
+
+## 2026-03-25 - Updated 2026-04-20
+
 ### PATCH - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Added
 - Updates all Broker settings of a specific Open Source Ecosystem for an Organization.
 This endpoint has JSON-PATCH semantics: only provided Broker integrations are updated.
