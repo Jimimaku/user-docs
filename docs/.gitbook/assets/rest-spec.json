@@ -23642,9 +23642,16 @@
       "Tag": {
         "properties": {
           "tag_type": {
+            "description": "The classification type for this tag. Possible values: ecosystem - programming language or platform (e.g. java, python, javascript, golang, cpp, csharp, kubernetes, docker, aiml, rust, ruby, swift, general). topic - security or product training topic (freeform string). cwe - Common Weakness Enumeration identifier (format: CWE-{id}, e.g. CWE-79). cve - Common Vulnerabilities and Exposures identifier (format: CVE-{year}-{id}, e.g. CVE-2021-44228). snyk_vuln_id - Snyk vulnerability rule identifier (format: SNYK-{LANG}-{PKG}-{ID}, e.g. SNYK-JAVA-ORGAPACHELOGGINGLOG4J-2314720).",
+            "example": "cwe",
             "type": "string"
           },
           "tag_values": {
+            "description": "Array of values associated with this tag type. Values follow the format described by the corresponding tag_type.",
+            "example": [
+              "CWE-79",
+              "CWE-89"
+            ],
             "items": {
               "type": "string"
             },
