@@ -34945,7 +34945,7 @@
     },
     "/groups/{group_id}/settings/opensource/broker": {
       "delete": {
-        "description": "Deletes the opensource broker setting for the group\n\n#### Required permissions\n\n- `Install Apps (group.app.install)`",
+        "description": "Deletes the opensource broker setting for the group by uninstalling the Snyk App\n\n#### Required permissions\n\n- `Install Apps (group.app.install)`",
         "operationId": "deleteOpensourceBrokerSettingForGroup",
         "parameters": [
           {
@@ -55553,6 +55553,76 @@
       }
     },
     "/orgs/{org_id}/settings/opensource/broker": {
+      "delete": {
+        "description": "Deletes the opensource broker setting for the organization by uninstalling the Snyk App\n\n#### Required permissions\n\n- `Install Apps (org.app.install)`",
+        "operationId": "deleteOpensourceBrokerSettingForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Org ID",
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted opensource broker setting",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Delete opensource broker setting for organization",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      },
       "get": {
         "description": "Returns whether the opensource broker setting is enabled for the organization\n\n#### Required permissions\n\n- `View Organization (org.read)`",
         "operationId": "getOpensourceBrokerSetting",
@@ -55639,7 +55709,7 @@
             "$ref": "#/components/responses/500"
           }
         },
-        "summary": "Get opensource broker setting",
+        "summary": "Get opensource broker setting for organization",
         "tags": [
           "OpensourceSettings"
         ],
