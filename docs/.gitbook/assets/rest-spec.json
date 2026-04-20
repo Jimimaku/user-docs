@@ -170,6 +170,52 @@
           }
         }
       },
+      "GetBrokerSettingsResponseEmpty": {
+        "summary": "No integrations configured",
+        "value": {
+          "data": {
+            "integrations": []
+          },
+          "jsonapi": {
+            "version": "1.0"
+          },
+          "links": {
+            "self": "/orgs/82b3efbb-4b32-4f96-8005-9444eceacec8/settings/opensource/Dotnet/broker?version=2024-10-15"
+          }
+        }
+      },
+      "GetBrokerSettingsResponseWithIntegrations": {
+        "summary": "Broker settings with some integrations configured",
+        "value": {
+          "data": {
+            "integrations": [
+              {
+                "created_at": "2026-04-15T10:00:00.000Z",
+                "id": "019d7722-72c3-7ae4-bb4e-40deea1820c0",
+                "integration_type": "artifactory",
+                "urls": [
+                  "https://artifactory.internal-domain.com/artifactory/api/nuget/v3/nuget-group/index.json"
+                ]
+              },
+              {
+                "created_at": "2026-04-16T10:00:00.000Z",
+                "id": "019d7722-90bd-7bc0-9666-775eee165cf0",
+                "integration_type": "nexus-private-repo",
+                "urls": [
+                  "https://nexus.internal-domain.com/repository/nuget-hosted/index.json",
+                  "https://nexus.internal-domain.com/repository/nuget-proxy/index.json"
+                ]
+              }
+            ]
+          },
+          "jsonapi": {
+            "version": "1.0"
+          },
+          "links": {
+            "self": "/orgs/db2557c3-ecb8-4d45-8e1e-894ae89a92a6/settings/opensource/Dotnet/broker?version=2024-10-15"
+          }
+        }
+      },
       "IaCListIssuesResponse20240123": {
         "summary": "An example of a list issue response for an Infrastructure as Code issue.",
         "value": {
@@ -243,6 +289,77 @@
           ],
           "jsonapi": {
             "version": "1.0"
+          }
+        }
+      },
+      "PostBrokerSettingsRequestAddIntegration": {
+        "summary": "Add an integration",
+        "value": {
+          "data": {
+            "integrations": [
+              {
+                "integration_type": "artifactory",
+                "urls": [
+                  "https://artifactory.internal-domain.com/artifactory/api/nuget/v3/team-nuget/index.json"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "PostBrokerSettingsRequestEditIntegrations": {
+        "summary": "Edit multiple integrations at once",
+        "value": {
+          "data": {
+            "integrations": [
+              {
+                "integration_type": "artifactory",
+                "urls": [
+                  "https://artifactory.internal-domain.com/artifactory/api/nuget/v3/sandbox-nuget/index.json",
+                  "https://artifactory.internal-domain.com/artifactory/api/nuget/v3/production-nuget/index.json"
+                ]
+              },
+              {
+                "integration_type": "nexus-private-repo",
+                "urls": []
+              }
+            ]
+          }
+        }
+      },
+      "PostBrokerSettingsRequestRemoveIntegration": {
+        "summary": "Remove an integration by setting empty urls",
+        "value": {
+          "data": {
+            "integrations": [
+              {
+                "integration_type": "nexus-private-repo",
+                "urls": []
+              }
+            ]
+          }
+        }
+      },
+      "PostBrokerSettingsResponse": {
+        "summary": "Response after updating broker settings",
+        "value": {
+          "data": {
+            "integrations": [
+              {
+                "created_at": "2024-01-15T10:00:00.000Z",
+                "id": "019d7722-d843-7b9f-a1dd-bd5c0bac373d",
+                "integration_type": "artifactory",
+                "urls": [
+                  "https://artifactory.internal-domain.com/artifactory/api/nuget/v3/team-nuget/index.json"
+                ]
+              }
+            ]
+          },
+          "jsonapi": {
+            "version": "1.0"
+          },
+          "links": {
+            "self": "/orgs/4f4fbf18-b2cd-4bf3-9b7e-323b8be249ea/settings/opensource/Dotnet/broker?version=2024-10-15"
           }
         }
       }
@@ -1286,7 +1403,8 @@
         "name": "org_id",
         "required": true,
         "schema": {
-          "$ref": "#/components/schemas/Uuid"
+          "format": "uuid",
+          "type": "string"
         }
       },
       "OrgMembershipId": {
@@ -2087,6 +2205,22 @@
               "required": [
                 "data"
               ],
+              "type": "object"
+            }
+          }
+        }
+      },
+      "EmptyRequestBody": {
+        "content": {
+          "application/vnd.api+json": {
+            "schema": {
+              "additionalProperties": false,
+              "properties": {
+                "data": {
+                  "additionalProperties": false,
+                  "type": "object"
+                }
+              },
               "type": "object"
             }
           }
@@ -5775,6 +5909,64 @@
           "attributes",
           "id",
           "type"
+        ],
+        "type": "object"
+      },
+      "BrokerIntegration": {
+        "additionalProperties": false,
+        "properties": {
+          "created_at": {
+            "description": "When this integration was created",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "description": "The unique identifier for the ecosystem integration",
+            "format": "uuid",
+            "readOnly": true,
+            "type": "string"
+          },
+          "integration_type": {
+            "description": "The type of integration (e.g., 'artifactory', 'nexus-private-repo')",
+            "enum": [
+              "artifactory",
+              "nexus-private-repo"
+            ],
+            "example": "artifactory",
+            "type": "string"
+          },
+          "urls": {
+            "description": "Array of URLs associated with this integration. Set this field to undefined, an empty array, or omit it to delete the integration.",
+            "example": [
+              "https://my-custom-artifactory.internal/artifactory/api/nuget/v3/my-nuget/index.json",
+              "https://my-custom-artifactory.internal/artifactory/api/nuget/v3/my-other-nuget/index.json"
+            ],
+            "items": {
+              "format": "uri",
+              "maxLength": 2048,
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "integration_type"
+        ],
+        "type": "object"
+      },
+      "BrokerSettings": {
+        "additionalProperties": false,
+        "properties": {
+          "integrations": {
+            "items": {
+              "$ref": "#/components/schemas/BrokerIntegration"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "integrations"
         ],
         "type": "object"
       },
@@ -9485,7 +9677,56 @@
             "type": "string"
           },
           "links": {
-            "$ref": "#/components/schemas/ErrorLink"
+            "additionalProperties": false,
+            "description": "A link that leads to further details about this particular occurrance of the problem.",
+            "example": {
+              "about": "https://example.com/about_this_error"
+            },
+            "properties": {
+              "about": {
+                "example": "https://example.com/api/resource",
+                "oneOf": [
+                  {
+                    "description": "A string containing the link’s URL.",
+                    "example": "https://example.com/api/resource",
+                    "type": "string"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "example": {
+                      "href": "https://example.com/api/resource"
+                    },
+                    "properties": {
+                      "href": {
+                        "description": "A string containing the link’s URL.",
+                        "example": "https://example.com/api/resource",
+                        "type": "string"
+                      },
+                      "meta": {
+                        "additionalProperties": true,
+                        "description": "Free-form object that may contain non-standard information.",
+                        "example": {
+                          "key1": "value1",
+                          "key2": {
+                            "sub_key": "sub_value"
+                          },
+                          "key3": [
+                            "array_value1",
+                            "array_value2"
+                          ]
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "href"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "type": "object"
           },
           "meta": {
             "additionalProperties": true,
@@ -9553,13 +9794,144 @@
               }
             ],
             "items": {
-              "$ref": "#/components/schemas/Error"
+              "additionalProperties": false,
+              "example": {
+                "detail": "Not Found",
+                "status": "404"
+              },
+              "properties": {
+                "code": {
+                  "description": "An application-specific error code, expressed as a string value.",
+                  "example": "entity-not-found",
+                  "type": "string"
+                },
+                "detail": {
+                  "description": "A human-readable explanation specific to this occurrence of the problem.",
+                  "example": "The request was missing these required fields: ...",
+                  "type": "string"
+                },
+                "id": {
+                  "description": "A unique identifier for this particular occurrence of the problem.",
+                  "example": "f16c31b5-6129-4571-add8-d589da9be524",
+                  "format": "uuid",
+                  "type": "string"
+                },
+                "links": {
+                  "additionalProperties": false,
+                  "description": "A link that leads to further details about this particular occurrance of the problem.",
+                  "example": {
+                    "about": "https://example.com/about_this_error"
+                  },
+                  "properties": {
+                    "about": {
+                      "example": "https://example.com/api/resource",
+                      "oneOf": [
+                        {
+                          "description": "A string containing the link’s URL.",
+                          "example": "https://example.com/api/resource",
+                          "type": "string"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "example": {
+                            "href": "https://example.com/api/resource"
+                          },
+                          "properties": {
+                            "href": {
+                              "description": "A string containing the link’s URL.",
+                              "example": "https://example.com/api/resource",
+                              "type": "string"
+                            },
+                            "meta": {
+                              "additionalProperties": true,
+                              "description": "Free-form object that may contain non-standard information.",
+                              "example": {
+                                "key1": "value1",
+                                "key2": {
+                                  "sub_key": "sub_value"
+                                },
+                                "key3": [
+                                  "array_value1",
+                                  "array_value2"
+                                ]
+                              },
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "href"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    }
+                  },
+                  "type": "object"
+                },
+                "meta": {
+                  "additionalProperties": true,
+                  "example": {
+                    "key": "value"
+                  },
+                  "type": "object"
+                },
+                "source": {
+                  "additionalProperties": false,
+                  "example": {
+                    "pointer": "/data/attributes"
+                  },
+                  "properties": {
+                    "parameter": {
+                      "description": "A string indicating which URI query parameter caused the error.",
+                      "example": "param1",
+                      "type": "string"
+                    },
+                    "pointer": {
+                      "description": "A JSON Pointer [RFC6901] to the associated entity in the request document.",
+                      "example": "/data/attributes",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "status": {
+                  "description": "The HTTP status code applicable to this problem, expressed as a string value.",
+                  "example": "400",
+                  "pattern": "^[45]\\d\\d$",
+                  "type": "string"
+                },
+                "title": {
+                  "description": "A short, human-readable summary of the problem that SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.",
+                  "example": "Bad request",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "status",
+                "detail"
+              ],
+              "type": "object"
             },
             "minItems": 1,
             "type": "array"
           },
           "jsonapi": {
-            "$ref": "#/components/schemas/JsonApi"
+            "additionalProperties": false,
+            "example": {
+              "version": "1.0"
+            },
+            "properties": {
+              "version": {
+                "description": "Version of the JSON API specification this server supports.",
+                "example": "1.0",
+                "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "version"
+            ],
+            "type": "object"
           }
         },
         "required": [
@@ -9613,7 +9985,46 @@
         },
         "properties": {
           "about": {
-            "$ref": "#/components/schemas/LinkProperty"
+            "example": "https://example.com/api/resource",
+            "oneOf": [
+              {
+                "description": "A string containing the link’s URL.",
+                "example": "https://example.com/api/resource",
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "example": {
+                  "href": "https://example.com/api/resource"
+                },
+                "properties": {
+                  "href": {
+                    "description": "A string containing the link’s URL.",
+                    "example": "https://example.com/api/resource",
+                    "type": "string"
+                  },
+                  "meta": {
+                    "additionalProperties": true,
+                    "description": "Free-form object that may contain non-standard information.",
+                    "example": {
+                      "key1": "value1",
+                      "key2": {
+                        "sub_key": "sub_value"
+                      },
+                      "key3": [
+                        "array_value1",
+                        "array_value2"
+                      ]
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "href"
+                ],
+                "type": "object"
+              }
+            ]
           }
         },
         "type": "object"
@@ -17046,7 +17457,19 @@
                 "type": "string"
               },
               "meta": {
-                "$ref": "#/components/schemas/Meta"
+                "additionalProperties": true,
+                "description": "Free-form object that may contain non-standard information.",
+                "example": {
+                  "key1": "value1",
+                  "key2": {
+                    "sub_key": "sub_value"
+                  },
+                  "key3": [
+                    "array_value1",
+                    "array_value2"
+                  ]
+                },
+                "type": "object"
               }
             },
             "required": [
@@ -21606,6 +22029,12 @@
         "pattern": "^(wip|work-in-progress|experimental|beta|((([0-9]{4})-([0-1][0-9]))-((3[01])|(0[1-9])|([12][0-9]))(~(wip|work-in-progress|experimental|beta))?))$",
         "type": "string"
       },
+      "QueryVersion__0": {
+        "description": "Requested API version",
+        "example": "2021-06-04",
+        "pattern": "^(wip|work-in-progress|experimental|beta|((([0-9]{4})-([0-1][0-9]))-((3[01])|(0[1-9])|([12][0-9]))(~(wip|work-in-progress|experimental|beta))?))$",
+        "type": "string"
+      },
       "Rating": {
         "description": "Rating represents qualitative metrics on a finding.",
         "properties": {
@@ -26059,6 +26488,11 @@
         ],
         "type": "object"
       },
+      "ecosystem_version": {
+        "description": "For Dotnet: The .NET target framework this project is expected to run on. If multiple, they should be split in the calling end and sent to isolated builds separately.\nFor Golang: The version of the Golang CLI that should be used on the Lambda executing the environment.\n",
+        "example": "2.3.1",
+        "type": "string"
+      },
       "io.snyk.api.common.Error": {
         "properties": {
           "code": {
@@ -26340,12 +26774,153 @@
         ],
         "type": "object"
       },
+      "isolation_key": {
+        "description": "A unique key that will be appended as part of the Lambda name generation together with the ecosystem.\nThe isolation key works more or less like you would think a cache key. The more \"generalized\" it is, the\nmore likely the chance of cache hit.\nIn this solution, supplying the same string on each request will result in a one-time Lambda creation delay,\nand possibly re-use of storage upon consecutive requests, at least if done within a certain time frame.\nIn contrast, supplying a unique key on each request will cause a new Lambda to be created every time.\n",
+        "example": "123-456-789",
+        "pattern": "^[a-zA-Z0-9_-]{1,128}$",
+        "type": "string"
+      },
       "name": {
         "description": "User-defined name of the collection",
         "maxLength": 255,
         "minLength": 1,
         "pattern": "^([a-zA-Z0-9 _\\-\\/:.])+$",
         "type": "string"
+      },
+      "repository_info": {
+        "properties": {
+          "branch": {
+            "type": "string"
+          },
+          "isPrivateTarget": {
+            "type": "boolean"
+          },
+          "sha": {
+            "pattern": "^[a-f0-9]{7,40}$",
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      },
+      "resolve_pipenv_options": {
+        "properties": {
+          "includeDevDependencies": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "scm_credentials": {
+        "additionalProperties": false,
+        "description": "The encrypted SCM credentials object passed along from Registry",
+        "items": {
+          "properties": {
+            "auth": {
+              "properties": {
+                "agent": {
+                  "type": "object"
+                },
+                "brokerUrl": {
+                  "type": "string"
+                },
+                "hashedBrokerToken": {
+                  "type": "string"
+                },
+                "iv": {
+                  "format": "password",
+                  "type": "string"
+                },
+                "password": {
+                  "format": "password",
+                  "type": "string"
+                },
+                "sshToken": {
+                  "format": "password",
+                  "type": "string"
+                },
+                "token": {
+                  "format": "password",
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "iv"
+              ],
+              "type": "object"
+            },
+            "authorizedSources": {
+              "items": {
+                "additionalProperties": true,
+                "properties": {
+                  "owner": {
+                    "type": "string"
+                  },
+                  "repository": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "owner"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "privateRegistryTokens": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "hashedBrokerToken": {
+                    "type": "string"
+                  },
+                  "integrationType": {
+                    "type": "string"
+                  },
+                  "token": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "username": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "version": {
+              "type": "number"
+            }
+          },
+          "type": "object"
+        },
+        "required": [
+          "auth",
+          "version",
+          "authorizedSources"
+        ],
+        "type": "array"
+      },
+      "use_proxy": {
+        "description": "Whether to use the isolated builds proxy. The proxy will decrypt credentials on the fly, to prevent the untrusted isolated builds\nenvironment from having access to the credentials themselves.\nThis feature is currently opt-in, but will become mandatory in the future for certain ecosystems.\n",
+        "type": "boolean"
       }
     },
     "securitySchemes": {
@@ -34365,6 +34940,282 @@
         "x-snyk-api-resource": "iac_settings",
         "x-snyk-api-stability": "ga",
         "x-snyk-api-version": "2021-12-09",
+        "x-stability-level": "stable"
+      }
+    },
+    "/groups/{group_id}/settings/opensource/broker": {
+      "delete": {
+        "description": "Deletes the opensource broker setting for the group\n\n#### Required permissions\n\n- `Install Apps (group.app.install)`",
+        "operationId": "deleteOpensourceBrokerSettingForGroup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Group ID",
+            "in": "path",
+            "name": "group_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successfully deleted opensource broker setting",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Delete opensource broker setting for group",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      },
+      "get": {
+        "description": "Returns whether the opensource broker setting is enabled for the group\n\n#### Required permissions\n\n- `View Groups (group.read)`",
+        "operationId": "getOpensourceBrokerSettingForGroup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Group ID",
+            "in": "path",
+            "name": "group_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "additionalProperties": false,
+                      "description": "opensource broker setting",
+                      "properties": {
+                        "enabled": {
+                          "description": "Whether the opensource broker setting is enabled",
+                          "example": true,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "enabled"
+                      ],
+                      "type": "object"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/SelfLink"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Successfully retrieved opensource broker setting",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Get opensource broker setting for group",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      },
+      "post": {
+        "description": "Enables the opensource broker setting for a group by installing the Snyk App\n\n#### Required permissions\n\n- `Install Apps (group.app.install)`",
+        "operationId": "enableOpensourceBrokerForGroup",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Group ID",
+            "in": "path",
+            "name": "group_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/EmptyRequestBody"
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "additionalProperties": false,
+                      "description": "enable result",
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "success"
+                          ],
+                          "example": "success",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "additionalProperties": false,
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Enabled opensource broker successfully",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "location": {
+                "$ref": "#/components/headers/LocationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Enable opensource broker for group",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
         "x-stability-level": "stable"
       }
     },
@@ -54699,6 +55550,455 @@
         "x-snyk-api-stability": "beta",
         "x-snyk-api-version": "2024-10-15~beta",
         "x-stability-level": "beta"
+      }
+    },
+    "/orgs/{org_id}/settings/opensource/broker": {
+      "get": {
+        "description": "Returns whether the opensource broker setting is enabled for the organization\n\n#### Required permissions\n\n- `View Organization (org.read)`",
+        "operationId": "getOpensourceBrokerSetting",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Org ID",
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "additionalProperties": false,
+                      "description": "opensource broker setting",
+                      "properties": {
+                        "enabled": {
+                          "description": "Whether the opensource broker setting is enabled",
+                          "example": true,
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "enabled"
+                      ],
+                      "type": "object"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/SelfLink"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Successfully retrieved opensource broker setting",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Get opensource broker setting",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      },
+      "post": {
+        "description": "Enables the opensource broker setting for an organization by installing the Snyk App\n\n#### Required permissions\n\n- `Install Apps (org.app.install)`",
+        "operationId": "enableOpensourceBrokerForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Org ID",
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/EmptyRequestBody"
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/vnd.api+json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "additionalProperties": false,
+                      "description": "enable result",
+                      "properties": {
+                        "status": {
+                          "enum": [
+                            "success"
+                          ],
+                          "example": "success",
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "additionalProperties": false,
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Enabled opensource broker successfully",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "location": {
+                "$ref": "#/components/headers/LocationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Enable opensource broker for organization",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      }
+    },
+    "/orgs/{org_id}/settings/opensource/{ecosystem}/broker": {
+      "get": {
+        "description": "Retrieves all Broker settings of a specific Open Source Ecosystem for an Organization\n\n#### Required permissions\n\n- `View Organization (org.read)`",
+        "operationId": "getOpensourceBrokerEcosystemSettingsForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Org ID",
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ecosystem identifier",
+            "in": "path",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "enum": [
+                "Dotnet"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/vnd.api+json": {
+                "examples": {
+                  "Empty": {
+                    "$ref": "#/components/examples/GetBrokerSettingsResponseEmpty"
+                  },
+                  "WithIntegrations": {
+                    "$ref": "#/components/examples/GetBrokerSettingsResponseWithIntegrations"
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/BrokerSettings"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginatedLinks"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Successfully retrieved Broker settings",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Get opensource broker settings of ecosystem for organization",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
+      },
+      "patch": {
+        "description": "Updates all Broker settings of a specific Open Source Ecosystem for an Organization.\nThis endpoint has JSON-PATCH semantics: only provided Broker integrations are updated.\nProvide an empty value for `urls` to remove a Broker integration.\n\n#### Required permissions\n\n- `Edit Organization (org.edit)`",
+        "operationId": "updateOpensourceBrokerEcosystemSettingsForOrg",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "description": "Org ID",
+            "in": "path",
+            "name": "org_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ecosystem identifier",
+            "in": "path",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "enum": [
+                "Dotnet"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/vnd.api+json": {
+              "examples": {
+                "AddIntegration": {
+                  "$ref": "#/components/examples/PostBrokerSettingsRequestAddIntegration"
+                },
+                "EditIntegrations": {
+                  "$ref": "#/components/examples/PostBrokerSettingsRequestEditIntegrations"
+                },
+                "RemoveIntegration": {
+                  "$ref": "#/components/examples/PostBrokerSettingsRequestRemoveIntegration"
+                }
+              },
+              "schema": {
+                "additionalProperties": false,
+                "properties": {
+                  "data": {
+                    "$ref": "#/components/schemas/BrokerSettings"
+                  }
+                },
+                "required": [
+                  "data"
+                ],
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/vnd.api+json": {
+                "examples": {
+                  "WithIntegrations": {
+                    "$ref": "#/components/examples/PostBrokerSettingsResponse"
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/BrokerSettings"
+                    },
+                    "jsonapi": {
+                      "$ref": "#/components/schemas/JsonApi"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginatedLinks"
+                    }
+                  }
+                }
+              }
+            },
+            "description": "Successfully updated Broker settings",
+            "headers": {
+              "deprecation": {
+                "$ref": "#/components/headers/DeprecationHeader"
+              },
+              "snyk-request-id": {
+                "$ref": "#/components/headers/RequestIdResponseHeader"
+              },
+              "snyk-version-lifecycle-stage": {
+                "$ref": "#/components/headers/VersionStageResponseHeader"
+              },
+              "snyk-version-requested": {
+                "$ref": "#/components/headers/VersionRequestedResponseHeader"
+              },
+              "snyk-version-served": {
+                "$ref": "#/components/headers/VersionServedResponseHeader"
+              },
+              "sunset": {
+                "$ref": "#/components/headers/SunsetHeader"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "403": {
+            "$ref": "#/components/responses/403"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          },
+          "500": {
+            "$ref": "#/components/responses/500"
+          }
+        },
+        "summary": "Update opensource broker settings of ecosystem for organization",
+        "tags": [
+          "OpensourceSettings"
+        ],
+        "x-snyk-api-lifecycle": "released",
+        "x-snyk-api-releases": [
+          "2024-10-15"
+        ],
+        "x-snyk-api-resource": "opensourceSettings",
+        "x-snyk-api-stability": "ga",
+        "x-snyk-api-version": "2024-10-15",
+        "x-stability-level": "stable"
       }
     },
     "/orgs/{org_id}/settings/sast": {
@@ -90844,7 +92144,7 @@
       "name": "Assets"
     },
     {
-      "description": "The OpenAPI specification for pat-service.",
+      "description": "The OpenAPI specification for this service.",
       "name": "OpenAPI"
     }
   ],

@@ -1,3 +1,62 @@
+## 2026-03-25 - Updated 2026-04-20
+
+### PATCH - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Added
+- Updates all Broker settings of a specific Open Source Ecosystem for an Organization.
+This endpoint has JSON-PATCH semantics: only provided Broker integrations are updated.
+Provide an empty value for `urls` to remove a Broker integration.
+
+#### Required permissions
+
+- `Edit Organization (org.edit)`
+
+
+### GET - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Added
+- Retrieves all Broker settings of a specific Open Source Ecosystem for an Organization
+
+#### Required permissions
+
+- `View Organization (org.read)`
+
+
+### POST - `/orgs/{org_id}/settings/opensource/broker` - Added
+- Enables the opensource broker setting for an organization by installing the Snyk App
+
+#### Required permissions
+
+- `Install Apps (org.app.install)`
+
+
+### GET - `/orgs/{org_id}/settings/opensource/broker` - Added
+- Returns whether the opensource broker setting is enabled for the organization
+
+#### Required permissions
+
+- `View Organization (org.read)`
+
+
+### POST - `/groups/{group_id}/settings/opensource/broker` - Added
+- Enables the opensource broker setting for a group by installing the Snyk App
+
+#### Required permissions
+
+- `Install Apps (group.app.install)`
+
+
+### GET - `/groups/{group_id}/settings/opensource/broker` - Added
+- Returns whether the opensource broker setting is enabled for the group
+
+#### Required permissions
+
+- `View Groups (group.read)`
+
+
+### DELETE - `/groups/{group_id}/settings/opensource/broker` - Added
+- Deletes the opensource broker setting for the group
+
+#### Required permissions
+
+- `Install Apps (group.app.install)`
+
 ## 2026-03-25 - Updated 2026-04-16
 
 ### POST - `/tenants/{tenant_id}/brokers/installs/{install_id}/deployments/{deployment_id}/connections` - Updated
