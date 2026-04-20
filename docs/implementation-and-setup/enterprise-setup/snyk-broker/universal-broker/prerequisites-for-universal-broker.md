@@ -16,7 +16,7 @@ Before installing the Universal Broker `snyk-broker-config` CLI tool, be sure yo
 * A new/dedicated Snyk Organization. This will be used to administrate your Broker configuration(s) and a dedicated organization will help prevent accidental removal. See [Create an Organization](../../../../snyk-platform-administration/groups-and-organizations/organizations/create-and-delete-organizations.md#create-an-organization) for details.
 * An SCM token or password. Snyk Broker does not support authentication with the mTLS method.
 * Node 20 or higher installed.
-* Docker Compose installed and configured to pull images from Docker Hub.
+* Docker Compose or Kubernetes installed and configured to pull images from Docker Hub.
 
 Snyk recommends that you export SNYK_TOKEN and TENANT_ID in your terminal session environment variables now, using the following commands:
 
