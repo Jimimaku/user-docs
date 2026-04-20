@@ -5,15 +5,14 @@ Ensure you have all of the [prerequisites](prerequisites-for-universal-broker.md
   - The DEPLOYMENT_ID, CLIENT_ID, CLIENT_SECRET for your Broker Deployment
   - A credential reference associated with your deployment
   - Valid integration credentials required by your connections (e.g. GITHUB_TOKEN)
+If references are missing, the connection will not be established, and an error entry will be logged in the Broker client logs.
 {% endhint %}
 
-If references are missing, the connection will not be established, and an error entry will be logged in the Broker client logs.
-
-Run your Broker deployment on your container engine (see example Docker Compose file below) or Kubernetes cluster.
+Run your Broker deployment on your container engine (such as [Docker Compose](#docker-compose-example)) or [Kubernetes cluster](#helm).
 
 If you are not using broker.snyk.io, target the Broker server for your region by using the command `-e BROKER_SERVER_URL=https://broker.region.snyk.io \` . For details, see [Broker URLs](../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 
-## Docker Compose
+## Docker Compose example
 
 ### Usage 
 
@@ -42,9 +41,9 @@ services:
       PORT: ${PORT:-8000}
       BROKER_SERVER_URL: ${BROKER_SERVER_URL:-https://broker.snyk.io}
       BROKER_DISPATCHER_BASE_URL: ${BROKER_DISPATCHER_BASE_URL:-https://api.snyk.io}
-      GITHUB_TOKEN: ${MY_GH_TOKEN}
-      # Pass through any integration credentials (same as -e KEY=value in docker run)
+      # Declare any integration credentials (same as -e KEY=value in docker run)
       # Example: GITHUB_TOKEN, BROKER_CLIENT_VALIDATION_AUTH_HEADER, etc.
+      GITHUB_TOKEN: ${MY_GITHUB_TOKEN}
     env_file:
       - .env
     ports:
@@ -60,7 +59,7 @@ services:
       PORT: ${PORT:-8000}
       BROKER_SERVER_URL: ${BROKER_SERVER_URL:-https://broker.snyk.io}
       BROKER_DISPATCHER_BASE_URL: ${BROKER_DISPATCHER_BASE_URL:-https://api.snyk.io}
-      GITHUB_TOKEN: ${MY_GH_TOKEN}
+      GITHUB_TOKEN: ${MY_GITHUB_TOKEN}
     env_file:
       - .env
     ports:
