@@ -18,7 +18,7 @@ Before installing the Universal Broker `snyk-broker-config` CLI tool, be sure yo
 * Node 20 or higher installed.
 * Docker Compose or Kubernetes installed and configured to pull images from Docker Hub.
 
-Snyk recommends that you export SNYK_TOKEN and TENANT_ID in your terminal session environment variables now, using the following commands:
+Snyk recommends that you export SNYK_TOKEN and TENANT_ID environment variables to avoid having to paste the values in for every command. Use the following commands to set these environment variables:
 
 Linux/Mac
 

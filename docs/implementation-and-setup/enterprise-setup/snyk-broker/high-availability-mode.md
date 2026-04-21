@@ -4,7 +4,7 @@ High availability mode allows you to run several Broker clients that work indepe
 
 <figure><img src="../../../.gitbook/assets/snyk-broker-ha-mode.png" alt="Operation of multiple Broker clients in high availability"><figcaption><p>Operation of multiple Broker clients in high availability</p></figcaption></figure>
 
-To use high availability mode, we recommend using Docker Compose to run multiple replicas (see example [here](./high-availability-mode.md)) or by increasing the replica count in your Kubernetes deployment. Each container must have the exact same configuration parameters.
+To use high availability mode, we recommend using Docker Compose to run multiple replicas (see [Docker Compose example](../snyk-broker/universal-broker/running-your-universal-broker-client.md#docker-compose-example)) or by increasing the replica count in your Kubernetes deployment. Each container must have the exact same configuration parameters.
 
 A maximum of four Broker Clients can run concurrently in high availability mode. Running a fifth Broker Client will attempt to connect indefinitely.
 

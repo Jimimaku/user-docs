@@ -4,17 +4,15 @@
 Ensure you have all of the [prerequisites](prerequisites-for-universal-broker.md) before running the Broker Client:
   - The DEPLOYMENT_ID, CLIENT_ID, CLIENT_SECRET for your Broker Deployment
   - A credential reference associated with your deployment
-  - Valid integration credentials required by your connections (e.g. GITHUB_TOKEN)
+  - Valid integration credentials required by your connections such as MY_GITHUB_TOKEN
 If references are missing, the connection will not be established, and an error entry will be logged in the Broker client logs.
 {% endhint %}
 
-Run your Broker deployment on your container engine (such as [Docker Compose](#docker-compose-example)) or [Kubernetes cluster](#helm).
+Run your Broker deployment on your container engine ([Docker Compose](#docker-compose-example) or [Kubernetes cluster](#helm)).
 
 If you are not using broker.snyk.io, target the Broker server for your region by using the command `-e BROKER_SERVER_URL=https://broker.region.snyk.io \` . For details, see [Broker URLs](../../../../snyk-data-and-governance/regional-hosting-and-data-residency.md#broker-server-urls).
 
 ## Docker Compose example
-
-### Usage 
 
 1. Create a `.env` file with required and optional configuration variables:
 ```bash
@@ -70,7 +68,7 @@ services:
 
 ## Helm
 
-A [Helm chart](https://github.com/snyk/snyk-universal-broker-helm) is available for use on Kubernetes clusters. Refer to the readme for details.
+A [Helm chart](https://github.com/snyk/snyk-universal-broker-helm) is available for use on Kubernetes clusters. Refer to the README for details.
 
 Ensure that you first pull the Helm chart:
 
