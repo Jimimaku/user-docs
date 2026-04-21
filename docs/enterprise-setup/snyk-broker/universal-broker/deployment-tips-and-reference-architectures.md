@@ -8,7 +8,7 @@ The Universal Broker allows you to run multiple connections of any type using a 
 
 On Kubernetes, the Helm chart creates a stateful set with numerous members, automatically creating multiple replicas.
 
-In other orchestrators, such as Docker Compose, you must create multiple replicas explicitly in your deployment configuration.
+When using Docker Compose, you must create multiple replicas explicitly in your deployment configuration. See the [Docker Compose example](../../../implementation-and-setup/enterprise-setup/snyk-broker/universal-broker/running-your-universal-broker-client.md#docker-compose-example) for more info.
 
 Usage of resources varies based on a number of factors, making it difficult to model the actual use of resources (CPU and memory) for the container. Each deployment is limited to a maximum of 25 connections to avoid exhaustion of resources.
 
