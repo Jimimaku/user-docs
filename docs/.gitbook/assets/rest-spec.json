@@ -5940,8 +5940,7 @@
             "description": "Array of URLs associated with this integration. Set this field to undefined, an empty array, or omit it to delete the integration.",
             "example": [
               "https://my-custom-artifactory.internal/artifactory/api/nuget/v3/my-nuget/index.json",
-              "https://my-custom-artifactory.internal/artifactory/api/nuget/v3/my-other-nuget/index.json",
-              "https://my-custom-artifactory.internal/artifactory/api/go/my-go-modules"
+              "https://my-custom-artifactory.internal/artifactory/api/nuget/v3/my-other-nuget/index.json"
             ],
             "items": {
               "format": "uri",
@@ -55853,8 +55852,7 @@
             "required": true,
             "schema": {
               "enum": [
-                "Dotnet",
-                "Golang"
+                "Dotnet"
               ],
               "type": "string"
             }
@@ -55961,8 +55959,7 @@
             "required": true,
             "schema": {
               "enum": [
-                "Dotnet",
-                "Golang"
+                "Dotnet"
               ],
               "type": "string"
             }
