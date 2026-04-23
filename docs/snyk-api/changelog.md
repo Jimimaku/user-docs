@@ -1,3 +1,14 @@
+## 2026-03-25 - Updated 2026-04-23
+
+### PATCH - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Updated
+- added the new enum value `Golang` to the `path` request parameter `ecosystem`
+
+
+
+### GET - `/orgs/{org_id}/settings/opensource/{ecosystem}/broker` - Updated
+- added the new enum value `Golang` to the `path` request parameter `ecosystem`
+
+
 # Changelog
 
 ### 2026-03-25 - Updated 2026-04-20
