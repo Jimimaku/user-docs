@@ -6,7 +6,7 @@
 Snyk repo content sync is in Early Access and available only with Enterprise plans. To enable the feature, visit [Snyk Preview](https://docs.snyk.io/snyk-admin/manage-settings/snyk-preview).
 {% endhint %}
 
-Repo content sync provides native, automatic synchronization between the Org-level SCM and Snyk. This feature ensures that your Snyk Projects accurately reflect the current security posture of your repositories without the need for manual re-imports or external synchronization tools like `snyk-api-import`.
+Repo content sync provides native, automatic synchronization between the Org-level SCM Projects and Snyk. This feature ensures that your Snyk Projects accurately reflect the current security posture of your repositories without the need for manual re-imports.
 
 ## Supported environments
 
@@ -16,10 +16,10 @@ Repo content sync provides native, automatic synchronization between the Org-lev
 
 ## Key capabilities
 
-Repo content sync automatically manages your Projects based on changes in your SCM:
+Repo content sync automatically manages your Projects based on changes in your repositories that have been scanned by Snyk:
 
-* Automatic Project creation: Snyk automatically creates and monitors new Projects when you add new manifest, Docker, or configuration files to your SCM.
-* Automatic deactivation: Snyk automatically deactivates Projects when you delete or archive their associated manifest, Docker, or configuration files in the SCM.
+* Automatic Project creation: Snyk automatically creates and monitors new Projects when you add new manifest, Docker, or configuration files to your scanned repos.
+* Automatic deactivation: Snyk automatically deactivates Projects when you delete or archive their associated manifest, Docker, or configuration files in the scanned repos.
 * File renames and path changes: If you rename a file or change its path, Snyk creates a new Project for the new location and deactivates the old Project.
 
 ## How synchronization works
